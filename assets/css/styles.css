@@ -2,13 +2,13 @@
    Variables CSS
    ================================ */
 :root {
-    --primary-color: #C1A78C;
-    --secondary-color: #D4CBC2;
-    --tertiary-color: #e9e4de;
-    --accent-color: #27282C;
-    --body-bg: #f3f3f3;
-    --body-text: #232323;
-    --white: #ffffff;
+    --primary-color: #f5f3ef;
+    --secondary-color: #42604e;
+    --tertiary-color: #e5d2b8;
+    --accent-color: #42604e;
+    --body-bg: #f5f3ef;
+    --body-text: #42604e;
+    --white: #f5f3ef;
     --light-gray: #f8f8f8;
     --border-color: #e0e0e0;
 
@@ -188,9 +188,8 @@ button {
 
 /* Bouton RDV style personnalisé (comme btn_RDV.png) */
 .btn-rdv {
-    background-color: #D4CBC2;
-    color: #27282C;
-    border: 2px solid #27282C;
+    color: var(--body-text);
+    border: 2px solid var(--body-text);
     border-radius: 50px;
     padding: 12px 35px;
     font-weight: 500;
@@ -199,7 +198,7 @@ button {
 }
 
 .btn-rdv:hover {
-    background-color: #27282C;
+    background-color: var(--body-text);
     color: #D4CBC2;
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -322,7 +321,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(39, 40, 44, 0.8), rgba(193, 167, 140, 0.6));
+    background: rgba(229, 210, 184, 0.8);
 }
 
 .hero-background img {
@@ -357,6 +356,21 @@ button {
     gap: 1.5rem;
     justify-content: center;
     animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.hero-side-image {
+    position: absolute;
+    bottom: -62px;
+    left: 0;
+    z-index: 1;
+    max-width: 1000px;
+    animation: fadeInUp 0.8s ease 0.6s backwards;
+}
+
+.hero-side-image img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 @keyframes fadeInUp {
@@ -433,8 +447,8 @@ button {
 }
 
 .benefit-icon:hover svg path {
-    fill: #c1a78c;
-    stroke: #c1a78c;
+    fill: #f5f3ef;
+    stroke: #f5f3ef;
 }
 
 /* Animation de rotation pour le SVG de Coaching (2ème carte) */
@@ -653,14 +667,94 @@ button {
     line-height: 1.7;
 }
 
+/* Présentation avec bulle de dialogue */
+.presentation-wrapper {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.presentation-image {
+    flex: 0 0 25%;
+}
+
+.presentation-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.speech-bubble {
+    flex: 1;
+    position: relative;
+    background-color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--tertiary-color);
+    max-width: 1000px;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-right: 20px solid var(--tertiary-color);
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    left: -16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-right: 18px solid var(--white);
+}
+
+.speech-bubble p {
+    color: var(--body-text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.speech-bubble p:last-child {
+    margin-bottom: 0;
+}
+
 /* ================================
    Testimonials Section
    ================================ */
 .testimonials {
     padding: var(--spacing-xl) 0;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    color: var(--white);
+    background-color: var(--white);
+    background-image: url("../images/background.png");
     position: relative;
+}
+
+.testimonials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.60);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .testimonials-slider {
@@ -737,11 +831,11 @@ button {
 .testimonial-prev,
 .testimonial-next {
     background-color: rgba(255, 255, 255, 0.2);
-    color: var(--white);
+    color: var(--secondary-color);
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    font-size: 1.5rem;
+    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -750,8 +844,8 @@ button {
 
 .testimonial-prev:hover,
 .testimonial-next:hover {
-    background-color: var(--white);
-    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .testimonial-dots {
@@ -763,7 +857,7 @@ button {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: var(--secondary-color);
     cursor: pointer;
     transition: var(--transition);
 }
@@ -1047,6 +1141,20 @@ button {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .presentation-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .presentation-image {
+        flex: 1;
+    }
+
+    .speech-bubble::before,
+    .speech-bubble::after {
+        display: none;
     }
 }
 
