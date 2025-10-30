@@ -1,111 +1,180 @@
 // ================================
+// Load Header and Footer
+// ================================
+async function loadComponent(elementId, filePath) {
+    try {
+        const response = await fetch(filePath);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const html = await response.text();
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.innerHTML = html;
+        }
+    } catch (error) {
+        console.error(`Error loading ${filePath}:`, error);
+    }
+}
+
+// Load header and footer when DOM is loaded
+async function loadHeaderAndFooter() {
+    await loadComponent('header-placeholder', 'header.html');
+    await loadComponent('footer-placeholder', 'footer.html');
+
+    // Re-initialize header-dependent scripts after header is loaded
+    initHeaderScripts();
+    // Initialize footer-dependent scripts after footer is loaded
+    initFooterScripts();
+}
+
+// Initialize scripts that depend on header being loaded
+function initHeaderScripts() {
+    initMobileMenu();
+    initStickyHeader();
+    initSmoothScroll();
+    initActiveNavLink();
+}
+
+// Initialize scripts that depend on footer being loaded
+function initFooterScripts() {
+    initNewsletterForm();
+}
+
+// ================================
 // Mobile Menu Toggle
 // ================================
-const menuToggle = document.querySelector('.menu-toggle');
-const navList = document.querySelector('.nav-list');
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navList = document.querySelector('.nav-list');
+    const dropdownParents = document.querySelectorAll('.has-dropdown');
 
-if (menuToggle && navList) {
-    menuToggle.addEventListener('click', () => {
-        navList.classList.toggle('active');
-        menuToggle.classList.toggle('active');
+    if (menuToggle && navList) {
+        menuToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            menuToggle.classList.toggle('active');
 
-        // Toggle menu icon animation
-        const spans = menuToggle.querySelectorAll('span');
-        spans.forEach((span, index) => {
-            if (menuToggle.classList.contains('active')) {
-                if (index === 0) span.style.transform = 'rotate(45deg) translateY(8px)';
-                if (index === 1) span.style.opacity = '0';
-                if (index === 2) span.style.transform = 'rotate(-45deg) translateY(-8px)';
-            } else {
-                span.style.transform = '';
-                span.style.opacity = '';
-            }
-        });
-    });
-
-    // Close menu when clicking on a link
-    const navLinks = document.querySelectorAll('.nav-list a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navList.classList.remove('active');
-            menuToggle.classList.remove('active');
+            // Toggle menu icon animation
             const spans = menuToggle.querySelectorAll('span');
-            spans.forEach(span => {
-                span.style.transform = '';
-                span.style.opacity = '';
+            spans.forEach((span, index) => {
+                if (menuToggle.classList.contains('active')) {
+                    if (index === 0) span.style.transform = 'rotate(45deg) translateY(8px)';
+                    if (index === 1) span.style.opacity = '0';
+                    if (index === 2) span.style.transform = 'rotate(-45deg) translateY(-8px)';
+                } else {
+                    span.style.transform = '';
+                    span.style.opacity = '';
+                }
             });
         });
-    });
+
+        // Handle dropdown toggle on mobile
+        dropdownParents.forEach(parent => {
+            const link = parent.querySelector('a');
+            if (link) {
+                link.addEventListener('click', (e) => {
+                    // Only toggle dropdown on mobile
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        parent.classList.toggle('active');
+                    }
+                });
+            }
+        });
+
+        // Close menu when clicking on dropdown links (not parent)
+        const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+                menuToggle.classList.remove('active');
+                dropdownParents.forEach(parent => parent.classList.remove('active'));
+                const spans = menuToggle.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.style.transform = '';
+                    span.style.opacity = '';
+                });
+            });
+        });
+    }
 }
 
 // ================================
 // Sticky Header on Scroll
 // ================================
-const header = document.querySelector('.header');
+function initStickyHeader() {
+    const header = document.querySelector('.header');
 
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
+    if (header) {
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
 
-    // Ajouter la classe "scrolled" quand on descend de plus de 50px
-    if (currentScroll > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+            // Ajouter la classe "scrolled" quand on descend de plus de 50px
+            if (currentScroll > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
     }
-});
+}
 
 // ================================
 // Smooth Scroll for Navigation Links
 // ================================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
 
-        // Check if it's not just "#"
-        if (href !== '#') {
-            e.preventDefault();
-            const target = document.querySelector(href);
+            // Check if it's not just "#"
+            if (href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
 
-            if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.offsetTop;
-                const offsetPosition = elementPosition - headerOffset;
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.offsetTop;
+                    const offsetPosition = elementPosition - headerOffset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
-        }
+        });
     });
-});
+}
 
 // ================================
 // Active Navigation Link on Scroll
 // ================================
-const sections = document.querySelectorAll('section[id]');
-const navLinksAll = document.querySelectorAll('.nav-list a');
+function initActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksAll = document.querySelectorAll('.nav-list a');
 
-function activateNavLink() {
-    let scrollY = window.pageYOffset;
+    function activateNavLink() {
+        let scrollY = window.pageYOffset;
 
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
 
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            navLinksAll.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLinksAll.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener('scroll', activateNavLink);
 }
-
-window.addEventListener('scroll', activateNavLink);
 
 // ================================
 // Testimonials Slider
@@ -262,84 +331,50 @@ if (contactForm) {
 // ================================
 // Newsletter Form Handling
 // ================================
-const newsletterForm = document.querySelector('.newsletter-form');
+function initNewsletterForm() {
+    const newsletterForm = document.querySelector('.newsletter-form');
 
-if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
 
-        const emailInput = newsletterForm.querySelector('input[type="email"]');
-        const email = emailInput.value;
+            const emailInput = newsletterForm.querySelector('input[type="email"]');
+            const email = emailInput.value;
 
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Veuillez entrer une adresse email valide.');
-            return;
-        }
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Veuillez entrer une adresse email valide.');
+                return;
+            }
 
-        // Simulate newsletter subscription
-        console.log('Newsletter subscription:', email);
-        alert('Merci de vous être abonné à notre newsletter !');
-        newsletterForm.reset();
-
-        // In a real application:
-        /*
-        fetch('/api/newsletter', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Abonnement réussi !');
+            // Simulate newsletter subscription
+            console.log('Newsletter subscription:', email);
+            alert('Merci de vous être abonné à notre newsletter !');
             newsletterForm.reset();
-        })
-        .catch(error => {
-            alert('Une erreur est survenue.');
+
+            // In a real application:
+            /*
+            fetch('/api/newsletter', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Abonnement réussi !');
+                newsletterForm.reset();
+            })
+            .catch(error => {
+                alert('Une erreur est survenue.');
+            });
+            */
         });
-        */
-    });
+    }
 }
 
-// ================================
-// Add mobile menu styles dynamically
-// ================================
-if (window.innerWidth <= 768) {
-    const style = document.createElement('style');
-    style.textContent = `
-        .nav-list {
-            position: fixed;
-            top: 70px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 70px);
-            background-color: white;
-            flex-direction: column;
-            padding: 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: left 0.3s ease;
-            z-index: 999;
-        }
-
-        .nav-list.active {
-            left: 0;
-        }
-
-        .nav-list li {
-            margin: 1rem 0;
-        }
-
-        .nav-list a {
-            font-size: 1.2rem;
-            display: block;
-            padding: 0.5rem 0;
-        }
-    `;
-    document.head.appendChild(style);
-}
 
 // ================================
 // Counter Animation for Stats
@@ -397,8 +432,11 @@ pricingCards.forEach(card => {
 // ================================
 // Initialize on page load
 // ================================
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Mantra Yoga Website - Loaded Successfully');
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log('Bloomera Website - Loading...');
+
+    // Load header and footer first
+    await loadHeaderAndFooter();
 
     // Show first testimonial
     showTestimonial(0);
@@ -409,6 +447,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     }, 100);
+
+    console.log('Bloomera Website - Loaded Successfully');
 });
 
 // ================================
@@ -420,8 +460,20 @@ window.addEventListener('resize', () => {
     resizeTimer = setTimeout(() => {
         // Reset mobile menu if window is resized to desktop
         if (window.innerWidth > 768) {
-            navList.classList.remove('active');
-            menuToggle.classList.remove('active');
+            const navList = document.querySelector('.nav-list');
+            const menuToggle = document.querySelector('.menu-toggle');
+            const dropdownParents = document.querySelectorAll('.has-dropdown');
+
+            if (navList) navList.classList.remove('active');
+            if (menuToggle) {
+                menuToggle.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans.forEach(span => {
+                    span.style.transform = '';
+                    span.style.opacity = '';
+                });
+            }
+            dropdownParents.forEach(parent => parent.classList.remove('active'));
         }
     }, 250);
 });

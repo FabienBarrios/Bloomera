@@ -1,0 +1,386 @@
+/* ================================
+   Sophisticated Styles for Coaching Page
+   ================================ */
+
+/* Hero Section Enhancements */
+.coaching-page .service-hero {
+    background: linear-gradient(135deg, rgba(66, 96, 78, 0.75), rgba(228, 210, 184, 0.85)), url('../images/background.png');
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated gradient overlay */
+.coaching-page .service-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    animation: shimmer 8s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.coaching-page .service-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Decorative symbols around title */
+.coaching-page .service-hero-content h1 {
+    position: relative;
+    display: inline-block;
+}
+
+.coaching-page .service-hero-content h1::after {
+    content: '◆';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--secondary-color);
+    opacity: 0.6;
+    animation: rotate-symbol 6s ease-in-out infinite;
+}
+
+.coaching-page .service-hero-content h1::before {
+    content: '◆';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--secondary-color);
+    opacity: 0.6;
+    animation: rotate-symbol 6s ease-in-out infinite 3s;
+}
+
+@keyframes rotate-symbol {
+    0%, 100% { transform: translateY(-50%) rotate(0deg); opacity: 0.4; }
+    50% { transform: translateY(-50%) rotate(180deg); opacity: 0.8; }
+}
+
+/* Quote styling */
+.coaching-page .service-hero-content .tagline {
+    position: relative;
+    padding: 0 3rem;
+    font-weight: 400;
+}
+
+.coaching-page .service-hero-content .tagline::before {
+    content: '«';
+    position: absolute;
+    left: 0.5rem;
+    font-size: 2rem;
+    color: var(--body-text);
+    opacity: 0.6;
+}
+
+.coaching-page .service-hero-content .tagline::after {
+    content: '»';
+    position: absolute;
+    right: 0.5rem;
+    font-size: 2rem;
+    color: var(--body-text);
+    opacity: 0.6;
+}
+
+/* Sophisticated intro section */
+.coaching-page .intro-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--white), #faf8f5);
+    border: 1px solid rgba(66, 96, 78, 0.15);
+    overflow: hidden;
+}
+
+.coaching-page .intro-section::before {
+    content: '◇';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 10rem;
+    color: var(--secondary-color);
+    opacity: 0.05;
+    transform: rotate(45deg);
+}
+
+/* Section headers with elegant underline */
+.coaching-page .service-section h2 {
+    position: relative;
+    padding-bottom: 1.2rem;
+    margin-bottom: 2.5rem;
+}
+
+.coaching-page .service-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, var(--secondary-color), var(--tertiary-color), transparent);
+}
+
+/* Program cards with hover effects */
+.coaching-page .program-card {
+    position: relative;
+    transition: all 0.4s ease;
+    border-left: 5px solid var(--secondary-color);
+}
+
+.coaching-page .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(to right, rgba(66, 96, 78, 0.03), transparent);
+    transition: width 0.4s ease;
+}
+
+.coaching-page .program-card:hover::before {
+    width: 100%;
+}
+
+.coaching-page .program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(66, 96, 78, 0.15);
+    border-left-width: 7px;
+}
+
+/* Icon animations in program titles */
+.coaching-page .program-card h3 {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.coaching-page .program-card:hover h3 {
+    color: var(--accent-color);
+}
+
+/* Sophisticated list items */
+.coaching-page .service-section ul li {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.coaching-page .service-section ul li:hover {
+    transform: translateX(8px);
+    padding-left: 3rem;
+}
+
+.coaching-page .service-section ul li::before {
+    transition: all 0.3s ease;
+}
+
+.coaching-page .service-section ul li:hover::before {
+    color: var(--accent-color);
+    transform: scale(1.3) rotate(360deg);
+}
+
+/* Program ideal box with gradient */
+.coaching-page .program-ideal {
+    background: linear-gradient(135deg, #faf8f5, #f5f3ef);
+    border-left: 4px solid var(--secondary-color);
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.coaching-page .program-ideal::before {
+    content: '✨';
+    position: absolute;
+    left: -1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    background: var(--white);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Price with emphasis */
+.coaching-page .program-price {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #f5f3ef, #faf8f5);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Deontology section with double border effect */
+.coaching-page .deontology-section {
+    position: relative;
+    background: var(--white);
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 6px 25px rgba(66, 96, 78, 0.12);
+}
+
+.coaching-page .deontology-section::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 1px solid var(--tertiary-color);
+    border-radius: var(--radius-md);
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.coaching-page .deontology-section h2 {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.coaching-page .deontology-section h2::before {
+    content: '🌿';
+    position: absolute;
+    left: 0;
+    font-size: 2rem;
+}
+
+/* CTA section with sophisticated animation */
+.coaching-page .cta-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.coaching-page .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+    animation: pulse-rotate 25s ease-in-out infinite;
+}
+
+@keyframes pulse-rotate {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
+}
+
+.coaching-page .cta-section h2,
+.coaching-page .cta-section p,
+.coaching-page .cta-section .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.coaching-page .cta-section .btn {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.coaching-page .cta-section .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.coaching-page .cta-section .btn:hover::before {
+    width: 400px;
+    height: 400px;
+}
+
+.coaching-page .cta-section .btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Floating symbolic elements */
+.coaching-page .floating-symbol {
+    position: fixed;
+    font-size: 2.5rem;
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+    animation: float-rotate 25s ease-in-out infinite;
+}
+
+.coaching-page .floating-symbol:nth-child(1) {
+    top: 15%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.coaching-page .floating-symbol:nth-child(2) {
+    top: 50%;
+    right: 12%;
+    animation-delay: 8s;
+}
+
+.coaching-page .floating-symbol:nth-child(3) {
+    bottom: 25%;
+    left: 12%;
+    animation-delay: 16s;
+}
+
+@keyframes float-rotate {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-25px) rotate(90deg); }
+    50% { transform: translateY(0px) rotate(180deg); }
+    75% { transform: translateY(25px) rotate(270deg); }
+}
+
+/* Smooth scroll reveal animation */
+.coaching-page .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.coaching-page .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation delays */
+.coaching-page .reveal:nth-child(1) { transition-delay: 0.1s; }
+.coaching-page .reveal:nth-child(2) { transition-delay: 0.2s; }
+.coaching-page .reveal:nth-child(3) { transition-delay: 0.3s; }
+.coaching-page .reveal:nth-child(4) { transition-delay: 0.4s; }
+.coaching-page .reveal:nth-child(5) { transition-delay: 0.5s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .coaching-page .service-hero-content h1::before,
+    .coaching-page .service-hero-content h1::after {
+        display: none;
+    }
+
+    .coaching-page .program-ideal::before {
+        position: static;
+        margin-bottom: 0.5rem;
+        width: auto;
+        height: auto;
+    }
+
+    .coaching-page .deontology-section h2 {
+        padding-left: 2.5rem;
+    }
+}

@@ -1,0 +1,372 @@
+/* ================================
+   Services Pages Styles
+   ================================ */
+
+/* Hero Section for Service Pages */
+.service-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(66, 96, 78, 0.85), rgba(228, 210, 184, 0.85)), url('../images/background_hero.png');
+    background-size: cover;
+    background-position: center;
+    color: var(--body-text);
+    text-align: center;
+    padding: 10rem 2rem 4rem;
+}
+
+.service-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.service-hero-content h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.service-hero-content .tagline {
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--body-text);
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.service-hero-content .subtitle {
+    font-size: 1.2rem;
+    color: var(--body-text);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Service Content */
+.service-content {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--body-bg);
+}
+
+.service-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.service-section h2 {
+    color: var(--secondary-color);
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.service-section h3 {
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.service-section p {
+    color: var(--body-text);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
+
+.service-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.service-section ul li {
+    padding: 0.9rem 0;
+    padding-left: 2.5rem;
+    position: relative;
+    color: var(--body-text);
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.service-section ul li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+/* Intro Section */
+.intro-section {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.intro-section p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: var(--body-text);
+}
+
+.intro-section p strong {
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Cards Styles */
+.program-card,
+.offer-card,
+.format-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.program-card:hover,
+.offer-card:hover,
+.format-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.program-card h3,
+.offer-card h3,
+.format-card h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-weight: 600;
+}
+
+.program-details,
+.offer-description,
+.format-description {
+    color: var(--body-text);
+    line-height: 1.85;
+}
+
+.program-ideal,
+.offer-highlight,
+.format-note {
+    background: #faf8f5;
+    padding: 1.2rem;
+    border-radius: var(--radius-sm);
+    margin-top: 1.5rem;
+    color: var(--body-text);
+    border-left: 4px solid var(--secondary-color);
+    font-size: 1rem;
+}
+
+.program-price {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-top: 1.5rem;
+}
+
+/* Note Box */
+.note-box {
+    background: #faf8f5;
+    border-left: 4px solid var(--secondary-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: var(--radius-sm);
+}
+
+.note-box p {
+    margin: 0;
+    color: var(--body-text);
+}
+
+/* Catalog Section */
+.catalog-section {
+    background: linear-gradient(135deg, #faf8f5, #f5f3ef);
+    padding: 3rem 2rem;
+    border-radius: var(--radius-md);
+    margin: 3rem 0;
+    border: 2px dashed var(--secondary-color);
+    text-align: center;
+}
+
+.catalog-section h3 {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.catalog-section p {
+    color: var(--body-text);
+    font-style: italic;
+}
+
+/* Modalities Section */
+.modalities-section {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    border-radius: var(--radius-md);
+    margin: 3rem 0;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.modalities-section h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.modalities-section h3 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-note {
+    background: #faf8f5;
+    padding: 1.5rem;
+    border-radius: var(--radius-sm);
+    margin-top: 1.5rem;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.contact-note p {
+    margin: 0.5rem 0;
+}
+
+/* Deontology Section */
+.deontology-section {
+    background: var(--white);
+    padding: 3rem 2.5rem;
+    border-radius: var(--radius-md);
+    margin-top: var(--spacing-lg);
+    border: 2px solid var(--secondary-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.deontology-section h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+}
+
+.deontology-section p {
+    margin-bottom: 1rem;
+    line-height: 1.85;
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-lg) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.cta-section h2 {
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+.cta-section p {
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.cta-section .btn {
+    background: var(--white);
+    color: var(--secondary-color);
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.cta-section .btn:hover {
+    background: var(--body-bg);
+    transform: translateY(-2px);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .service-hero {
+        min-height: 50vh;
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .service-hero-content h1 {
+        font-size: 3.5rem;
+    }
+
+    .service-hero-content .tagline {
+        font-size: 1.3rem;
+    }
+
+    .service-hero-content .subtitle {
+        font-size: 1rem;
+    }
+
+    .service-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .program-card h3,
+    .offer-card h3,
+    .format-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .intro-section,
+    .modalities-section,
+    .deontology-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .program-card,
+    .offer-card,
+    .format-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .service-hero-content .tagline {
+        font-size: 1.1rem;
+    }
+
+    .service-section h2 {
+        font-size: 1.6rem;
+    }
+}

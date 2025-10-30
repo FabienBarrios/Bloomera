@@ -1,0 +1,313 @@
+/* ================================
+   Sophisticated Styles for Hypnose Page
+   ================================ */
+
+/* Hero Section Enhancements */
+.hypnose-page .service-hero {
+    background: linear-gradient(135deg, rgba(66, 96, 78, 0.75), rgba(228, 210, 184, 0.85)), url('../images/background.png');
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated pulse overlay */
+.hypnose-page .service-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 15s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.1) rotate(180deg); opacity: 0.5; }
+}
+
+.hypnose-page .service-hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Decorative stars around title */
+.hypnose-page .service-hero-content h1 {
+    position: relative;
+    display: inline-block;
+}
+
+.hypnose-page .service-hero-content h1::after {
+    content: '✦';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--secondary-color);
+    opacity: 0.6;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.hypnose-page .service-hero-content h1::before {
+    content: '✦';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--secondary-color);
+    opacity: 0.6;
+    animation: twinkle 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(1); }
+    50% { opacity: 0.8; transform: translateY(-50%) scale(1.2); }
+}
+
+/* Tagline styling */
+.hypnose-page .service-hero-content .tagline {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.hypnose-page .service-hero-content .tagline::before,
+.hypnose-page .service-hero-content .tagline::after {
+    content: '—';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--body-text);
+    opacity: 0.5;
+}
+
+.hypnose-page .service-hero-content .tagline::before {
+    left: 0;
+}
+
+.hypnose-page .service-hero-content .tagline::after {
+    right: 0;
+}
+
+/* Sophisticated intro section */
+.hypnose-page .intro-section {
+    position: relative;
+    background: linear-gradient(to bottom, var(--white), #faf8f5);
+    border: 1px solid rgba(66, 96, 78, 0.1);
+}
+
+.hypnose-page .intro-section::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-size: 8rem;
+    font-family: 'Great Vibes', cursive;
+    color: var(--secondary-color);
+    opacity: 0.1;
+    line-height: 1;
+}
+
+.hypnose-page .intro-section p:first-child {
+    padding-top: 2rem;
+}
+
+/* Section headers with decorative elements */
+.hypnose-page .service-section h2 {
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.hypnose-page .service-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--secondary-color), transparent);
+}
+
+/* Sophisticated list items */
+.hypnose-page .service-section ul li {
+    position: relative;
+    transition: transform 0.3s ease, padding-left 0.3s ease;
+}
+
+.hypnose-page .service-section ul li:hover {
+    transform: translateX(5px);
+    padding-left: 2.8rem;
+}
+
+.hypnose-page .service-section ul li::before {
+    transition: all 0.3s ease;
+}
+
+.hypnose-page .service-section ul li:hover::before {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* Note box with icon */
+.hypnose-page .note-box {
+    position: relative;
+    background: linear-gradient(135deg, #faf8f5, #f5f3ef);
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.hypnose-page .note-box::before {
+    content: '🌸';
+    position: absolute;
+    top: 1.5rem;
+    left: -2rem;
+    font-size: 2rem;
+    background: var(--white);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Deontology section with elegant border */
+.hypnose-page .deontology-section {
+    position: relative;
+    background: var(--white);
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 4px 20px rgba(66, 96, 78, 0.1);
+}
+
+.hypnose-page .deontology-section::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid var(--secondary-color);
+    opacity: 0.3;
+    border-radius: var(--radius-md);
+    z-index: -1;
+}
+
+/* CTA section with sophisticated animation */
+.hypnose-page .cta-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hypnose-page .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.hypnose-page .cta-section h2,
+.hypnose-page .cta-section p,
+.hypnose-page .cta-section .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.hypnose-page .cta-section .btn {
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hypnose-page .cta-section .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.hypnose-page .cta-section .btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.hypnose-page .cta-section .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Floating elements decoration */
+.hypnose-page .floating-decoration {
+    position: fixed;
+    font-size: 3rem;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+    animation: float 20s ease-in-out infinite;
+}
+
+.hypnose-page .floating-decoration:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.hypnose-page .floating-decoration:nth-child(2) {
+    top: 60%;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+.hypnose-page .floating-decoration:nth-child(3) {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(5deg); }
+    66% { transform: translateY(20px) rotate(-5deg); }
+}
+
+/* Smooth scroll reveal animation */
+.hypnose-page .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.hypnose-page .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hypnose-page .service-hero-content h1::before,
+    .hypnose-page .service-hero-content h1::after {
+        display: none;
+    }
+
+    .hypnose-page .note-box::before {
+        position: static;
+        margin-bottom: 1rem;
+    }
+}
