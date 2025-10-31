@@ -39,6 +39,7 @@ function initHeaderScripts() {
 // Initialize scripts that depend on footer being loaded
 function initFooterScripts() {
     initNewsletterForm();
+    decodeEmail();
 }
 
 // ================================
@@ -298,9 +299,6 @@ if (contactForm) {
             return;
         }
 
-        // Simulate form submission
-        console.log('Form submitted:', { name, email, phone, message });
-
         // Show success message
         alert('Merci pour votre message ! Nous vous contacterons bientôt.');
 
@@ -348,8 +346,7 @@ function initNewsletterForm() {
                 return;
             }
 
-            // Simulate newsletter subscription
-            console.log('Newsletter subscription:', email);
+            // Show success message
             alert('Merci de vous être abonné à notre newsletter !');
             newsletterForm.reset();
 
@@ -433,8 +430,6 @@ pricingCards.forEach(card => {
 // Initialize on page load
 // ================================
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('Bloomera Website - Loading...');
-
     // Load header and footer first
     await loadHeaderAndFooter();
 
@@ -447,8 +442,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.body.style.transition = 'opacity 0.5s ease';
         document.body.style.opacity = '1';
     }, 100);
-
-    console.log('Bloomera Website - Loaded Successfully');
 });
 
 // ================================
@@ -476,4 +469,193 @@ window.addEventListener('resize', () => {
             dropdownParents.forEach(parent => parent.classList.remove('active'));
         }
     }, 250);
+});
+
+// ================================
+// Email Obfuscation (Anti-Spam)
+// ================================
+function decodeEmail() {
+    // Email encoded in base64 to avoid spam bots
+    const encoded = 'bGF1cmllZHVkb3V0LnByb0BnbWFpbC5jb20=';
+    const decoded = atob(encoded);
+
+    // List of all possible email element IDs
+    const emailIds = [
+        'email-contact',
+        'email-legal',
+        'email-director',
+        'email-gdpr',
+        'email-privacy',
+        'email-rights',
+        'email-contact-legal',
+        'email-contact-privacy'
+    ];
+
+    // Decode email for all elements that exist on the page
+    emailIds.forEach(id => {
+        const emailElement = document.getElementById(id);
+        if (emailElement) {
+            // Create mailto link
+            const link = document.createElement('a');
+            link.href = `mailto:${decoded}`;
+            link.textContent = decoded;
+            link.style.color = 'inherit';
+            link.style.textDecoration = 'none';
+
+            emailElement.appendChild(link);
+        }
+    });
+}
+
+// ================================
+// Cookie Consent Management (RGPD)
+// ================================
+async function initCookieBanner() {
+    try {
+        // Load cookie banner HTML
+        const response = await fetch('cookie-banner.html');
+        const html = await response.text();
+        document.body.insertAdjacentHTML('beforeend', html);
+
+        // Check if user has already made a choice
+        const cookieConsent = localStorage.getItem('cookieConsent');
+
+        if (!cookieConsent) {
+            // Show banner after 1 second if no consent recorded
+            setTimeout(() => {
+                const banner = document.getElementById('cookie-banner');
+                if (banner) banner.style.display = 'block';
+            }, 1000);
+        } else {
+            // Apply saved preferences
+            applyCookiePreferences(JSON.parse(cookieConsent));
+        }
+
+        // Event listeners
+        const acceptBtn = document.getElementById('cookie-accept');
+        const refuseBtn = document.getElementById('cookie-refuse');
+        const settingsBtn = document.getElementById('cookie-settings');
+        const modalClose = document.getElementById('cookie-modal-close');
+        const saveBtn = document.getElementById('cookie-save-settings');
+        const acceptAllBtn = document.getElementById('cookie-accept-all');
+
+        if (acceptBtn) acceptBtn.addEventListener('click', acceptAllCookies);
+        if (refuseBtn) refuseBtn.addEventListener('click', refuseAllCookies);
+        if (settingsBtn) settingsBtn.addEventListener('click', openCookieSettings);
+        if (modalClose) modalClose.addEventListener('click', closeCookieSettings);
+        if (saveBtn) saveBtn.addEventListener('click', saveCustomSettings);
+        if (acceptAllBtn) acceptAllBtn.addEventListener('click', () => {
+            acceptAllCookies();
+            closeCookieSettings();
+        });
+    } catch (error) {
+        // Silently fail if cookie banner can't be loaded
+    }
+}
+
+function acceptAllCookies() {
+    const preferences = {
+        necessary: true,
+        analytics: true,
+        marketing: true
+    };
+
+    saveCookiePreferences(preferences);
+    hideCookieBanner();
+    applyCookiePreferences(preferences);
+}
+
+function refuseAllCookies() {
+    const preferences = {
+        necessary: true,
+        analytics: false,
+        marketing: false
+    };
+
+    saveCookiePreferences(preferences);
+    hideCookieBanner();
+    applyCookiePreferences(preferences);
+}
+
+function openCookieSettings() {
+    const modal = document.getElementById('cookie-settings-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+
+        // Load current preferences if any
+        const cookieConsent = localStorage.getItem('cookieConsent');
+        if (cookieConsent) {
+            const prefs = JSON.parse(cookieConsent);
+            const analyticsCheckbox = document.getElementById('cookie-analytics');
+            const marketingCheckbox = document.getElementById('cookie-marketing');
+
+            if (analyticsCheckbox) analyticsCheckbox.checked = prefs.analytics;
+            if (marketingCheckbox) marketingCheckbox.checked = prefs.marketing;
+        }
+    }
+}
+
+function closeCookieSettings() {
+    const modal = document.getElementById('cookie-settings-modal');
+    if (modal) modal.style.display = 'none';
+}
+
+function saveCustomSettings() {
+    const analyticsCheckbox = document.getElementById('cookie-analytics');
+    const marketingCheckbox = document.getElementById('cookie-marketing');
+
+    const preferences = {
+        necessary: true,
+        analytics: analyticsCheckbox ? analyticsCheckbox.checked : false,
+        marketing: marketingCheckbox ? marketingCheckbox.checked : false
+    };
+
+    saveCookiePreferences(preferences);
+    hideCookieBanner();
+    closeCookieSettings();
+    applyCookiePreferences(preferences);
+}
+
+function saveCookiePreferences(preferences) {
+    localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+}
+
+function hideCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    if (banner) {
+        banner.style.display = 'none';
+    }
+}
+
+function applyCookiePreferences(preferences) {
+    // Apply analytics cookies (Google Analytics, etc.)
+    if (preferences.analytics) {
+        // Uncomment when Google Analytics is set up:
+        // loadGoogleAnalytics();
+    }
+
+    // Apply marketing cookies
+    if (preferences.marketing) {
+        // Uncomment when marketing scripts are needed:
+        // loadMarketingScripts();
+    }
+}
+
+// Initialize cookie banner
+document.addEventListener('DOMContentLoaded', () => {
+    initCookieBanner();
+});
+
+// Add event listener for cookies settings link in footer
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+        const cookiesSettingsLink = document.getElementById('cookies-settings-link');
+        if (cookiesSettingsLink) {
+            cookiesSettingsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                openCookieSettings();
+            });
+        }
+    }, 500); // Wait for footer to load
 });

@@ -1,23 +1,23 @@
 <!-- Header -->
-<header class="header">
+<header class="header" role="banner">
     <div class="container">
         <div class="header-content">
             <div class="logo">
-                <a href="index.html">
-                    <img src="assets/images/logo_transparant.png" alt="Bloomera logo">
+                <a href="index.html" aria-label="Retour à l'accueil Bloomera">
+                    <img src="assets/images/logo_transparant.png" alt="Logo Bloomera - Accompagnement émotionnel" width="70" height="70">
                 </a>
             </div>
 
-            <nav class="main-nav">
+            <nav class="main-nav" role="navigation" aria-label="Navigation principale">
                 <ul class="nav-list">
                     <li><a href="index.html">Accueil</a></li>
                     <li class="has-dropdown">
-                        <a href="#about">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="hypnose.html">Hypnose</a></li>
-                            <li><a href="coaching.html">Coaching</a></li>
-                            <li><a href="formation.html">Formation</a></li>
-                            <li><a href="entreprise.html">Entreprise</a></li>
+                        <a href="#about" aria-haspopup="true" aria-expanded="false">Services</a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="menuitem"><a href="hypnose.html">Hypnose</a></li>
+                            <li role="menuitem"><a href="coaching.html">Coaching</a></li>
+                            <li role="menuitem"><a href="formation.html">Formation</a></li>
+                            <li role="menuitem"><a href="entreprise.html">Entreprise</a></li>
                         </ul>
                     </li>
                     <li><a href="#services">Boutique</a></li>
@@ -27,8 +27,8 @@
             </nav>
 
             <div class="header-actions">
-                <button class="btn btn-rdv">Prise De RDV →</button>
-                <button class="menu-toggle" aria-label="Menu">
+                <button class="btn btn-rdv" aria-label="Prendre rendez-vous">Prise De RDV →</button>
+                <button class="menu-toggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
