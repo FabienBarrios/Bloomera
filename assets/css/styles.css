@@ -2249,3 +2249,75 @@ button {
         min-height: 100vh;
     }
 }
+
+/* ================================
+   JavaScript Animation Classes (No inline styles)
+   ================================ */
+
+/* Menu toggle animations */
+.menu-toggle span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Scroll animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Email link styling */
+.email-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Body fade-in */
+body.loading {
+    opacity: 0;
+}
+
+body.loaded {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+/* Pricing card hover effect */
+.pricing-card {
+    transition: border-color 0.3s ease;
+}
+
+.pricing-card:hover:not(.featured) {
+    border-color: var(--primary-color);
+}
+
+/* Cookie banner visibility classes (CSP-compliant) */
+.cookie-banner.hidden,
+.cookie-modal.hidden {
+    display: none !important;
+}
+
+.cookie-banner.visible {
+    display: block !important;
+}
+
+.cookie-modal.visible {
+    display: flex !important;
+}

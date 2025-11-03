@@ -54,19 +54,6 @@ function initMobileMenu() {
         menuToggle.addEventListener('click', () => {
             navList.classList.toggle('active');
             menuToggle.classList.toggle('active');
-
-            // Toggle menu icon animation
-            const spans = menuToggle.querySelectorAll('span');
-            spans.forEach((span, index) => {
-                if (menuToggle.classList.contains('active')) {
-                    if (index === 0) span.style.transform = 'rotate(45deg) translateY(8px)';
-                    if (index === 1) span.style.opacity = '0';
-                    if (index === 2) span.style.transform = 'rotate(-45deg) translateY(-8px)';
-                } else {
-                    span.style.transform = '';
-                    span.style.opacity = '';
-                }
-            });
         });
 
         // Handle dropdown toggle on mobile
@@ -90,11 +77,6 @@ function initMobileMenu() {
                 navList.classList.remove('active');
                 menuToggle.classList.remove('active');
                 dropdownParents.forEach(parent => parent.classList.remove('active'));
-                const spans = menuToggle.querySelectorAll('span');
-                spans.forEach(span => {
-                    span.style.transform = '';
-                    span.style.opacity = '';
-                });
             });
         });
     }
@@ -252,8 +234,7 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
+            entry.target.classList.add('visible');
         }
     });
 }, observerOptions);
@@ -264,9 +245,7 @@ const animateOnScroll = document.querySelectorAll(
 );
 
 animateOnScroll.forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    element.classList.add('animate-on-scroll');
     observer.observe(element);
 });
 
@@ -409,24 +388,6 @@ if (statsBadge) {
 }
 
 // ================================
-// Pricing Card Hover Effect Enhancement
-// ================================
-const pricingCards = document.querySelectorAll('.pricing-card');
-
-pricingCards.forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.borderColor = getComputedStyle(document.documentElement)
-            .getPropertyValue('--primary-color');
-    });
-
-    card.addEventListener('mouseleave', function() {
-        if (!this.classList.contains('featured')) {
-            this.style.borderColor = '';
-        }
-    });
-});
-
-// ================================
 // Initialize on page load
 // ================================
 document.addEventListener('DOMContentLoaded', async () => {
@@ -437,10 +398,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     showTestimonial(0);
 
     // Add loading animation
-    document.body.style.opacity = '0';
+    document.body.classList.add('loading');
     setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
+        document.body.classList.remove('loading');
+        document.body.classList.add('loaded');
     }, 100);
 });
 
@@ -458,14 +419,7 @@ window.addEventListener('resize', () => {
             const dropdownParents = document.querySelectorAll('.has-dropdown');
 
             if (navList) navList.classList.remove('active');
-            if (menuToggle) {
-                menuToggle.classList.remove('active');
-                const spans = menuToggle.querySelectorAll('span');
-                spans.forEach(span => {
-                    span.style.transform = '';
-                    span.style.opacity = '';
-                });
-            }
+            if (menuToggle) menuToggle.classList.remove('active');
             dropdownParents.forEach(parent => parent.classList.remove('active'));
         }
     }, 250);
@@ -499,8 +453,7 @@ function decodeEmail() {
             const link = document.createElement('a');
             link.href = `mailto:${decoded}`;
             link.textContent = decoded;
-            link.style.color = 'inherit';
-            link.style.textDecoration = 'none';
+            link.className = 'email-link';
 
             emailElement.appendChild(link);
         }
@@ -517,16 +470,52 @@ async function initCookieBanner() {
         const html = await response.text();
         document.body.insertAdjacentHTML('beforeend', html);
 
-        // Check if user has already made a choice
-        const cookieConsent = localStorage.getItem('cookieConsent');
+        // Check if user has already made a choice (localStorage ou cookie fallback)
+        let cookieConsent = null;
+
+        try {
+            cookieConsent = localStorage.getItem('cookieConsent');
+            console.log('📦 localStorage cookieConsent:', cookieConsent);
+        } catch (e) {
+            console.warn('⚠️ localStorage inaccessible, essai du cookie fallback');
+            // Fallback: lire le cookie
+            const cookies = document.cookie.split(';');
+            const consentCookie = cookies.find(c => c.trim().startsWith('cookieConsent='));
+            if (consentCookie) {
+                cookieConsent = consentCookie.split('=')[1];
+                console.log('🍪 Cookie fallback trouvé:', cookieConsent);
+            }
+        }
 
         if (!cookieConsent) {
+            console.log('❌ Aucun consentement trouvé → Affichage bannière');
             // Show banner after 1 second if no consent recorded
             setTimeout(() => {
                 const banner = document.getElementById('cookie-banner');
-                if (banner) banner.style.display = 'block';
+                if (banner) {
+                    banner.classList.remove('hidden');
+                    banner.classList.add('visible');
+                    console.log('📢 Bannière cookies affichée');
+                }
             }, 1000);
         } else {
+            console.log('✅ Consentement trouvé → Bannière masquée');
+            // S'assurer que la bannière et le modal restent cachés
+            const banner = document.getElementById('cookie-banner');
+            const modal = document.getElementById('cookie-settings-modal');
+
+            if (banner) {
+                banner.classList.add('hidden');
+                banner.remove(); // Supprimer complètement du DOM
+                console.log('🔒 Bannière supprimée du DOM');
+            }
+
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.remove(); // Supprimer complètement du DOM
+                console.log('🔒 Modal paramètres supprimé du DOM');
+            }
+
             // Apply saved preferences
             applyCookiePreferences(JSON.parse(cookieConsent));
         }
@@ -580,7 +569,8 @@ function refuseAllCookies() {
 function openCookieSettings() {
     const modal = document.getElementById('cookie-settings-modal');
     if (modal) {
-        modal.style.display = 'flex';
+        modal.classList.remove('hidden');
+        modal.classList.add('visible');
 
         // Load current preferences if any
         const cookieConsent = localStorage.getItem('cookieConsent');
@@ -597,7 +587,10 @@ function openCookieSettings() {
 
 function closeCookieSettings() {
     const modal = document.getElementById('cookie-settings-modal');
-    if (modal) modal.style.display = 'none';
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('visible');
+    }
 }
 
 function saveCustomSettings() {
@@ -617,14 +610,23 @@ function saveCustomSettings() {
 }
 
 function saveCookiePreferences(preferences) {
-    localStorage.setItem('cookieConsent', JSON.stringify(preferences));
-    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+    try {
+        localStorage.setItem('cookieConsent', JSON.stringify(preferences));
+        localStorage.setItem('cookieConsentDate', new Date().toISOString());
+        console.log('✅ Préférences cookies sauvegardées:', preferences);
+    } catch (error) {
+        console.error('❌ Erreur sauvegarde localStorage:', error);
+        // Fallback: utiliser un cookie si localStorage ne marche pas
+        document.cookie = `cookieConsent=${JSON.stringify(preferences)}; max-age=31536000; path=/; SameSite=Strict`;
+        console.log('✅ Fallback: préférences sauvegardées en cookie');
+    }
 }
 
 function hideCookieBanner() {
     const banner = document.getElementById('cookie-banner');
     if (banner) {
-        banner.style.display = 'none';
+        banner.classList.add('hidden');
+        banner.classList.remove('visible');
     }
 }
 

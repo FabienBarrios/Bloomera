@@ -1,0 +1,15 @@
+# Robots.txt for Bloomera
+
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow crawling of these paths
+Disallow: /assets/
+Disallow: /cookie-banner.html
+Disallow: /header.html
+Disallow: /footer.html
+Disallow: /index_old.html
+
+# Sitemap location
+Sitemap: https://www.bloomera.fr/sitemap.xml
