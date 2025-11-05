@@ -2321,3 +2321,673 @@ body.loaded {
 .cookie-modal.visible {
     display: flex !important;
 }
+
+/* ================================
+   FAQ Page Styles
+   ================================ */
+
+/* FAQ Hero Section */
+.faq-hero {
+    background: linear-gradient(135deg, #f5f3ef 0%, #e5d2b8 100%);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(66, 96, 78, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    animation: backgroundMove 20s linear infinite;
+}
+
+@keyframes backgroundMove {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(30px, 30px);
+    }
+}
+
+.faq-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.faq-hero h1 {
+    font-size: 3.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.faq-hero .hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* FAQ Content */
+.faq-content {
+    padding: 5rem 0;
+    background-color: var(--primary-color);
+}
+
+.faq-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+}
+
+.faq-categories {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* FAQ Category */
+.faq-category {
+    margin-bottom: 4rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.faq-category.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.category-title {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #e5d2b8;
+    font-weight: 600;
+}
+
+/* FAQ Item */
+.faq-item {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.faq-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.faq-item:hover {
+    box-shadow: 0 4px 16px rgba(66, 96, 78, 0.1);
+}
+
+/* FAQ Question Button */
+.faq-question {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    text-align: left;
+    transition: color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.faq-question:hover {
+    color: #639874;
+}
+
+.faq-question span:first-child {
+    flex: 1;
+    padding-right: 1rem;
+}
+
+/* FAQ Icon */
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--secondary-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+    color: #639874;
+}
+
+/* FAQ Answer */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 2rem;
+    background: #fafafa;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 2000px;
+    padding: 1.5rem 2rem 2rem;
+}
+
+.faq-answer p {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-answer ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.faq-answer li {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.faq-answer strong {
+    color: var(--secondary-color);
+}
+
+/* FAQ CTA Section */
+.faq-cta {
+    text-align: center;
+    margin-top: 5rem;
+    padding: 3rem 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(66, 96, 78, 0.1);
+}
+
+.faq-cta h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.faq-cta p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    min-width: 200px;
+}
+
+/* Fade in animation for elements */
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsive Design for FAQ */
+@media (max-width: 768px) {
+    .faq-hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .faq-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .faq-hero .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .faq-content {
+        padding: 3rem 0;
+    }
+
+    .faq-intro {
+        margin-bottom: 3rem;
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .category-title {
+        font-size: 1.6rem;
+        padding: 0 1rem;
+    }
+
+    .faq-question {
+        padding: 1.2rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .faq-icon {
+        font-size: 1.3rem;
+    }
+
+    .faq-answer {
+        padding: 0 1.5rem;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 1.2rem 1.5rem 1.5rem;
+    }
+
+    .faq-cta {
+        margin-top: 3rem;
+        padding: 2rem 1.5rem;
+    }
+
+    .faq-cta h2 {
+        font-size: 1.8rem;
+    }
+
+    .faq-cta p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* ================================
+   Blog Page Styles
+   ================================ */
+
+/* Blog Hero Section */
+.blog-hero {
+    background: linear-gradient(135deg, #42604e 0%, #639874 100%);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-hero::before {
+    content: '✦';
+    position: absolute;
+    font-size: 150px;
+    color: rgba(255, 255, 255, 0.05);
+    top: 20%;
+    left: 10%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.blog-hero::after {
+    content: '❋';
+    position: absolute;
+    font-size: 120px;
+    color: rgba(255, 255, 255, 0.05);
+    bottom: 20%;
+    right: 15%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.blog-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.blog-hero h1 {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.blog-hero .hero-subtitle {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+}
+
+/* Blog Filters */
+.blog-filters {
+    background-color: #fafafa;
+    padding: 2rem 0;
+    border-bottom: 1px solid #e5d2b8;
+    position: sticky;
+    top: 80px;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.7rem 1.5rem;
+    border: 2px solid #e5d2b8;
+    background: white;
+    color: var(--text-color);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-btn:hover {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
+}
+
+/* Blog Content */
+.blog-content {
+    padding: 5rem 0;
+    background-color: var(--primary-color);
+}
+
+/* Blog Grid */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Blog Card */
+.blog-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.blog-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(66, 96, 78, 0.15);
+}
+
+/* Blog Card Image */
+.blog-card-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.blog-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-card-image img {
+    transform: scale(1.08);
+}
+
+.blog-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--secondary-color);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Blog Card Content */
+.blog-card-content {
+    padding: 1.8rem;
+}
+
+.blog-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.blog-date::before {
+    content: '📅 ';
+    margin-right: 0.3rem;
+}
+
+.blog-reading-time::before {
+    content: '⏱ ';
+    margin-right: 0.3rem;
+}
+
+.blog-card-content h3 {
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.blog-card-content p {
+    color: var(--text-color);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.blog-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.blog-link:hover {
+    color: #639874;
+    transform: translateX(5px);
+}
+
+/* Load More Button */
+.blog-load-more {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.blog-load-more .btn {
+    padding: 1rem 3rem;
+}
+
+/* Newsletter CTA Section */
+.blog-newsletter-cta {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #e5d2b8 0%, #d4c3ad 100%);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.blog-newsletter-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.newsletter-box {
+    background: white;
+    padding: 4rem 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(66, 96, 78, 0.15);
+}
+
+.newsletter-box h2 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.newsletter-box p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.newsletter-box .btn {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design for Blog */
+@media (max-width: 768px) {
+    .blog-hero {
+        padding: 6rem 0 3rem;
+    }
+
+    .blog-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .blog-hero .hero-subtitle {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+
+    .blog-filters {
+        padding: 1.5rem 0;
+        top: 60px;
+    }
+
+    .filter-buttons {
+        gap: 0.7rem;
+        padding: 0 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .blog-content {
+        padding: 3rem 0;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 1rem;
+    }
+
+    .blog-card-image {
+        height: 200px;
+    }
+
+    .blog-card-content {
+        padding: 1.5rem;
+    }
+
+    .blog-card-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .blog-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .blog-newsletter-cta {
+        padding: 3rem 0;
+    }
+
+    .newsletter-box {
+        padding: 2.5rem 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .newsletter-box h2 {
+        font-size: 1.8rem;
+    }
+
+    .newsletter-box p {
+        font-size: 1rem;
+    }
+
+    .newsletter-box .btn {
+        width: 100%;
+    }
+}
