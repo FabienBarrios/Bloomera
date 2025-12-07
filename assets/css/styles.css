@@ -9,6 +9,18 @@
     font-display: swap;
 }
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+/* Arsencia Antiqua - You'll need to add the font file to assets/fonts/ */
+@font-face {
+    font-family: 'Arsencia Antiqua';
+    src: url('../fonts/ArsenciaAntiqua.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* ================================
    Variables CSS
    ================================ */
@@ -23,7 +35,9 @@
     --light-gray: #f8f8f8;
     --border-color: #e0e0e0;
 
-    --font-family: 'Poppins', sans-serif;
+    --font-family: 'Montserrat', sans-serif;
+    --font-title: 'Arsencia Antiqua', serif;
+    --font-accent: 'Great Vibes', cursive;
     --transition: all 0.3s ease;
 
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -163,6 +177,7 @@ button {
     color: var(--accent-color);
     margin-bottom: 1rem;
     line-height: 1.2;
+    font-family: var(--font-title);
 }
 
 .section-description {
@@ -478,6 +493,7 @@ button {
     margin-bottom: 1.5rem;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 0.8s ease;
+    font-family: var(--font-title);
 }
 
 .hero-subtitle {
@@ -654,6 +670,7 @@ button {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     color: var(--accent-color);
+    font-family: var(--font-title);
 }
 
 .benefit-card p {

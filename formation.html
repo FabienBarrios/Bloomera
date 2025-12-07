@@ -8,11 +8,12 @@
     <meta name="description" content="Formations en développement personnel - Un espace pour comprendre, ressentir et grandir">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/services.css">
+    <link rel="stylesheet" href="assets/css/formation-sophisticated.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="formation-page">
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
@@ -20,12 +21,7 @@
     <section class="service-hero">
         <div class="service-hero-content">
             <h1>Formation</h1>
-            <p class="tagline">« La plus belle des formations, c'est celle que tu t'offres à toi-même. »</p>
-            <p class="subtitle">
-                Et si te former, c'était avant tout t'offrir un moment pour toi ?<br>
-                Un espace pour comprendre, ressentir et grandir, à ton rythme, dans la douceur
-                et la conscience de ton propre chemin.
-            </p>
+            <p class="tagline">Une formation, c’est le début d’un changement durable.</p>
         </div>
     </section>
 
@@ -33,7 +29,7 @@
     <section class="service-content">
         <div class="container">
             <!-- Introduction -->
-            <div class="intro-section">
+            <div class="intro-section reveal">
                 <p>
                     <strong>Mes formations sont conçues comme des expériences d'évolution personnelle avant tout.</strong>
                 </p>
@@ -53,8 +49,8 @@
             </div>
 
             <!-- Champs d'application -->
-            <div class="service-section">
-                <h2>🌿 Les champs d'application des formations</h2>
+            <div class="service-section reveal">
+                <h2>Les champs d'application des formations</h2>
                 <p>Mes formations s'adressent à toutes les personnes qui souhaitent :</p>
                 <ul>
                     <li>Mieux se connaître et comprendre leurs émotions</li>
@@ -71,8 +67,8 @@
             </div>
 
             <!-- Bienfaits -->
-            <div class="service-section">
-                <h2>💫 Les bienfaits des formations</h2>
+            <div class="service-section reveal">
+                <h2>Les bienfaits des formations</h2>
                 <ul>
                     <li>Une meilleure compréhension de soi et de ses émotions</li>
                     <li>Des outils concrets à utiliser dans le quotidien</li>
@@ -83,80 +79,119 @@
             </div>
 
             <!-- Modalités -->
-            <div class="service-section">
-                <h2>✨ Les modalités</h2>
-                <p>Je propose plusieurs formats de formation, pour s'adapter à tes besoins et à ton emploi du temps :</p>
+            <div class="service-section reveal">
+                <h2>Les modalités</h2>
+                <p style="margin-bottom: 2.5rem;">Je propose plusieurs formats de formation, pour s'adapter à tes besoins et à ton emploi du temps :</p>
 
-                <!-- Format Live -->
-                <div class="format-card">
-                    <h3>🎓 Formations en live (1 journée — 7h)</h3>
-                    <div class="format-description">
-                        <p>
-                            Des formations <strong>immersives et interactives</strong>, en petit groupe, pour allier théorie, pratique et
-                            échanges.
-                        </p>
-                        <p>
-                            Chaque journée est rythmée par des temps de transmission, d'exploration personnelle et de
-                            mise en pratique.
-                        </p>
+                <div class="formats-grid">
+                    <!-- Format Live -->
+                    <div class="format-card">
+                        <h3>Formations à distance</h3>
+                        <p class="format-duration">De 7h à 14h</p>
+                        <div class="format-description">
+                            <p>
+                                Des formations <strong>immersives et interactives</strong>, en petit groupe, pour allier théorie, pratique et
+                                échanges.
+                            </p>
+                            <p>
+                                Chaque journée est rythmée par des temps de transmission, d'exploration personnelle et de
+                                mise en pratique. Les formations se déroulent de 9h00 à 17h00 via la plateforme Zoom / Teams / Trainer Central.
+                            </p>
+                        </div>
+                        <div class="format-note">
+                            Les dates sont proposées ponctuellement selon le remplissage.
+                        </div>
+                        <a href="#formations-distance" class="format-link">En savoir plus →</a>
                     </div>
-                    <div class="format-note">
-                        <span>Les dates sont proposées ponctuellement selon le remplissage.</span>
-                    </div>
-                </div>
 
-                <!-- Format En ligne -->
-                <div class="format-card">
-                    <h3>💻 Formations en ligne (2h30 à 3h30)</h3>
-                    <div class="format-description">
-                        <p>
-                            Des modules à suivre <strong>à ton rythme</strong>, depuis chez toi, via la plateforme Udemy.
-                        </p>
-                        <p>
-                            Chaque formation t'offre un contenu complet, des outils simples et des réflexions guidées
-                            pour intégrer facilement les notions abordées dans ton quotidien.
-                        </p>
-                    </div>
-                    <div class="format-note">
-                        <span>Accède à mes formations en ligne directement via le bouton ci-dessous.</span>
+                    <!-- Format En ligne -->
+                    <div class="format-card">
+                        <h3>Formations en ligne</h3>
+                        <p class="format-duration">2h30 à 3h30</p>
+                        <div class="format-description">
+                            <p>Ces formations sont disponibles sur la plateforme Udemy.</p>
+                            <p>
+                                Elles abordent des thématiques précises et peuvent être suivies à votre rythme, sans contrainte de lieu ni de temps.
+                            </p>
+                            <p>
+                                Chaque module offre un contenu complet, des outils simples et des exercices guidés pour intégrer facilement les notions dans votre quotidien.
+                            </p>
+                        </div>
+                        <div class="format-note">
+                            Accède à mes formations en ligne directement via le bouton ci-dessous.
+                        </div>
+                        <a href="https://www.udemy.com" target="_blank" class="format-link">Voir sur Udemy →</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Catalogue (Work in Progress) -->
-            <div class="catalog-section">
-                <h3>📚 Catalogue des formations</h3>
-                <p>
-                    Le catalogue complet des formations sera bientôt disponible.<br>
-                    Je travaille actuellement sur les programmes et le contenu vidéo.
-                </p>
-                <p style="margin-top: 1rem; color: #639874; font-weight: 500;">
-                    Restez connecté(e) pour découvrir prochainement toutes les formations disponibles !
-                </p>
-            </div>
+            <!-- Catalogue -->
+            <div class="service-section reveal">
+                <h2>Catalogue des formations</h2>
+                <p style="margin-bottom: 2.5rem;">Découvrez mes formations pour développer votre bien-être et votre autonomie émotionnelle.</p>
 
-            <!-- Déontologie -->
-            <div class="deontology-section">
-                <h2>🌸 Cadre et déontologie</h2>
-                <p>
-                    <strong>Mes formations ne remplacent en aucun cas un suivi médical ou thérapeutique.</strong>
-                </p>
-                <p>
-                    Elles visent à favoriser la connaissance de soi, la compréhension émotionnelle et
-                    l'autonomie personnelle, dans un cadre bienveillant et respectueux.
-                </p>
-                <p>
-                    Chaque formation se déroule dans le respect du <strong>rythme, des valeurs et de la confidentialité
-                    de chacun</strong>.
-                </p>
-                <p>
-                    Je m'engage à transmettre avec <strong>authenticité, professionnalisme et douceur</strong> — dans un
-                    esprit d'ouverture, d'écoute et de partage.
-                </p>
+                <div class="catalog-grid">
+                    <!-- Formation 1 -->
+                    <div class="training-card">
+                        <h3>Vivre en harmonie avec ses émotions</h3>
+                        <p class="training-type">Formation en ligne • 3h</p>
+                        <div class="training-description">
+                            <p>
+                                Apprenez à comprendre, accueillir et gérer vos émotions au quotidien pour retrouver sérénité et équilibre.
+                            </p>
+                            <p>
+                                Cette formation vous offre des outils concrets et accessibles pour transformer votre relation aux émotions.
+                            </p>
+                        </div>
+                        <div class="training-ideal">
+                            Pour mieux vivre avec vos émotions et développer votre intelligence émotionnelle.
+                        </div>
+                        <a href="#vivre-harmonie-emotions" class="training-link">En savoir plus →</a>
+                        <div class="training-price"><span>À venir</span></div>
+                    </div>
+
+                    <!-- Formation 2 -->
+                    <div class="training-card">
+                        <h3>Les bases de l'hypnose SAJECE</h3>
+                        <p class="training-type">Formation à distance • 7h</p>
+                        <div class="training-description">
+                            <p>
+                                Découvrez les fondamentaux de l'hypnose SAJECE, une approche douce et bienveillante pour accompagner le changement.
+                            </p>
+                            <p>
+                                Formation théorique et pratique pour comprendre les mécanismes de l'hypnose et ses applications.
+                            </p>
+                        </div>
+                        <div class="training-ideal">
+                            Pour les professionnels de l'accompagnement ou toute personne souhaitant découvrir l'hypnose.
+                        </div>
+                        <a href="#bases-hypnose-sajece" class="training-link">En savoir plus →</a>
+                        <div class="training-price"><span>À venir</span></div>
+                    </div>
+
+                    <!-- Formation 3 -->
+                    <div class="training-card">
+                        <h3>Communication bienveillante</h3>
+                        <p class="training-type">Formation à distance • 7h</p>
+                        <div class="training-description">
+                            <p>
+                                Développez une communication authentique et respectueuse pour améliorer vos relations personnelles et professionnelles.
+                            </p>
+                            <p>
+                                Apprenez à exprimer vos besoins, à écouter activement et à résoudre les conflits avec douceur.
+                            </p>
+                        </div>
+                        <div class="training-ideal">
+                            Pour transformer vos relations et créer des liens plus authentiques et apaisés.
+                        </div>
+                        <a href="#communication-bienveillante" class="training-link">En savoir plus →</a>
+                        <div class="training-price"><span>À venir</span></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Call to Action -->
-            <div class="cta-section">
+            <div class="cta-section reveal">
                 <h2>Envie de te former ?</h2>
                 <p>Découvre mes formations et inscris-toi à la prochaine session</p>
                 <div class="cta-buttons">
@@ -175,5 +210,28 @@
     <div id="footer-placeholder"></div>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        // Reveal animation on scroll
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+
+        // Trigger on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(reveal, 100);
+        });
+    </script>
 </body>
 </html>
