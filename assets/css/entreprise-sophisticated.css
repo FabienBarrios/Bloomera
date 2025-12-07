@@ -9,22 +9,21 @@
     overflow: hidden;
 }
 
-/* Animated gradient overlay */
+/* Animated pulse overlay */
 .entreprise-page .service-hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
+    top: -50%;
+    left: -50%;
     width: 200%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    animation: shimmer 8s ease-in-out infinite;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 15s ease-in-out infinite;
 }
 
-@keyframes shimmer {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: 100%; }
+@keyframes pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.1) rotate(180deg); opacity: 0.5; }
 }
 
 .entreprise-page .service-hero-content {
@@ -32,37 +31,68 @@
     z-index: 1;
 }
 
-/* Quote styling */
+/* Decorative stars around title */
+.entreprise-page .service-hero-content h1 {
+    position: relative;
+    display: inline-block;
+}
+
+.entreprise-page .service-hero-content h1::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--secondary-color);
+    opacity: 0.6;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+.entreprise-page .service-hero-content h1::before {
+    content: '';
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: var(--secondary-color);
+    opacity: 0.6;
+    animation: twinkle 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(1); }
+    50% { opacity: 0.8; transform: translateY(-50%) scale(1.2); }
+}
+
+/* Tagline styling */
 .entreprise-page .service-hero-content .tagline {
     position: relative;
-    padding: 0 3rem;
-    font-weight: 400;
-}
-
-.entreprise-page .service-hero-content .tagline::before {
-    content: '«';
-    position: absolute;
-    left: 0.5rem;
-    font-size: 2rem;
-    color: var(--body-text);
-    opacity: 0.6;
-}
-
-.entreprise-page .service-hero-content .tagline::after {
-    content: '»';
-    position: absolute;
-    right: 0.5rem;
-    font-size: 2rem;
-    color: var(--body-text);
-    opacity: 0.6;
+    padding: 0;
 }
 
 /* Sophisticated intro section */
 .entreprise-page .intro-section {
     position: relative;
-    background: linear-gradient(135deg, var(--white), #faf8f5);
-    border: 1px solid rgba(66, 96, 78, 0.15);
-    overflow: hidden;
+    background: linear-gradient(to bottom, var(--white), #faf8f5);
+    border: 1px solid rgba(66, 96, 78, 0.1);
+}
+
+.entreprise-page .intro-section::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-size: 8rem;
+    font-family: 'Great Vibes', cursive;
+    color: var(--secondary-color);
+    opacity: 0.1;
+    line-height: 1;
+}
+
+.entreprise-page .intro-section p:first-child {
+    padding-top: 2rem;
 }
 
 /* Section headers with elegant underline */
@@ -231,6 +261,43 @@
     margin-bottom: 1.5rem;
 }
 
+/* Modalities section lists */
+.entreprise-page .modalities-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.entreprise-page .modalities-section ul li {
+    position: relative;
+    color: var(--font-color-text);
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    padding-left: 2rem;
+    text-align: left;
+}
+
+.entreprise-page .modalities-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Note text in modalities */
+.entreprise-page .modalities-section p[style*="italic"] {
+    background: linear-gradient(135deg, rgba(99, 152, 116, 0.08), rgba(228, 210, 184, 0.12));
+    padding: 1.2rem;
+    border-radius: 12px;
+    border-left: 3px solid var(--secondary-color);
+    text-align: center;
+}
+
 /* Contact note box */
 .entreprise-page .contact-note {
     background: linear-gradient(135deg, rgba(99, 152, 116, 0.08), rgba(228, 210, 184, 0.12));
@@ -375,10 +442,122 @@
 .entreprise-page .reveal:nth-child(4) { transition-delay: 0.4s; }
 .entreprise-page .reveal:nth-child(5) { transition-delay: 0.5s; }
 
+/* Floating elements decoration */
+.entreprise-page .floating-decoration {
+    position: fixed;
+    font-size: 3rem;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
+    animation: float 20s ease-in-out infinite;
+}
+
+.entreprise-page .floating-decoration:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.entreprise-page .floating-decoration:nth-child(2) {
+    top: 60%;
+    right: 10%;
+    animation-delay: 5s;
+}
+
+.entreprise-page .floating-decoration:nth-child(3) {
+    bottom: 20%;
+    left: 15%;
+    animation-delay: 10s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-20px) rotate(5deg); }
+    66% { transform: translateY(20px) rotate(-5deg); }
+}
+
+/* Note box with icon */
+.entreprise-page .note-box {
+    position: relative;
+    background: linear-gradient(135deg, #faf8f5, #f5f3ef);
+    border-left: 4px solid var(--secondary-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Deontology section with elegant border - override */
+.entreprise-page .deontology-section {
+    position: relative;
+    background: var(--white);
+    border: 2px solid var(--secondary-color);
+    box-shadow: 0 4px 20px rgba(66, 96, 78, 0.1);
+}
+
+.entreprise-page .deontology-section::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px solid var(--secondary-color);
+    opacity: 0.3;
+    border-radius: var(--radius-md);
+    z-index: -1;
+}
+
+.entreprise-page .deontology-section::after {
+    display: none;
+}
+
+/* CTA section - match hypnose style */
+.entreprise-page .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.entreprise-page .cta-section .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.entreprise-page .cta-section .btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.entreprise-page .cta-section .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+    .entreprise-page .service-hero-content h1::before,
+    .entreprise-page .service-hero-content h1::after {
+        display: none;
+    }
+
     .entreprise-page .service-hero-content .tagline {
-        padding: 0 2rem;
+        padding: 0;
     }
 
     .entreprise-page .offers-grid {

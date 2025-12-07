@@ -49,26 +49,8 @@
 /* Quote styling */
 .coaching-page .service-hero-content .tagline {
     position: relative;
-    padding: 0 3rem;
+    padding: 0;
     font-weight: 400;
-}
-
-.coaching-page .service-hero-content .tagline::before {
-    content: '«';
-    position: absolute;
-    left: 0.5rem;
-    font-size: 2rem;
-    color: var(--body-text);
-    opacity: 0.6;
-}
-
-.coaching-page .service-hero-content .tagline::after {
-    content: '»';
-    position: absolute;
-    right: 0.5rem;
-    font-size: 2rem;
-    color: var(--body-text);
-    opacity: 0.6;
 }
 
 /* Sophisticated intro section */
@@ -77,6 +59,28 @@
     background: linear-gradient(135deg, var(--white), #faf8f5);
     border: 1px solid rgba(66, 96, 78, 0.15);
     overflow: hidden;
+}
+
+.coaching-page .intro-section::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-size: 8rem;
+    font-family: 'Great Vibes', cursive;
+    color: var(--secondary-color);
+    opacity: 0.1;
+    line-height: 1;
+    z-index: 0;
+}
+
+.coaching-page .intro-section p {
+    position: relative;
+    z-index: 1;
+}
+
+.coaching-page .intro-section p:first-child {
+    padding-top: 2rem;
 }
 
 /* Section headers with elegant underline */
@@ -94,6 +98,165 @@
     width: 100px;
     height: 2px;
     background: linear-gradient(to right, var(--secondary-color), var(--tertiary-color), transparent);
+}
+
+/* Sections grid layout */
+.coaching-page .sections-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+/* Sophisticated section cards */
+.coaching-page .sections-grid .service-section {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #fafafa);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow:
+        0 10px 30px rgba(66, 96, 78, 0.08),
+        0 1px 8px rgba(0, 0, 0, 0.03);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(66, 96, 78, 0.08);
+    overflow: hidden;
+}
+
+/* Decorative top border with gradient */
+.coaching-page .sections-grid .service-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--tertiary-color));
+    opacity: 0.8;
+}
+
+/* Decorative corner element */
+.coaching-page .sections-grid .service-section::after {
+    content: '◆';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    color: var(--secondary-color);
+    opacity: 0.05;
+    transition: all 0.5s ease;
+}
+
+.coaching-page .sections-grid .service-section:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow:
+        0 20px 60px rgba(66, 96, 78, 0.15),
+        0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.coaching-page .sections-grid .service-section:hover::after {
+    opacity: 0.15;
+    transform: rotate(45deg) scale(1.2);
+}
+
+/* Section headers in grid */
+.coaching-page .sections-grid .service-section h2 {
+    position: relative;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+    font-size: 1.6rem;
+    text-align: center;
+    border-bottom: 2px solid rgba(66, 96, 78, 0.1);
+}
+
+.coaching-page .sections-grid .service-section h2::after {
+    display: none;
+}
+
+/* Section intro text */
+.coaching-page .sections-grid .service-section > p {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+/* List items in grid */
+.coaching-page .sections-grid .service-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.coaching-page .sections-grid .service-section ul li {
+    position: relative;
+    color: var(--font-color-text);
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    padding-left: 2rem;
+    text-align: left;
+}
+
+.coaching-page .sections-grid .service-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+/* Note text in sections */
+.coaching-page .sections-grid .service-section p[style*="italic"] {
+    background: linear-gradient(135deg, rgba(99, 152, 116, 0.08), rgba(228, 210, 184, 0.12));
+    padding: 1.2rem;
+    border-radius: 12px;
+    border-left: 3px solid var(--secondary-color);
+    text-align: center;
+}
+
+/* Section link - En savoir plus */
+.coaching-page .sections-grid .service-section .section-link {
+    display: block;
+    text-align: center;
+    padding: 0.8rem 2rem;
+    margin-top: 2rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.coaching-page .sections-grid .service-section .section-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.coaching-page .sections-grid .service-section .section-link:hover {
+    color: var(--white);
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 96, 78, 0.2);
+}
+
+.coaching-page .sections-grid .service-section .section-link:hover::before {
+    left: 0;
 }
 
 /* Programs grid layout */
@@ -465,6 +628,11 @@
     .coaching-page .service-hero-content h1::before,
     .coaching-page .service-hero-content h1::after {
         display: none;
+    }
+
+    .coaching-page .sections-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
     .coaching-page .programs-grid {
