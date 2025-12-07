@@ -9,7 +9,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, rgba(66, 96, 78, 0.85), rgba(228, 210, 184, 0.85)), url('../images/background_hero.png');
+    background: linear-gradient(135deg, rgba(228, 210, 184, 0.45), rgba(228, 210, 184, 0.45)), url('../images/background.png');
     background-size: cover;
     background-position: center;
     color: var(--body-text);
@@ -58,6 +58,7 @@
 
 .service-section h2 {
     color: var(--secondary-color);
+    font-family: "Arsencia Antiqua", serif;
     font-size: 2.2rem;
     margin-bottom: 2rem;
     font-weight: 600;
@@ -65,6 +66,7 @@
 
 .service-section h3 {
     color: var(--secondary-color);
+    font-family: "Arsencia Antiqua", serif;
     font-size: 1.6rem;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -72,7 +74,7 @@
 }
 
 .service-section p {
-    color: var(--body-text);
+    color: var(--font-color-text);
     line-height: 1.85;
     margin-bottom: 1.2rem;
     font-size: 1.05rem;
@@ -88,18 +90,18 @@
     padding: 0.9rem 0;
     padding-left: 2.5rem;
     position: relative;
-    color: var(--body-text);
+    color: var(--font-color-text);
     line-height: 1.7;
     font-size: 1.05rem;
 }
 
 .service-section ul li::before {
-    content: '✓';
+    content: '•';
     position: absolute;
     left: 0;
-    color: var(--secondary-color);
+    color: var(--font-color-text);
     font-weight: bold;
-    font-size: 1.3rem;
+    font-size: 2rem;
 }
 
 /* Intro Section */

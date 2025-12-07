@@ -4,7 +4,7 @@
 
 /* Hero Section Enhancements */
 .coaching-page .service-hero {
-    background: linear-gradient(135deg, rgba(66, 96, 78, 0.75), rgba(228, 210, 184, 0.85)), url('../images/background.png');
+    background: linear-gradient(135deg, rgba(228, 210, 184, 0.45), rgba(228, 210, 184, 0.45)), url('../images/background.png');
     position: relative;
     overflow: hidden;
 }

@@ -9,13 +9,17 @@
     font-display: swap;
 }
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
 
-/* Arsencia Antiqua - You'll need to add the font file to assets/fonts/ */
 @font-face {
     font-family: 'Arsencia Antiqua';
-    src: url('../fonts/ArsenciaAntiqua.ttf') format('truetype');
+    src: url('../fonts/Arsenica-Antiqua-Regular-trial.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -34,11 +38,12 @@
     --white: #f5f3ef;
     --light-gray: #f8f8f8;
     --border-color: #e0e0e0;
+    --font-color-text: #020122;
 
     --font-family: 'Montserrat', sans-serif;
     --font-title: 'Arsencia Antiqua', serif;
     --font-accent: 'Great Vibes', cursive;
-    --transition: all 0.3s ease;
+    --transition: all 0.2s ease;
 
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -142,6 +147,10 @@ button {
     border: none;
     background: none;
     transition: var(--transition);
+}
+
+p {
+    color: var(--font-color-text) !important;
 }
 
 /* ================================
@@ -497,10 +506,12 @@ button {
 }
 
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
     margin-bottom: 1.5rem;
-    opacity: 0.95;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 0.8s ease 0.2s backwards;
+    font-family: var(--font-title);
 }
 
 .hero-animated-text {
@@ -1795,6 +1806,10 @@ button {
 
     .hero-title {
         font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 2rem;
     }
 }
 
