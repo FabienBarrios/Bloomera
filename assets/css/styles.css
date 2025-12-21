@@ -433,6 +433,8 @@ p {
     flex-direction: column;
     gap: 5px;
     padding: 5px;
+    position: relative;
+    z-index: 1001;
 }
 
 .menu-toggle span {
@@ -630,6 +632,11 @@ p {
     height: 80px;
     margin: 0 auto 1.5rem;
     transition: var(--transition);
+}
+
+.benefit-icon #lottie-hypnose {
+    width: 100%;
+    height: 100%;
 }
 
 .benefit-icon svg {
@@ -1822,15 +1829,21 @@ p {
         padding: 0 15px;
     }
 
+    .main-nav {
+        position: static;
+        transform: none;
+        left: auto;
+    }
+
     .nav-list {
         position: fixed;
-        top: 85px;
+        top: 0;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 85px);
+        height: 100vh;
         background-color: var(--white);
         flex-direction: column;
-        padding: 2rem;
+        padding: 6rem 2rem 2rem;
         box-shadow: var(--shadow-lg);
         transition: left 0.3s ease;
         z-index: 999;
@@ -2293,18 +2306,20 @@ p {
 /* Menu toggle animations */
 .menu-toggle span {
     transition: transform 0.3s ease, opacity 0.3s ease;
+    transform-origin: center;
 }
 
 .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
+    transform: translateY(8px) rotate(45deg);
 }
 
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
+    transform: scale(0);
 }
 
 .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 /* Scroll animations */

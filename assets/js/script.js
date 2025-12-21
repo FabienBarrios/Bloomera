@@ -661,3 +661,44 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 500); // Wait for footer to load
 });
+
+// ================================
+// Lottie Animations
+// ================================
+function initLottieAnimations() {
+    console.log('🎬 Initializing Lottie animations...');
+    const lottieHypnose = document.getElementById('lottie-hypnose');
+
+    console.log('🔍 lottie-hypnose element:', lottieHypnose);
+    console.log('🔍 lottie library loaded:', typeof lottie !== 'undefined');
+
+    if (lottieHypnose && typeof lottie !== 'undefined') {
+        console.log('✅ Loading lotus animation...');
+        const animation = lottie.loadAnimation({
+            container: lottieHypnose,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/animations/lotus.json'
+        });
+
+        animation.addEventListener('DOMLoaded', () => {
+            console.log('✅ Lotus animation loaded successfully');
+        });
+
+        animation.addEventListener('data_failed', () => {
+            console.error('❌ Failed to load lotus.json');
+        });
+    } else {
+        if (!lottieHypnose) console.error('❌ Element #lottie-hypnose not found');
+        if (typeof lottie === 'undefined') console.error('❌ Lottie library not loaded');
+    }
+}
+
+// Initialize Lottie animations when page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait a bit for the page to fully load
+    setTimeout(() => {
+        initLottieAnimations();
+    }, 500);
+});
