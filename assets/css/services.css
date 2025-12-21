@@ -33,7 +33,7 @@
 .service-hero-content .tagline {
     font-style: italic;
     font-size: 1.6rem;
-    color: var(--body-text);
+    color: var(--secondary-color);
     margin-bottom: 1rem;
     font-weight: 300;
 }

@@ -2,15 +2,20 @@
    Sophisticated Styles for FAQ Page
    ================================ */
 
-/* Hero Section Enhancements */
+/* Hero Section Enhancements - Matching Hypnose Style */
 .faq-page .faq-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(135deg, rgba(228, 210, 184, 0.45), rgba(228, 210, 184, 0.45)), url('../images/background.png');
     background-size: cover;
     background-position: center;
-    position: relative;
-    overflow: hidden;
-    padding: 8rem 0 6rem;
+    color: var(--body-text);
     text-align: center;
+    padding: 10rem 2rem 4rem;
+    overflow: hidden;
 }
 
 /* Animated pulse overlay */
@@ -33,16 +38,19 @@
 .faq-page .faq-hero .container {
     position: relative;
     z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 /* Decorative stars around title */
 .faq-page .faq-hero h1 {
     position: relative;
     display: inline-block;
-    font-size: 3.5rem;
-    font-weight: 700;
-    color: var(--accent-color);
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: var(--secondary-color);
     margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
 }
 
 .faq-page .faq-hero h1::after {
@@ -74,37 +82,21 @@
     50% { opacity: 0.8; transform: translateY(-50%) scale(1.2); }
 }
 
-/* Hero subtitle styling */
-.faq-page .hero-subtitle {
+/* Tagline styling - Matching Hypnose Style */
+.faq-page .faq-hero .tagline {
     position: relative;
-    padding: 0 2rem;
-    font-size: 1.2rem;
-    color: var(--body-text);
-    font-weight: 400;
-}
-
-.faq-page .hero-subtitle::before,
-.faq-page .hero-subtitle::after {
-    content: '—';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--body-text);
-    opacity: 0.5;
-}
-
-.faq-page .hero-subtitle::before {
-    left: 0;
-}
-
-.faq-page .hero-subtitle::after {
-    right: 0;
+    padding: 0;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: 300;
 }
 
 /* FAQ Content Section */
 .faq-page .faq-content {
     padding: 5rem 0;
-    background: linear-gradient(to bottom, var(--white), #faf8f5);
+    background-color: var(--body-bg);
 }
 
 /* FAQ Categories */
@@ -121,6 +113,7 @@
 
 .faq-page .category-title {
     position: relative;
+    font-family: 'Arsencia Antiqua', serif;
     font-size: 2rem;
     font-weight: 600;
     color: var(--accent-color);
@@ -129,22 +122,11 @@
     text-align: center;
 }
 
-.faq-page .category-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 2px;
-    background: linear-gradient(to right, transparent, var(--secondary-color), var(--tertiary-color), transparent);
-}
-
-/* FAQ Item - Card style */
+/* FAQ Item - Card style matching hypnose sections-grid */
 .faq-page .faq-item {
     position: relative;
     background: linear-gradient(145deg, #ffffff, #fafafa);
-    border-radius: 15px;
+    border-radius: 20px;
     margin-bottom: 1.5rem;
     box-shadow:
         0 10px 30px rgba(66, 96, 78, 0.08),
@@ -161,7 +143,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 5px;
     background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), var(--tertiary-color));
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -172,29 +154,11 @@
     opacity: 0.8;
 }
 
-/* Decorative corner element */
-.faq-page .faq-item::after {
-    content: '◆';
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    color: var(--secondary-color);
-    opacity: 0.05;
-    transition: all 0.5s ease;
-    pointer-events: none;
-}
-
 .faq-page .faq-item:hover {
-    transform: translateY(-5px) scale(1.01);
+    transform: translateY(-12px) scale(1.02);
     box-shadow:
         0 20px 60px rgba(66, 96, 78, 0.15),
         0 5px 20px rgba(0, 0, 0, 0.05);
-}
-
-.faq-page .faq-item:hover::after {
-    opacity: 0.15;
-    transform: rotate(45deg) scale(1.2);
 }
 
 /* FAQ Question Button */
@@ -203,7 +167,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.5rem 2rem;
+    padding: 2rem 2rem 1.5rem 2rem;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -248,22 +212,27 @@
 }
 
 .faq-page .faq-answer p {
-    line-height: 1.8;
-    color: var(--body-text);
-    font-size: 1rem;
-    margin: 0;
+    line-height: 1.85;
+    color: var(--font-color-text);
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
 }
 
-/* CTA Section */
+.faq-page .faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* CTA Section - Matching Hypnose Style */
 .faq-page .faq-cta {
     position: relative;
     overflow: hidden;
-    background: linear-gradient(135deg, rgba(228, 210, 184, 0.25), rgba(228, 210, 184, 0.25));
-    border-radius: 25px;
-    padding: 4rem 3rem;
     text-align: center;
-    margin-top: 5rem;
-    box-shadow: 0 10px 40px rgba(66, 96, 78, 0.1);
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    margin: var(--spacing-lg) 0;
+    box-shadow: var(--shadow-md);
 }
 
 .faq-page .faq-cta::before {
@@ -290,25 +259,22 @@
 }
 
 .faq-page .faq-cta h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--accent-color);
-    margin-bottom: 1.5rem;
+    font-family: 'Arsencia Antiqua', serif;
+    color: var(--white);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
 }
 
 .faq-page .faq-cta p {
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 2rem;
     font-size: 1.1rem;
-    color: var(--body-text);
-    margin-bottom: 2.5rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* CTA Buttons */
 .faq-page .cta-buttons {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -318,8 +284,9 @@
     position: relative;
     overflow: hidden;
     padding: 1rem 2.5rem;
-    font-size: 1.05rem;
-    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
     text-decoration: none;
     display: inline-block;
 }
@@ -348,20 +315,24 @@
 }
 
 .faq-page .cta-buttons .btn-primary {
-    background: var(--secondary-color);
-    color: var(--white);
-    border: 2px solid var(--secondary-color);
+    background: var(--white);
+    color: var(--secondary-color);
+}
+
+.faq-page .cta-buttons .btn-primary:hover {
+    background: var(--body-bg);
+    transform: translateY(-2px);
 }
 
 .faq-page .cta-buttons .btn-secondary {
     background: transparent;
-    color: var(--secondary-color);
-    border: 2px solid var(--secondary-color);
+    color: var(--white);
+    border: 2px solid var(--white);
 }
 
 .faq-page .cta-buttons .btn-secondary:hover {
-    background: var(--secondary-color);
-    color: var(--white);
+    background: var(--white);
+    color: var(--secondary-color);
 }
 
 /* Floating elements decoration */
@@ -398,29 +369,36 @@
     66% { transform: translateY(20px) rotate(-5deg); }
 }
 
+/* Smooth scroll reveal animation */
+.faq-page .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.faq-page .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
+    .faq-page .faq-hero {
+        min-height: 50vh;
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .faq-page .faq-hero h1 {
+        font-size: 3.5rem;
+    }
+
     .faq-page .faq-hero h1::before,
     .faq-page .faq-hero h1::after {
         display: none;
     }
 
-    .faq-page .hero-subtitle::before,
-    .faq-page .hero-subtitle::after {
-        display: none;
-    }
-
-    .faq-page .faq-hero {
-        padding: 5rem 0 4rem;
-    }
-
-    .faq-page .faq-hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .faq-page .hero-subtitle {
-        font-size: 1rem;
-        padding: 0;
+    .faq-page .faq-hero .tagline {
+        font-size: 1.3rem;
     }
 
     .faq-page .category-title {
@@ -429,7 +407,7 @@
 
     .faq-page .faq-question {
         font-size: 1rem;
-        padding: 1.2rem 1.5rem;
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
     }
 
     .faq-page .faq-answer {
@@ -445,7 +423,7 @@
     }
 
     .faq-page .faq-cta h2 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .faq-page .faq-cta p {
@@ -458,5 +436,19 @@
 
     .faq-page .cta-buttons .btn {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-page .faq-hero h1 {
+        font-size: 2.8rem;
+    }
+
+    .faq-page .faq-hero .tagline {
+        font-size: 1.1rem;
+    }
+
+    .faq-page .category-title {
+        font-size: 1.4rem;
     }
 }

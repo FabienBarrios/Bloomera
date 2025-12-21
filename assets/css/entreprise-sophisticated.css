@@ -70,6 +70,7 @@
 .entreprise-page .service-hero-content .tagline {
     position: relative;
     padding: 0;
+    color: var(--secondary-color);
 }
 
 /* Sophisticated intro section */
@@ -484,30 +485,6 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* Deontology section with elegant border - override */
-.entreprise-page .deontology-section {
-    position: relative;
-    background: var(--white);
-    border: 2px solid var(--secondary-color);
-    box-shadow: 0 4px 20px rgba(66, 96, 78, 0.1);
-}
-
-.entreprise-page .deontology-section::before {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 1px solid var(--secondary-color);
-    opacity: 0.3;
-    border-radius: var(--radius-md);
-    z-index: -1;
-}
-
-.entreprise-page .deontology-section::after {
-    display: none;
-}
 
 /* CTA section - match hypnose style */
 .entreprise-page .cta-section::before {

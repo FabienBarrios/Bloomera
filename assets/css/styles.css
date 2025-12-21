@@ -31,11 +31,11 @@
 :root {
     --primary-color: #f5f3ef;
     --secondary-color: #42604e;
-    --tertiary-color: #e5d2b8;
+    --tertiary-color: rgb(229 210 184 / 20%);
     --accent-color: #42604e;
     --body-bg: #f5f3ef;
     --body-text: #42604e;
-    --white: #f5f3ef;
+    --white: #ffffff;
     --light-gray: #f8f8f8;
     --border-color: #e0e0e0;
     --font-color-text: #020122;
@@ -308,6 +308,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .logo img {
@@ -316,7 +317,9 @@ p {
 }
 
 .main-nav {
-    flex: 1;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
     justify-content: center;
 }
@@ -789,7 +792,7 @@ p {
    ================================ */
 .classes {
     padding: var(--spacing-xl) 0;
-    background-color: var(--white);
+    background-color: var(--tertiary-color);
 }
 
 .classes-grid {
@@ -1089,7 +1092,7 @@ p {
    ================================ */
 .news {
     padding: var(--spacing-xl) 0;
-    background-color: var(--primary-color);
+    background-color: var(--tertiary-color);
 }
 
 .news-grid {
@@ -1698,12 +1701,13 @@ p {
 }
 
 .footer-column p {
-    color: rgba(255, 255, 255, 0.8);
+    color: #ffffff !important;
     margin-bottom: 1.5rem;
     line-height: 1.7;
 }
 
 .footer-column h3 {
+    color: #ffffff !important;
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
 }

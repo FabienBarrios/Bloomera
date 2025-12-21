@@ -70,12 +70,12 @@
 .hypnose-page .service-hero-content .tagline {
     position: relative;
     padding: 0;
+    color: var(--secondary-color);
 }
 
 /* Sophisticated intro section */
 .hypnose-page .intro-section {
     position: relative;
-    background: linear-gradient(to bottom, var(--white), #faf8f5);
     border: 1px solid rgba(66, 96, 78, 0.1);
 }
 
@@ -258,25 +258,29 @@
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* Deontology section with elegant border */
+/* Deontology section with double border effect */
 .hypnose-page .deontology-section {
     position: relative;
     background: var(--white);
     border: 2px solid var(--secondary-color);
-    box-shadow: 0 4px 20px rgba(66, 96, 78, 0.1);
+    box-shadow: 0 6px 25px rgba(66, 96, 78, 0.12);
 }
 
-.hypnose-page .deontology-section::before {
+.hypnose-page .deontology-section::after {
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 1px solid var(--secondary-color);
-    opacity: 0.3;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 1px solid var(--tertiary-color);
     border-radius: var(--radius-md);
     z-index: -1;
+    opacity: 0.5;
+}
+
+.hypnose-page .deontology-section h2 {
+    position: relative;
 }
 
 /* CTA section with sophisticated animation */
