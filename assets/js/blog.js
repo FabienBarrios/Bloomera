@@ -75,6 +75,23 @@ document.addEventListener('DOMContentLoaded', () => {
         newsletterCTA.classList.add('fade-in-element');
         observer.observe(newsletterCTA);
     }
+
+    // Reveal animations on scroll
+    const reveals = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, {
+        threshold: 0.15
+    });
+
+    reveals.forEach(reveal => {
+        revealObserver.observe(reveal);
+    });
 });
 
 // Smooth scroll for anchor links
