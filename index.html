@@ -46,7 +46,17 @@
     <link rel="stylesheet" href="assets/css/styles.css">
 
     <!-- Security -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://player.vimeo.com https://unpkg.com; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://player.vimeo.com; connect-src 'self';">
+    <meta http-equiv="Content-Security-Policy"
+    content="
+    default-src 'self' blob:;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval' https://player.vimeo.com;
+    style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
+    font-src 'self' https://fonts.gstatic.com;
+    img-src 'self' data: https:;
+    frame-src https://player.vimeo.com;
+    connect-src 'self' blob: data:;
+    worker-src 'self' blob:;
+    ">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -133,7 +143,7 @@
       }
     }
     </script>
-    <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+    <script src="assets/js/lottie.min.js"></script>
 
 </head>
 <body>
@@ -183,23 +193,7 @@
 
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(-150.000000,340.000000) scale(0.100000,-0.100000)" stroke="none">
-                                <path d="M3243 3369 c-95 -11 -256 -52 -335 -86 -298 -127 -478 -389 -504
-                                -735 l-7 -87 -29 46 c-78 123 -231 246 -376 302 -121 46 -377 85 -412 62 -12
-                                -8 -15 -37 -15 -148 0 -121 3 -146 24 -205 36 -101 107 -189 198 -249 119 -78
-                                314 -129 489 -129 64 0 64 0 64 29 0 50 -70 170 -140 241 -110 111 -339 245
-                                -360 210 -13 -21 -6 -27 83 -71 176 -88 312 -216 358 -336 l10 -26 -98 6
-                                c-333 20 -547 182 -585 442 -6 47 -8 105 -4 139 l8 59 91 -7 c284 -21 510
-                                -154 645 -377 101 -167 162 -411 162 -644 0 -60 2 -65 21 -65 21 0 22 2 16
-                                153 -6 165 -22 253 -69 392 -30 88 -30 93 -25 230 16 410 223 668 627 778 63
-                                18 169 33 288 42 96 7 91 18 62 -125 -62 -306 -201 -535 -400 -665 -105 -68
-                                -206 -102 -357 -120 -53 -6 -53 -6 -53 22 0 36 34 177 54 225 47 112 146 231
-                                252 304 52 36 65 56 44 69 -35 22 -228 -153 -293 -265 -44 -76 -83 -194 -97
-                                -293 -16 -111 -16 -111 99 -104 369 24 645 274 766 695 27 93 58 279 49 293
-                                -6 11 -153 9 -251 -2z"/>
-                            </g>
-                        </svg>
+                        <div id="lottie-coaching"></div>
                     </div>
                     <a href="coaching.html"><h3>Coaching</h3></a>
                     <p>Un accompagnement centré sur la compréhension du présent et la construction
@@ -210,7 +204,7 @@
 
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve"><g class="wdt-yoga-3"><g>	<g>		<path d="M61.1,97.5l-5.4-17.1c-2.1-6.5-1.9-10.9-0.7-17.7l5.8-34.5l0.5,0.1c5.8,1.1,9,5.7,8.2,11.8l-1.7,12.6   c-0.3,2.4,1.2,3.7,2.8,4c1.6,0.2,3.5-0.6,3.9-3l2.6-15.3c0.6-3.7,0.4-6.5-2.7-10L63,15.6c-1.9-2.1-2.7-4.6-2.4-6.9   c0.4-2.2,1.8-4.2,4.2-5.6l0.3-0.2l24.2,23.6l0,0.1l5.4,21.5c1.3,5.4,1.8,9.7-0.1,15.6l-9.8,33.6L61.1,97.5z M61.6,29.3l-5.6,33.5   c-1.1,6.6-1.3,10.9,0.7,17.2l5.2,16.4l22.3-0.2l9.6-32.9c1.8-5.7,1.4-9.7,0-15.1L88.4,27L65,4.1c-1.9,1.2-3.1,2.8-3.4,4.7   c-0.3,2,0.4,4.2,2.1,6.1l11.4,12.7c3.3,3.8,3.5,7,2.9,10.8l-2.6,15.3c-0.5,3-2.9,4.2-5.1,3.9c-2-0.3-4.1-2-3.7-5.1l1.7-12.7   C69.2,34.5,66.6,30.5,61.6,29.3z"></path>	</g></g><g>	<g>		<path d="M39.1,97.5l-23.8-0.1L5.5,63.7c-1.8-5.9-1.4-10.2-0.1-15.6l5.4-21.6L35.1,2.9l0.3,0.2   c2.3,1.4,3.8,3.3,4.2,5.6c0.4,2.3-0.5,4.8-2.4,6.9L25.8,28.3c-3,3.5-3.3,6.3-2.7,10l2.6,15.3c0.4,2.4,2.3,3.3,3.9,3   c1.6-0.2,3.1-1.6,2.8-4L30.7,40c-0.8-6.1,2.4-10.7,8.2-11.8l0.5-0.1l5.8,34.5c1.1,6.8,1.3,11.2-0.7,17.7L39.1,97.5z M16,96.3   l22.3,0.1L43.5,80c2-6.3,1.8-10.6,0.7-17.2l-5.6-33.5c-5,1.2-7.6,5.2-6.9,10.6l1.7,12.6c0.4,3.1-1.6,4.8-3.7,5.1   c-2.1,0.3-4.6-0.9-5.1-3.9l-2.6-15.3c-0.6-3.9-0.4-7,2.9-10.8l11.4-12.7c1.7-1.9,2.5-4.1,2.1-6.1c-0.3-1.9-1.5-3.5-3.4-4.7   L11.8,27L6.4,48.3c-1.3,5.3-1.7,9.3,0,15.1L16,96.3z"></path>	</g></g></g></svg>
+                        <div id="lottie-formation"></div>
                     </div>
                     <a href="formation.html"><h3>Formation</h3></a>
                     <p>Des formations qui allient connaissances, pratique et développement personnel. Elles vous soutiennent dans votre propre transformation pour gagner en clarté, en confiance et en élan.
@@ -219,7 +213,7 @@
 
                 <div class="benefit-card">
                     <div class="benefit-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve"><g class="wdt-yoga-4"><g>	<g>		<g>			<path d="M53.4,77.9c-20.7,0-37.6-16.8-37.6-37.6c0-20.7,16.8-37.6,37.6-37.6c20.7,0,37.6,16.8,37.6,37.6    C90.9,61.1,74.1,77.9,53.4,77.9z M53.4,3.8c-20.2,0-36.6,16.4-36.6,36.6c0,20.2,16.4,36.6,36.6,36.6c20.2,0,36.6-16.4,36.6-36.6    C89.9,20.2,73.5,3.8,53.4,3.8z"></path>		</g>		<g>			<path d="M53.4,67.6c-15,0-27.2-12.2-27.2-27.2c0-15,12.2-27.2,27.2-27.2c15,0,27.2,12.2,27.2,27.2    C80.6,55.4,68.4,67.6,53.4,67.6z M53.4,14.2c-14.4,0-26.2,11.8-26.2,26.2c0,14.4,11.8,26.2,26.2,26.2c14.4,0,26.2-11.8,26.2-26.2    C79.6,25.9,67.8,14.2,53.4,14.2z"></path>		</g>		<g>			<path d="M53.4,50.9c-5.8,0-10.5-4.7-10.5-10.5s4.7-10.5,10.5-10.5s10.5,4.7,10.5,10.5S59.2,50.9,53.4,50.9z     M53.4,30.9c-5.2,0-9.5,4.3-9.5,9.5c0,5.2,4.3,9.5,9.5,9.5s9.5-4.3,9.5-9.5C62.9,35.2,58.6,30.9,53.4,30.9z"></path>		</g>	</g>	<g>		<g>			<rect x="40.4" y="71" transform="matrix(0.383 -0.9237 0.9237 0.383 -57.9647 93.3009)" width="1" height="38.1"></rect>		</g>		<g>			<path d="M16.3,90.8c-2.3,0-4.6-1.1-6-2.9c-1.5-1.9-1.7-4.3-0.7-6.7l2.9-7c1-2.4,2.8-3.9,5.2-4.2    c2.5-0.3,5.3,0.8,6.9,2.9c1.5,1.9,1.7,4.3,0.7,6.7l-2.9,7c-1,2.4-2.8,3.9-5.2,4.2C16.9,90.8,16.6,90.8,16.3,90.8z M18.6,70.9    c-0.3,0-0.5,0-0.8,0c-2,0.3-3.6,1.5-4.4,3.6l-2.9,7c-0.9,2-0.6,4.1,0.6,5.7c1.4,1.8,3.7,2.8,6,2.5c2-0.3,3.6-1.5,4.4-3.6l2.9-7    c0.9-2,0.6-4.1-0.6-5.7C22.6,71.9,20.6,70.9,18.6,70.9z"></path>		</g>	</g></g></g></svg>
+                       <div id="lottie-entreprise"></div>
                     </div>
                     <a href="entreprise.html"><h3>Entreprise</h3></a>
                     <p>Je propose également mes services pour les professionnels : formations, ateliers thématiques, coaching et hypnose, pour renforcer le bien-être, la motivation et l'équilibre au travail.

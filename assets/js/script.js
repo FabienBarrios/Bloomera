@@ -666,33 +666,42 @@ document.addEventListener('DOMContentLoaded', () => {
 // Lottie Animations
 // ================================
 function initLottieAnimations() {
-    console.log('🎬 Initializing Lottie animations...');
     const lottieHypnose = document.getElementById('lottie-hypnose');
+    const lottiecoaching = document.getElementById('lottie-coaching');
+    const lottieformation = document.getElementById('lottie-formation');
+    const lottieentreprise = document.getElementById('lottie-entreprise');
 
-    console.log('🔍 lottie-hypnose element:', lottieHypnose);
-    console.log('🔍 lottie library loaded:', typeof lottie !== 'undefined');
+    lottie.loadAnimation({
+        container: lottieHypnose,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'assets/animations/lotus.json'
+    });
 
-    if (lottieHypnose && typeof lottie !== 'undefined') {
-        console.log('✅ Loading lotus animation...');
-        const animation = lottie.loadAnimation({
-            container: lottieHypnose,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'assets/animations/lotus.json'
-        });
+    lottie.loadAnimation({
+        container: lottiecoaching,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'assets/animations/ampoule-eco.json'
+    });
 
-        animation.addEventListener('DOMLoaded', () => {
-            console.log('✅ Lotus animation loaded successfully');
-        });
+    lottie.loadAnimation({
+        container: lottieformation,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'assets/animations/diplome.json'
+    });
 
-        animation.addEventListener('data_failed', () => {
-            console.error('❌ Failed to load lotus.json');
-        });
-    } else {
-        if (!lottieHypnose) console.error('❌ Element #lottie-hypnose not found');
-        if (typeof lottie === 'undefined') console.error('❌ Lottie library not loaded');
-    }
+    lottie.loadAnimation({
+        container: lottieentreprise,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'assets/animations/autisme.json'
+    });
 }
 
 // Initialize Lottie animations when page loads

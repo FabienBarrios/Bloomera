@@ -632,6 +632,7 @@ p {
     height: 80px;
     margin: 0 auto 1.5rem;
     transition: var(--transition);
+    /* border: 3px solid red; */  /* DEBUG - REMOVED */
 }
 
 .benefit-icon #lottie-hypnose {
