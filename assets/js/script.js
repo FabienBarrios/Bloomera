@@ -519,31 +519,31 @@ async function initCookieBanner() {
 
         try {
             cookieConsent = localStorage.getItem('cookieConsent');
-            console.log('📦 localStorage cookieConsent:', cookieConsent);
+            // console.log('📦 localStorage cookieConsent:', cookieConsent);
         } catch (e) {
-            console.warn('⚠️ localStorage inaccessible, essai du cookie fallback');
+            // console.warn('⚠️ localStorage inaccessible, essai du cookie fallback');
             // Fallback: lire le cookie
             const cookies = document.cookie.split(';');
             const consentCookie = cookies.find(c => c.trim().startsWith('cookieConsent='));
             if (consentCookie) {
                 cookieConsent = consentCookie.split('=')[1];
-                console.log('🍪 Cookie fallback trouvé:', cookieConsent);
+                // console.log('🍪 Cookie fallback trouvé:', cookieConsent);
             }
         }
 
         if (!cookieConsent) {
-            console.log('❌ Aucun consentement trouvé → Affichage bannière');
+            // console.log('❌ Aucun consentement trouvé → Affichage bannière');
             // Show banner after 1 second if no consent recorded
             setTimeout(() => {
                 const banner = document.getElementById('cookie-banner');
                 if (banner) {
                     banner.classList.remove('hidden');
                     banner.classList.add('visible');
-                    console.log('📢 Bannière cookies affichée');
+                    // console.log('📢 Bannière cookies affichée');
                 }
             }, 1000);
         } else {
-            console.log('✅ Consentement trouvé → Bannière masquée');
+            // console.log('✅ Consentement trouvé → Bannière masquée');
             // S'assurer que la bannière et le modal restent cachés
             const banner = document.getElementById('cookie-banner');
             const modal = document.getElementById('cookie-settings-modal');
@@ -551,13 +551,13 @@ async function initCookieBanner() {
             if (banner) {
                 banner.classList.add('hidden');
                 banner.remove(); // Supprimer complètement du DOM
-                console.log('🔒 Bannière supprimée du DOM');
+                // console.log('🔒 Bannière supprimée du DOM');
             }
 
             if (modal) {
                 modal.classList.add('hidden');
                 modal.remove(); // Supprimer complètement du DOM
-                console.log('🔒 Modal paramètres supprimé du DOM');
+                // console.log('🔒 Modal paramètres supprimé du DOM');
             }
 
             // Apply saved preferences
@@ -657,12 +657,12 @@ function saveCookiePreferences(preferences) {
     try {
         localStorage.setItem('cookieConsent', JSON.stringify(preferences));
         localStorage.setItem('cookieConsentDate', new Date().toISOString());
-        console.log('✅ Préférences cookies sauvegardées:', preferences);
+        // console.log('✅ Préférences cookies sauvegardées:', preferences);
     } catch (error) {
-        console.error('❌ Erreur sauvegarde localStorage:', error);
+        // console.error('❌ Erreur sauvegarde localStorage:', error);
         // Fallback: utiliser un cookie si localStorage ne marche pas
         document.cookie = `cookieConsent=${JSON.stringify(preferences)}; max-age=31536000; path=/; SameSite=Strict`;
-        console.log('✅ Fallback: préférences sauvegardées en cookie');
+        // console.log('✅ Fallback: préférences sauvegardées en cookie');
     }
 }
 
