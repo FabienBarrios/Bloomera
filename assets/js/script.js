@@ -23,12 +23,21 @@ if (document.readyState === 'loading') {
     initPageLoader();
 }
 
+// Safari fix: Timeout de sécurité pour forcer la fermeture du loader
+let loaderSafetyTimeout = setTimeout(function() {
+    const loader = document.querySelector('.page-loader');
+    if (loader) {
+        loader.classList.add('hidden');
+    }
+}, 3000); // Maximum 3 secondes
+
 window.addEventListener('load', function() {
     const loader = document.querySelector('.page-loader');
     if (loader) {
         // Afficher le loader pendant au moins 1.2s pour laisser les animations se jouer
         setTimeout(() => {
             loader.classList.add('hidden');
+            clearTimeout(loaderSafetyTimeout); // Annuler le timeout de sécurité
         }, 1200);
     }
 });
