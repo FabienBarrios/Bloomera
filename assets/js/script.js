@@ -1,4 +1,39 @@
 // ================================
+// Page Loader with Lottie
+// ================================
+function initPageLoader() {
+    const lottieLoaderElement = document.getElementById('lottie-loader');
+
+    if (lottieLoaderElement) {
+        // Charger l'animation Lottie pour le loader
+        lottie.loadAnimation({
+            container: lottieLoaderElement,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'assets/animations/lotus.json'
+        });
+    }
+}
+
+// Initialiser le loader dès que possible
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPageLoader);
+} else {
+    initPageLoader();
+}
+
+window.addEventListener('load', function() {
+    const loader = document.querySelector('.page-loader');
+    if (loader) {
+        // Afficher le loader pendant au moins 1.2s pour laisser les animations se jouer
+        setTimeout(() => {
+            loader.classList.add('hidden');
+        }, 1200);
+    }
+});
+
+// ================================
 // Load Header and Footer
 // ================================
 async function loadComponent(elementId, filePath) {
