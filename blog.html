@@ -47,7 +47,26 @@
 
     <!-- Security -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Blog - Laurie Dudout",
+      "description": "Articles, conseils et actualités sur l'hypnose, le coaching et le développement personnel.",
+      "url": "https://www.lauriedudout.fr/blog.html",
+      "publisher": {
+        "@type": "Person",
+        "name": "Laurie Dudout",
+        "url": "https://www.lauriedudout.fr"
+      },
+      "inLanguage": "fr-FR"
+    }
+    </script>
 </head>
 <body class="blog-page">
     <!-- Header Placeholder -->
@@ -248,9 +267,9 @@
             <div class="cta-section reveal">
                 <h2>Restez informé des actualités</h2>
                 <p style="color: white !important;">Inscrivez-vous à la newsletter pour recevoir nos derniers articles.</p>
-                <button class="btn">
+                <a href="#footer" class="btn">
                     S'inscrire à la newsletter
-                </button>
+                </a>
             </div>
         </div>
     </section>

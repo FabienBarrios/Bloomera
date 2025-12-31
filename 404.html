@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Page introuvable - 404 | Laurie Dudout</title>
+    <meta name="title" content="Page introuvable - 404 | Laurie Dudout">
+    <meta name="description" content="La page que vous recherchez est introuvable. Retournez à l'accueil pour découvrir nos services d'accompagnement émotionnel.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/images/Logo_principal_blanc.svg">
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
+
+    <!-- Lottie for animation -->
+    <script src="assets/js/lottie.min.js"></script>
+
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f2 100%);
+        }
+
+        .error-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6.5rem 2rem;
+        }
+
+        .error-container {
+            max-width: 600px;
+            text-align: center;
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-animation {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            color: #639874;
+            line-height: 1;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #639874 0%, #42604e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .error-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-home {
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #639874 0%, #42604e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 152, 116, 0.3);
+        }
+
+        .btn-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 152, 116, 0.4);
+        }
+
+        .btn-back {
+            padding: 1rem 2rem;
+            background: white;
+            color: #639874;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 500;
+            border: 2px solid #639874;
+            transition: all 0.3s ease;
+        }
+
+        .btn-back:hover {
+            background: #f5f7fa;
+            transform: translateY(-2px);
+        }
+
+        .helpful-links {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .helpful-links h3 {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .helpful-links ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .helpful-links a {
+            color: #639874;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .helpful-links a:hover {
+            color: #42604e;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 4rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .error-message {
+                font-size: 1rem;
+            }
+
+            .error-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .error-buttons {
+                flex-direction: column;
+            }
+
+            .helpful-links ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="error-page">
+    <!-- Header Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <!-- Error Content -->
+    <div class="error-content">
+        <div class="error-container">
+            <!-- Lottie Animation -->
+            <div id="lottie-404" class="error-animation"></div>
+
+            <!-- Error Code -->
+            <div class="error-code">404</div>
+
+            <!-- Error Title -->
+            <h1 class="error-title">Page introuvable</h1>
+
+            <!-- Error Message -->
+            <p class="error-message">
+                Désolé, la page que vous recherchez semble s'être égarée dans les méandres du web.
+                <br>
+                Peut-être a-t-elle besoin d'un accompagnement émotionnel pour retrouver son chemin ? 😊
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="error-buttons">
+                <a href="index.html" class="btn-home">Retour à l'accueil</a>
+                <a href="javascript:history.back()" class="btn-back">Page précédente</a>
+            </div>
+
+            <!-- Helpful Links -->
+            <div class="helpful-links">
+                <h3>Pages populaires :</h3>
+                <ul>
+                    <li><a href="hypnose.html">Hypnose</a></li>
+                    <li><a href="coaching.html">Coaching</a></li>
+                    <li><a href="formation.html">Formation</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/script.js"></script>
+    <script>
+        // Initialize Lottie animation for 404
+        document.addEventListener('DOMContentLoaded', function() {
+            const lottie404 = document.getElementById('lottie-404');
+
+            if (lottie404) {
+                lottie.loadAnimation({
+                    container: lottie404,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'assets/animations/lotus.json'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

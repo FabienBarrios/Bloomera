@@ -57,7 +57,7 @@ async function loadComponent(elementId, filePath) {
             element.innerHTML = html;
         }
     } catch (error) {
-        console.error(`Error loading ${filePath}:`, error);
+        // Error silently handled
     }
 }
 
@@ -322,30 +322,8 @@ if (contactForm) {
             return;
         }
 
-        // Show success message
         alert('Merci pour votre message ! Nous vous contacterons bientôt.');
-
-        // Reset form
         contactForm.reset();
-
-        // In a real application, you would send this data to a server:
-        /*
-        fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, phone, message })
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert('Message envoyé avec succès !');
-            contactForm.reset();
-        })
-        .catch(error => {
-            alert('Une erreur est survenue. Veuillez réessayer.');
-        });
-        */
     });
 }
 
@@ -369,28 +347,8 @@ function initNewsletterForm() {
                 return;
             }
 
-            // Show success message
             alert('Merci de vous être abonné à notre newsletter !');
             newsletterForm.reset();
-
-            // In a real application:
-            /*
-            fetch('/api/newsletter', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Abonnement réussi !');
-                newsletterForm.reset();
-            })
-            .catch(error => {
-                alert('Une erreur est survenue.');
-            });
-            */
         });
     }
 }
@@ -519,45 +477,34 @@ async function initCookieBanner() {
 
         try {
             cookieConsent = localStorage.getItem('cookieConsent');
-            // console.log('📦 localStorage cookieConsent:', cookieConsent);
         } catch (e) {
-            // console.warn('⚠️ localStorage inaccessible, essai du cookie fallback');
-            // Fallback: lire le cookie
             const cookies = document.cookie.split(';');
             const consentCookie = cookies.find(c => c.trim().startsWith('cookieConsent='));
             if (consentCookie) {
                 cookieConsent = consentCookie.split('=')[1];
-                // console.log('🍪 Cookie fallback trouvé:', cookieConsent);
             }
         }
 
         if (!cookieConsent) {
-            // console.log('❌ Aucun consentement trouvé → Affichage bannière');
-            // Show banner after 1 second if no consent recorded
             setTimeout(() => {
                 const banner = document.getElementById('cookie-banner');
                 if (banner) {
                     banner.classList.remove('hidden');
                     banner.classList.add('visible');
-                    // console.log('📢 Bannière cookies affichée');
                 }
             }, 1000);
         } else {
-            // console.log('✅ Consentement trouvé → Bannière masquée');
-            // S'assurer que la bannière et le modal restent cachés
             const banner = document.getElementById('cookie-banner');
             const modal = document.getElementById('cookie-settings-modal');
 
             if (banner) {
                 banner.classList.add('hidden');
-                banner.remove(); // Supprimer complètement du DOM
-                // console.log('🔒 Bannière supprimée du DOM');
+                banner.remove();
             }
 
             if (modal) {
                 modal.classList.add('hidden');
-                modal.remove(); // Supprimer complètement du DOM
-                // console.log('🔒 Modal paramètres supprimé du DOM');
+                modal.remove();
             }
 
             // Apply saved preferences
@@ -657,12 +604,8 @@ function saveCookiePreferences(preferences) {
     try {
         localStorage.setItem('cookieConsent', JSON.stringify(preferences));
         localStorage.setItem('cookieConsentDate', new Date().toISOString());
-        // console.log('✅ Préférences cookies sauvegardées:', preferences);
     } catch (error) {
-        // console.error('❌ Erreur sauvegarde localStorage:', error);
-        // Fallback: utiliser un cookie si localStorage ne marche pas
         document.cookie = `cookieConsent=${JSON.stringify(preferences)}; max-age=31536000; path=/; SameSite=Strict`;
-        // console.log('✅ Fallback: préférences sauvegardées en cookie');
     }
 }
 
