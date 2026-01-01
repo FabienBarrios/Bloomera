@@ -2,6 +2,17 @@
    Sophisticated Styles for Contact Page
    ================================ */
 
+/* Honeypot anti-bot field - Must be invisible but accessible for bots */
+.honeypot {
+    position: absolute !important;
+    left: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+}
+
 /* Background animations */
 @keyframes pulse {
     0%, 100% {

@@ -139,6 +139,12 @@
                             <textarea id="message" name="message" rows="6" required></textarea>
                         </div>
 
+                        <!-- Honeypot: champ caché pour bloquer les bots -->
+                        <div class="form-group honeypot" aria-hidden="true">
+                            <label for="website">Site web (ne pas remplir)</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
                         <div class="form-group checkbox-group">
                             <input type="checkbox" id="consent" name="consent" required>
                             <label for="consent">
