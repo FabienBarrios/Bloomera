@@ -198,7 +198,8 @@
     transition: all 0.3s ease;
 }
 
-#lottie-gift-card {
+#lottie-gift-card,
+#lottie-headphones {
     width: 60px;
     height: 60px;
 }

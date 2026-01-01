@@ -71,7 +71,7 @@
 
             <p class="construction-text">
                 Nous travaillons actuellement sur notre boutique en ligne pour vous offrir
-                une sélection exclusive de produits de bien-être et de développement personnel.
+                une sélection exclusive d'audio d'hypnose.
                 <br><br>
                 En attendant, n'hésitez pas à me contacter directement pour toute question
                 ou à découvrir mes services d'accompagnement.
@@ -99,7 +99,9 @@
                 <h3 class="preview-title">Ce qui vous attend bientôt...</h3>
                 <div class="preview-grid">
                     <div class="preview-item">
-                        <div class="preview-icon">🎧</div>
+                        <div class="preview-icon">
+                            <div id="lottie-headphones"></div>
+                        </div>
                         <h3>Audio Hypnose</h3>
                         <p>Audios pour la relaxation et le bien-être</p>
                     </div>
@@ -146,6 +148,18 @@
                     loop: true,
                     autoplay: true,
                     path: 'assets/animations/carte-cadeau2.json'
+                });
+            }
+
+            // Animation livre audio
+            const lottieHeadphones = document.getElementById('lottie-headphones');
+            if (lottieHeadphones) {
+                lottie.loadAnimation({
+                    container: lottieHeadphones,
+                    renderer: 'svg',
+                    loop: true,
+                    autoplay: true,
+                    path: 'assets/animations/livre-audio.json'
                 });
             }
         });
