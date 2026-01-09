@@ -539,10 +539,20 @@ p {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Header avec fond blanc semi-transparent sur index */
+body.index-page .header {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 /* Header avec fond blanc au scroll */
 .header.scrolled {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
+}
+
+/* Forcer le fond blanc à 100% sur index quand scrollé */
+body.index-page .header.scrolled {
+    background-color: var(--white);
 }
 
 .header-content {
@@ -746,18 +756,16 @@ p {
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 0.8s ease;
-    font-family: var(--font-title);
+    font-family: var(--font-title), serif;
 }
 
 .hero-subtitle {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 0.8s ease 0.2s backwards;
-    font-family: var(--font-title);
+    font-family: var(--font-title), serif;
 }
 
 .hero-animated-text {
@@ -934,6 +942,11 @@ p {
     margin-bottom: 1rem;
     color: var(--accent-color);
     font-family: var(--font-title);
+    transition: color 0.3s ease;
+}
+
+.benefit-card a:hover h3 {
+    color: #e5d2b8;
 }
 
 .benefit-card p {
