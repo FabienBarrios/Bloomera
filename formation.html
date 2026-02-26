@@ -161,70 +161,54 @@
             <!-- Catalogue -->
             <div class="service-section reveal">
                 <h2>Catalogue des formations</h2>
-                <div class="catalog-slider">
-                    <!-- Formation 1 -->
-                    <div class="training-card active">
-                        <h3>Vivre en harmonie avec ses émotions</h3>
-                        <p class="training-type">Formation en ligne • 3h</p>
-                        <div class="training-description">
-                            <p>
-                                Apprenez à comprendre, accueillir et gérer vos émotions au quotidien pour retrouver sérénité et équilibre.
-                            </p>
-                            <p>
-                                Cette formation vous offre des outils concrets et accessibles pour transformer votre relation aux émotions.
-                            </p>
+                <div class="training-carousel">
+                    <div class="training-carousel-viewport">
+                    <div class="training-carousel-track">
+                        <!-- Formation 1 -->
+                        <div class="training-card">
+                            <h3>Vivre en harmonie avec ses émotions</h3>
+                            <p class="training-type">Formation en ligne • 3h</p>
+                            <div class="training-description">
+                                <p>Apprenez à comprendre, accueillir et gérer vos émotions au quotidien pour retrouver sérénité et équilibre.</p>
+                                <p>Cette formation vous offre des outils concrets et accessibles pour transformer votre relation aux émotions.</p>
+                            </div>
+                            <div class="training-ideal">
+                                Pour mieux vivre avec vos émotions et développer votre intelligence émotionnelle.
+                            </div>
+                            <a href="./assets/documents/Vivre_Harmonie_Emotions.pdf" class="training-link">Télécharger le programme →</a>
                         </div>
-                        <div class="training-ideal">
-                            Pour mieux vivre avec vos émotions et développer votre intelligence émotionnelle.
-                        </div>
-                        <a href="#vivre-harmonie-emotions" class="training-link">Télécharger le programme →</a>
-                    </div>
 
-                    <!-- Formation 2 -->
-                    <div class="training-card">
-                        <h3>Les bases de l'hypnose SAJECE</h3>
-                        <p class="training-type">Formation à distance • 7h</p>
-                        <div class="training-description">
-                            <p>
-                                Découvrez les fondamentaux de l'hypnose SAJECE, une approche douce et bienveillante pour accompagner le changement.
-                            </p>
-                            <p>
-                                Formation théorique et pratique pour comprendre les mécanismes de l'hypnose et ses applications.
-                            </p>
+                        <!-- Formation 2 -->
+                        <div class="training-card">
+                            <h3>Les bases de l'hypnose SAJECE</h3>
+                            <p class="training-type">Formation à distance • 7h</p>
+                            <div class="training-description">
+                                <p>Découvrez les fondamentaux de l'hypnose SAJECE, une approche douce et bienveillante pour accompagner le changement.</p>
+                                <p>Formation théorique et pratique pour comprendre les mécanismes de l'hypnose et ses applications.</p>
+                            </div>
+                            <div class="training-ideal">
+                                Pour les professionnels de l'accompagnement ou toute personne souhaitant découvrir l'hypnose.
+                            </div>
+                            <a href="./assets/documents/Bases_Hypnose_SAJECE.pdf" class="training-link">Télécharger le programme →</a>
                         </div>
-                        <div class="training-ideal">
-                            Pour les professionnels de l'accompagnement ou toute personne souhaitant découvrir l'hypnose.
-                        </div>
-                        <a href="#bases-hypnose-sajece" class="training-link">Télécharger le programme →</a>
-                    </div>
 
-                    <!-- Formation 3 -->
-                    <div class="training-card">
-                        <h3>Communication bienveillante</h3>
-                        <p class="training-type">Formation à distance • 7h</p>
-                        <div class="training-description">
-                            <p>
-                                Développez une communication authentique et respectueuse pour améliorer vos relations personnelles et professionnelles.
-                            </p>
-                            <p>
-                                Apprenez à exprimer vos besoins, à écouter activement et à résoudre les conflits avec douceur.
-                            </p>
+                        <!-- Formation 3 -->
+                        <div class="training-card">
+                            <h3>Communication bienveillante</h3>
+                            <p class="training-type">Formation à distance • 7h</p>
+                            <div class="training-description">
+                                <p>Développez une communication authentique et respectueuse pour améliorer vos relations personnelles et professionnelles.</p>
+                                <p>Apprenez à exprimer vos besoins, à écouter activement et à résoudre les conflits avec douceur.</p>
+                            </div>
+                            <div class="training-ideal">
+                                Pour transformer vos relations et créer des liens plus authentiques et apaisés.
+                            </div>
+                            <a href="./assets/documents/Communication_Bienveillante.pdf" class="training-link">Télécharger le programme →</a>
                         </div>
-                        <div class="training-ideal">
-                            Pour transformer vos relations et créer des liens plus authentiques et apaisés.
-                        </div>
-                        <a href="#communication-bienveillante" class="training-link">Télécharger le programme →</a>
                     </div>
-                </div>
-
-                <div class="catalog-nav">
-                    <button class="catalog-prev" aria-label="Précédent">←</button>
-                    <div class="catalog-dots">
-                        <span class="dot active"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
                     </div>
-                    <button class="catalog-next" aria-label="Suivant">→</button>
+                    <button class="training-carousel-prev" aria-label="Précédent">←</button>
+                    <button class="training-carousel-next" aria-label="Suivant">→</button>
                 </div>
             </div>
 
@@ -246,7 +230,7 @@
             <!-- Call to Action -->
             <div class="cta-section reveal">
                 <h2>Envie de te former ?</h2>
-                <p style="color: white !important;">Découvre mes formations et inscris-toi à la prochaine session</p>
+                <p style="color: white !important;">Inscris-toi et développe tes compétences</p>
                 <div class="cta-buttons">
                     <a href="contact.html" class="btn">
                         Me contacter pour une formation
@@ -286,57 +270,72 @@
             setTimeout(reveal, 100);
         });
 
-        // Catalog Carousel
-        const catalogCards = document.querySelectorAll('.catalog-slider .training-card');
-        const catalogDots = document.querySelectorAll('.catalog-dots .dot');
-        const catalogPrev = document.querySelector('.catalog-prev');
-        const catalogNext = document.querySelector('.catalog-next');
-        let currentCatalog = 0;
+        // Training Carousel
+        (function() {
+            var viewport = document.querySelector('.training-carousel-viewport');
+            var track = document.querySelector('.training-carousel-track');
+            var prevBtn = document.querySelector('.training-carousel-prev');
+            var nextBtn = document.querySelector('.training-carousel-next');
+            if (!viewport || !track || !prevBtn || !nextBtn) return;
 
-        function showCatalog(index) {
-            catalogCards.forEach(card => card.classList.remove('active'));
-            catalogDots.forEach(dot => dot.classList.remove('active'));
+            var cards = track.querySelectorAll('.training-card');
+            var currentIndex = 0;
 
-            if (catalogCards[index]) {
-                catalogCards[index].classList.add('active');
+            function getVisibleCount() {
+                if (window.innerWidth <= 768) return 1;
+                if (window.innerWidth <= 1024) return 2;
+                return 3;
             }
-            if (catalogDots[index]) {
-                catalogDots[index].classList.add('active');
+
+            function getMaxIndex() {
+                return Math.max(0, cards.length - getVisibleCount());
             }
-        }
 
-        function nextCatalog() {
-            currentCatalog = (currentCatalog + 1) % catalogCards.length;
-            showCatalog(currentCatalog);
-        }
+            function updateCarousel() {
+                var visibleCount = getVisibleCount();
+                var gap = 40;
+                var containerWidth = viewport.clientWidth;
+                var cardWidth = (containerWidth - gap * (visibleCount - 1)) / visibleCount;
 
-        function prevCatalog() {
-            currentCatalog = (currentCatalog - 1 + catalogCards.length) % catalogCards.length;
-            showCatalog(currentCatalog);
-        }
+                cards.forEach(function(card) {
+                    card.style.width = cardWidth + 'px';
+                    card.style.minWidth = cardWidth + 'px';
+                });
 
-        if (catalogNext) catalogNext.addEventListener('click', nextCatalog);
-        if (catalogPrev) catalogPrev.addEventListener('click', prevCatalog);
+                var offset = currentIndex * (cardWidth + gap);
+                track.style.transform = 'translateX(-' + offset + 'px)';
 
-        catalogDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentCatalog = index;
-                showCatalog(currentCatalog);
+                var maxIndex = getMaxIndex();
+                if (maxIndex > 0) {
+                    prevBtn.classList.toggle('visible', currentIndex > 0);
+                    nextBtn.classList.toggle('visible', currentIndex < maxIndex);
+                } else {
+                    prevBtn.classList.remove('visible');
+                    nextBtn.classList.remove('visible');
+                }
+            }
+
+            nextBtn.addEventListener('click', function() {
+                if (currentIndex < getMaxIndex()) {
+                    currentIndex++;
+                    updateCarousel();
+                }
             });
-        });
 
-        // Auto-play catalog
-        let catalogInterval = setInterval(nextCatalog, 5000);
+            prevBtn.addEventListener('click', function() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
 
-        const catalogSection = document.querySelector('.catalog-slider');
-        if (catalogSection) {
-            catalogSection.closest('.service-section').addEventListener('mouseenter', () => {
-                clearInterval(catalogInterval);
+            updateCarousel();
+
+            window.addEventListener('resize', function() {
+                currentIndex = Math.min(currentIndex, getMaxIndex());
+                updateCarousel();
             });
-            catalogSection.closest('.service-section').addEventListener('mouseleave', () => {
-                catalogInterval = setInterval(nextCatalog, 5000);
-            });
-        }
+        })();
     </script>
 </body>
 </html>

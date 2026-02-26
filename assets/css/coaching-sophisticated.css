@@ -370,7 +370,6 @@
 
 .coaching-page .service-section ul li:hover {
     transform: translateX(8px);
-    padding-left: 3rem;
 }
 
 .coaching-page .service-section ul li::before {

@@ -99,9 +99,12 @@
     content: '•';
     position: absolute;
     left: 0;
+    top: 50%;
+    transform: translateY(-50%);
     color: var(--font-color-text);
     font-weight: bold;
     font-size: 2rem;
+    line-height: 1;
 }
 
 /* Intro Section */

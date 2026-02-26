@@ -558,14 +558,24 @@
     left: 0;
 }
 
-/* Catalog slider layout */
-.formation-page .catalog-slider {
-    max-width: 100%;
-    margin: 3rem auto 0;
+/* Training carousel */
+.formation-page .training-carousel {
     position: relative;
+    margin-top: 3rem;
+    padding: 0 60px 1rem;
 }
 
-/* Training cards - carousel style */
+.formation-page .training-carousel-viewport {
+    overflow: hidden;
+}
+
+.formation-page .training-carousel-track {
+    display: flex;
+    gap: 2.5rem;
+    transition: transform 0.5s ease;
+}
+
+/* Training cards */
 .formation-page .training-card {
     position: relative;
     background: linear-gradient(145deg, #ffffff, #fafafa);
@@ -575,70 +585,52 @@
     box-shadow:
         0 10px 30px rgba(66, 96, 78, 0.08),
         0 1px 8px rgba(0, 0, 0, 0.03);
-    display: none;
+    display: flex;
     flex-direction: column;
     border: 1px solid rgba(66, 96, 78, 0.08);
+    transition: var(--transition);
+    flex-shrink: 0;
 }
 
-.formation-page .training-card.active {
-    display: flex;
-    animation: catalogFadeIn 0.5s ease;
-}
-
-@keyframes catalogFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Catalog navigation */
-.formation-page .catalog-nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5rem;
-    margin-top: 2rem;
-}
-
-.formation-page .catalog-prev,
-.formation-page .catalog-next {
-    background-color: rgba(255, 255, 255, 0.2);
+/* Carousel navigation arrows */
+.formation-page .training-carousel-prev,
+.formation-page .training-carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--white);
     color: var(--secondary-color);
     border: 2px solid var(--secondary-color);
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(66, 96, 78, 0.15);
 }
 
-.formation-page .catalog-prev:hover,
-.formation-page .catalog-next:hover {
-    background-color: var(--secondary-color);
-    color: var(--white);
+.formation-page .training-carousel-prev {
+    left: 0;
 }
 
-.formation-page .catalog-dots {
+.formation-page .training-carousel-next {
+    right: 0;
+}
+
+.formation-page .training-carousel-prev.visible,
+.formation-page .training-carousel-next.visible {
     display: flex;
-    gap: 0.8rem;
-    align-items: center;
 }
 
-.formation-page .catalog-dots .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(66, 96, 78, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.formation-page .catalog-dots .dot.active {
-    background-color: var(--secondary-color);
-    transform: scale(1.2);
+.formation-page .training-carousel-prev:hover,
+.formation-page .training-carousel-next:hover {
+    background: var(--secondary-color);
+    color: var(--white);
 }
 
 /* Decorative top border with gradient for training cards */
@@ -854,14 +846,15 @@
         gap: 2rem;
     }
 
-    .formation-page .catalog-slider {
-        max-width: 100%;
+    .formation-page .training-carousel {
+        padding: 0 45px 1rem;
     }
 
-    .formation-page .catalog-prev,
-    .formation-page .catalog-next {
-        width: 40px;
-        height: 40px;
+    .formation-page .training-carousel-prev,
+    .formation-page .training-carousel-next {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
     }
 
     .formation-page .cta-buttons {
