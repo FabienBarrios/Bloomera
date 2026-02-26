@@ -1050,6 +1050,116 @@ body.index-page .header.scrolled {
 }
 
 /* ================================
+   Discovery Offer Section
+   ================================ */
+.discovery-offer {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--white);
+}
+
+.discovery-offer-card {
+    max-width: 700px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, #ffffff, #fafafa);
+    border: 2px solid var(--secondary-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-md);
+}
+
+.discovery-offer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), #e5d2b8);
+}
+
+.discovery-offer-content {
+    padding: 3rem;
+    text-align: center;
+}
+
+.discovery-offer-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    padding: 0.4rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.discovery-offer-content h2 {
+    font-family: var(--font-title);
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.discovery-offer-content p {
+    color: var(--body-text);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-discovery {
+    display: inline-block;
+    padding: 0.9rem 2.5rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 1rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-discovery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--secondary-color);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.btn-discovery:hover {
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66, 96, 78, 0.2);
+}
+
+.btn-discovery:hover::before {
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .discovery-offer-content {
+        padding: 2rem 1.5rem;
+    }
+
+    .discovery-offer-content h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ================================
    Classes Section
    ================================ */
 .classes {

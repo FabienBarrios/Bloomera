@@ -161,10 +161,9 @@
             <!-- Catalogue -->
             <div class="service-section reveal">
                 <h2>Catalogue des formations</h2>
-                <div class="catalog-grid">
-<!--                    todo : mettre en format horizontal comme dans les témoignages dans l'index-->
+                <div class="catalog-slider">
                     <!-- Formation 1 -->
-                    <div class="training-card">
+                    <div class="training-card active">
                         <h3>Vivre en harmonie avec ses émotions</h3>
                         <p class="training-type">Formation en ligne • 3h</p>
                         <div class="training-description">
@@ -216,6 +215,16 @@
                         </div>
                         <a href="#communication-bienveillante" class="training-link">Télécharger le programme →</a>
                     </div>
+                </div>
+
+                <div class="catalog-nav">
+                    <button class="catalog-prev" aria-label="Précédent">←</button>
+                    <div class="catalog-dots">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <button class="catalog-next" aria-label="Suivant">→</button>
                 </div>
             </div>
 
@@ -276,6 +285,58 @@
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(reveal, 100);
         });
+
+        // Catalog Carousel
+        const catalogCards = document.querySelectorAll('.catalog-slider .training-card');
+        const catalogDots = document.querySelectorAll('.catalog-dots .dot');
+        const catalogPrev = document.querySelector('.catalog-prev');
+        const catalogNext = document.querySelector('.catalog-next');
+        let currentCatalog = 0;
+
+        function showCatalog(index) {
+            catalogCards.forEach(card => card.classList.remove('active'));
+            catalogDots.forEach(dot => dot.classList.remove('active'));
+
+            if (catalogCards[index]) {
+                catalogCards[index].classList.add('active');
+            }
+            if (catalogDots[index]) {
+                catalogDots[index].classList.add('active');
+            }
+        }
+
+        function nextCatalog() {
+            currentCatalog = (currentCatalog + 1) % catalogCards.length;
+            showCatalog(currentCatalog);
+        }
+
+        function prevCatalog() {
+            currentCatalog = (currentCatalog - 1 + catalogCards.length) % catalogCards.length;
+            showCatalog(currentCatalog);
+        }
+
+        if (catalogNext) catalogNext.addEventListener('click', nextCatalog);
+        if (catalogPrev) catalogPrev.addEventListener('click', prevCatalog);
+
+        catalogDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentCatalog = index;
+                showCatalog(currentCatalog);
+            });
+        });
+
+        // Auto-play catalog
+        let catalogInterval = setInterval(nextCatalog, 5000);
+
+        const catalogSection = document.querySelector('.catalog-slider');
+        if (catalogSection) {
+            catalogSection.closest('.service-section').addEventListener('mouseenter', () => {
+                clearInterval(catalogInterval);
+            });
+            catalogSection.closest('.service-section').addEventListener('mouseleave', () => {
+                catalogInterval = setInterval(nextCatalog, 5000);
+            });
+        }
     </script>
 </body>
 </html>

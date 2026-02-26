@@ -1,0 +1,407 @@
+/* ================================
+   About Page - Sophisticated Styles
+   ================================ */
+
+/* About Intro - Photo + Text */
+.propos-page .about-intro {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.propos-page .about-intro-image {
+    flex: 0 0 280px;
+}
+
+.propos-page .about-intro-image img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.propos-page .about-intro-text {
+    flex: 1;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.propos-page .about-intro-text h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.propos-page .about-subtitle {
+    color: var(--secondary-color);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(66, 96, 78, 0.1);
+}
+
+.propos-page .about-intro-text p {
+    color: var(--body-text);
+    line-height: 1.85;
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
+
+.propos-page .about-intro-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* About Section - Mon parcours */
+.propos-page .about-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.propos-page .about-section h2 {
+    color: var(--secondary-color);
+    font-family: "Arsencia Antiqua", serif;
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Timeline */
+.propos-page .about-timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.propos-page .about-timeline::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--secondary-color), #e5d2b8);
+}
+
+.propos-page .timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+.propos-page .timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.propos-page .timeline-marker {
+    position: absolute;
+    left: -3rem;
+    top: 0.3rem;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 3px solid var(--secondary-color);
+    z-index: 1;
+}
+
+.propos-page .timeline-marker::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+}
+
+.propos-page .timeline-content {
+    background: linear-gradient(145deg, #ffffff, #fafafa);
+    padding: 2rem 2.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow:
+        0 10px 30px rgba(66, 96, 78, 0.08),
+        0 1px 8px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(66, 96, 78, 0.08);
+    position: relative;
+}
+
+.propos-page .timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), #e5d2b8);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    opacity: 0.7;
+}
+
+.propos-page .timeline-content h3 {
+    color: var(--accent-color);
+    font-family: "Arsencia Antiqua", serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.propos-page .timeline-content p {
+    color: var(--body-text);
+    line-height: 1.85;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* Method Section - Les 3C */
+.propos-page .about-method {
+    margin-bottom: var(--spacing-lg);
+}
+
+.propos-page .about-method h2 {
+    color: var(--secondary-color);
+    font-family: "Arsencia Antiqua", serif;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.propos-page .about-method-intro {
+    text-align: center;
+    color: var(--body-text);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.propos-page .method-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.propos-page .method-card {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #fafafa);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow:
+        0 10px 30px rgba(66, 96, 78, 0.08),
+        0 1px 8px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(66, 96, 78, 0.08);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.propos-page .method-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), #e5d2b8);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    opacity: 0.8;
+}
+
+.propos-page .method-card:hover {
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 60px rgba(66, 96, 78, 0.15),
+        0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.propos-page .method-number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.propos-page .method-card h3 {
+    color: var(--accent-color);
+    font-family: "Arsencia Antiqua", serif;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.propos-page .method-card p {
+    color: var(--body-text);
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* CTA section with sophisticated animation */
+.propos-page .cta-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.propos-page .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: propos-rotate 20s linear infinite;
+}
+
+@keyframes propos-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.propos-page .cta-section h2,
+.propos-page .cta-section p,
+.propos-page .cta-section .btn {
+    position: relative;
+    z-index: 1;
+}
+
+.propos-page .cta-section .btn {
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.propos-page .cta-section .btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.propos-page .cta-section .btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.propos-page .cta-section .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Smooth scroll reveal animation */
+.propos-page .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.propos-page .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animation delays */
+.propos-page .reveal:nth-child(1) { transition-delay: 0.1s; }
+.propos-page .reveal:nth-child(2) { transition-delay: 0.2s; }
+.propos-page .reveal:nth-child(3) { transition-delay: 0.3s; }
+.propos-page .reveal:nth-child(4) { transition-delay: 0.4s; }
+.propos-page .reveal:nth-child(5) { transition-delay: 0.5s; }
+
+/* Sections Grid override for about page */
+.propos-page .sections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .propos-page .about-intro {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .propos-page .about-intro-image {
+        flex: 1;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .propos-page .about-intro-text {
+        padding: 2rem 1.5rem;
+    }
+
+    .propos-page .about-intro-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .propos-page .about-section h2,
+    .propos-page .about-method h2 {
+        font-size: 1.8rem;
+    }
+
+    .propos-page .about-timeline {
+        padding-left: 2.5rem;
+    }
+
+    .propos-page .timeline-marker {
+        left: -2.5rem;
+        width: 22px;
+        height: 22px;
+    }
+
+    .propos-page .timeline-marker::after {
+        width: 8px;
+        height: 8px;
+    }
+
+    .propos-page .timeline-content {
+        padding: 1.5rem;
+    }
+
+    .propos-page .method-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .propos-page .sections-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .propos-page .about-intro-text h2 {
+        font-size: 2rem;
+    }
+
+    .propos-page .timeline-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .propos-page .method-card {
+        padding: 2rem 1.5rem;
+    }
+}
