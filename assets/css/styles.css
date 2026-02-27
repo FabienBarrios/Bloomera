@@ -748,16 +748,24 @@ body.index-page .header.scrolled {
 .hero-content {
     text-align: center;
     z-index: 1;
-    max-width: 920px;
+    width: 100%;
     padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: clamp(2rem, 4vw, 4rem);
     font-weight: 700;
     margin-bottom: 1.5rem;
     animation: fadeInUp 0.8s ease;
     font-family: var(--font-title), serif;
+    white-space: nowrap;
+    text-align: center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-subtitle {
