@@ -391,7 +391,7 @@ button {
 }
 
 p {
-    color: var(--font-color-text) !important;
+    color: var(--font-color-text);
 }
 
 /* ================================
@@ -2244,6 +2244,10 @@ body.index-page .header.scrolled {
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-bottom p {
+    color: white;
 }
 
 /* ================================
