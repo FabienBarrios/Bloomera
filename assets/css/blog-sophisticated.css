@@ -1,97 +1,6 @@
 /* ================================
-   Sophisticated Styles for Blog Page - Matching Hypnose Style
+   Sophisticated Styles for Blog Page
    ================================ */
-
-/* Hero Section Enhancements - Matching Hypnose Style */
-.blog-page .blog-hero {
-    position: relative;
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(228, 210, 184, 0.45), rgba(228, 210, 184, 0.45)), url('../images/background.png');
-    background-size: cover;
-    background-position: center;
-    color: var(--body-text);
-    text-align: center;
-    padding: 10rem 2rem 4rem;
-    overflow: hidden;
-}
-
-/* Animated pulse overlay */
-.blog-page .blog-hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-    animation: pulse 15s ease-in-out infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-    50% { transform: scale(1.1) rotate(180deg); opacity: 0.5; }
-}
-
-.blog-page .blog-hero .container {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-/* Decorative stars around title */
-.blog-page .blog-hero h1 {
-    position: relative;
-    display: inline-block;
-    font-family: 'Great Vibes', cursive;
-    font-size: 5rem;
-    color: var(--secondary-color);
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.blog-page .blog-hero h1::after {
-    content: '';
-    position: absolute;
-    right: -60px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: var(--secondary-color);
-    opacity: 0.6;
-    animation: twinkle 3s ease-in-out infinite;
-}
-
-.blog-page .blog-hero h1::before {
-    content: '';
-    position: absolute;
-    left: -60px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2rem;
-    color: var(--secondary-color);
-    opacity: 0.6;
-    animation: twinkle 3s ease-in-out infinite 1.5s;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(1); }
-    50% { opacity: 0.8; transform: translateY(-50%) scale(1.2); }
-}
-
-/* Hero subtitle styling - Matching Hypnose Style */
-.blog-page .hero-subtitle {
-    position: relative;
-    padding: 0;
-    font-style: italic;
-    font-size: 1.6rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
-    font-weight: 300;
-}
 
 /* Filter Section */
 .blog-page .blog-filters {
@@ -554,24 +463,6 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .blog-page .blog-hero {
-        min-height: 50vh;
-        padding: 6rem 1.5rem 3rem;
-    }
-
-    .blog-page .blog-hero h1 {
-        font-size: 3.5rem;
-    }
-
-    .blog-page .blog-hero h1::before,
-    .blog-page .blog-hero h1::after {
-        display: none;
-    }
-
-    .blog-page .hero-subtitle {
-        font-size: 1.3rem;
-    }
-
     .blog-page .filter-buttons {
         gap: 0.8rem;
     }
@@ -608,11 +499,4 @@
 }
 
 @media (max-width: 480px) {
-    .blog-page .blog-hero h1 {
-        font-size: 2.8rem;
-    }
-
-    .blog-page .hero-subtitle {
-        font-size: 1.1rem;
-    }
 }

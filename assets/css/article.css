@@ -232,64 +232,56 @@
     margin-bottom: 0;
 }
 
-/* Article CTA */
-.article-page .article-cta {
-    text-align: center;
-    padding: 3rem 2rem;
-    margin-top: 3rem;
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    border-radius: var(--radius-lg);
+/* CTA Section - Matching other pages */
+.article-page .cta-section {
     position: relative;
     overflow: hidden;
 }
 
-.article-page .article-cta::before {
+.article-page .cta-section::before {
     content: '';
     position: absolute;
     top: -50%;
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
-    animation: articleCtaPulse 15s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: articleCtaRotate 20s linear infinite;
 }
 
-@keyframes articleCtaPulse {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.1); opacity: 0.5; }
+@keyframes articleCtaRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.article-page .article-cta h3 {
-    color: var(--white);
-    font-size: 1.8rem;
-    margin-top: 0;
-    margin-bottom: 0.8rem;
+.article-page .cta-section h2,
+.article-page .cta-section p,
+.article-page .cta-section .btn {
     position: relative;
     z-index: 1;
 }
 
-.article-page .article-cta p {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
+.article-page .cta-section .btn {
+    transition: all 0.4s ease;
     position: relative;
-    z-index: 1;
+    overflow: hidden;
 }
 
-.article-page .article-cta .btn {
-    background: var(--white);
-    color: var(--secondary-color);
-    padding: 1rem 2.5rem;
-    font-weight: 600;
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s ease;
-}
-
-.article-page .article-cta .btn:hover {
-    background: var(--body-bg);
+.article-page .cta-section .btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Reveal animation */
+.article-page .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.article-page .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* ================================
@@ -533,13 +525,6 @@
         padding: 2rem;
     }
 
-    .article-page .article-cta {
-        padding: 2.5rem 1.5rem;
-    }
-
-    .article-page .article-cta h3 {
-        font-size: 1.5rem;
-    }
 }
 
 @media (max-width: 480px) {

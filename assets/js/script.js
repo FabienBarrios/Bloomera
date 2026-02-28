@@ -45,15 +45,33 @@ window.addEventListener('load', function() {
 // ================================
 // Load Header and Footer
 // ================================
-async function loadComponent(elementId, filePath) {
+// Detect base path for components (supports subfolders like blog/)
+function getBasePath() {
+    const scripts = document.querySelectorAll('script[src]');
+    for (const script of scripts) {
+        const src = script.getAttribute('src');
+        if (src.includes('assets/js/script.js')) {
+            return src.replace('assets/js/script.js', '');
+        }
+    }
+    return '';
+}
+
+async function loadComponent(elementId, filePath, basePath) {
     try {
         const response = await fetch(filePath);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const html = await response.text();
+        let html = await response.text();
         const element = document.getElementById(elementId);
         if (element) {
+            // Rewrite relative paths if loaded from a subfolder
+            if (basePath && basePath !== '') {
+                html = html.replace(/(src|href)="(?!https?:\/\/|#|mailto:|tel:|\/)([^"]*?)"/g, function(match, attr, path) {
+                    return attr + '="' + basePath + path + '"';
+                });
+            }
             element.innerHTML = html;
         }
     } catch (error) {
@@ -63,8 +81,9 @@ async function loadComponent(elementId, filePath) {
 
 // Load header and footer when DOM is loaded
 async function loadHeaderAndFooter() {
-    await loadComponent('header-placeholder', 'header.html');
-    await loadComponent('footer-placeholder', 'footer.html');
+    const base = getBasePath();
+    await loadComponent('header-placeholder', base + 'header.html', base);
+    await loadComponent('footer-placeholder', base + 'footer.html', base);
 
     // Re-initialize header-dependent scripts after header is loaded
     initHeaderScripts();
@@ -468,7 +487,9 @@ function decodeEmail() {
 async function initCookieBanner() {
     try {
         // Load cookie banner HTML
-        const response = await fetch('cookie-banner.html');
+        const base = getBasePath();
+        const response = await fetch(base + 'cookie-banner.html');
+        if (!response.ok) throw new Error('Cookie banner not found');
         const html = await response.text();
         document.body.insertAdjacentHTML('beforeend', html);
 
