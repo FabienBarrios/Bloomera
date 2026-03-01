@@ -2286,6 +2286,10 @@ body.index-page .header.scrolled {
         padding: 0 15px;
     }
 
+    .header {
+        padding: 0.6rem 0;
+    }
+
     .main-nav {
         position: static;
         transform: none;
@@ -2296,13 +2300,15 @@ body.index-page .header.scrolled {
         position: fixed;
         top: 0;
         left: -100%;
-        width: 100%;
+        width: 85%;
+        max-width: 320px;
         height: 100vh;
-        background-color: var(--white);
+        height: 100dvh;
+        background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
         flex-direction: column;
-        padding: 6rem 2rem 2rem;
-        box-shadow: var(--shadow-lg);
-        transition: left 0.3s ease;
+        padding: 5rem 1.5rem 2rem;
+        box-shadow: 4px 0 25px rgba(0, 0, 0, 0.15);
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
         gap: 0;
         overflow-y: auto;
@@ -2315,20 +2321,27 @@ body.index-page .header.scrolled {
     .nav-list li {
         margin: 0;
         width: 100%;
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid rgba(66, 96, 78, 0.08);
+    }
+
+    .nav-list li:last-child {
+        border-bottom: none;
     }
 
     .nav-list > li > a {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
         display: block;
-        padding: 1rem 0;
+        padding: 1rem 0.5rem;
+        font-weight: 500;
+        color: var(--accent-color);
+        letter-spacing: 0.3px;
     }
 
     .nav-list a::after {
         display: none;
     }
 
-    /* Dropdown on mobile */
+    /* Dropdown mobile */
     .dropdown-menu {
         position: static;
         opacity: 1;
@@ -2336,8 +2349,9 @@ body.index-page .header.scrolled {
         transform: translateY(0);
         box-shadow: none;
         border: none;
-        background-color: #faf8f5;
-        margin-top: 0;
+        background: rgba(66, 96, 78, 0.04);
+        border-radius: 8px;
+        margin: 0 0 0.5rem 0;
         padding: 0;
         max-height: 0;
         overflow: hidden;
@@ -2346,20 +2360,33 @@ body.index-page .header.scrolled {
 
     .has-dropdown.active .dropdown-menu {
         max-height: 300px;
-        padding: 0.5rem 0;
+        padding: 0.4rem 0;
     }
 
     .dropdown-menu a {
-        font-size: 1rem;
-        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+        padding: 0.7rem 1.2rem;
+        color: var(--body-text);
+    }
+
+    .dropdown-menu a::before {
+        left: 0.5rem;
+        width: 4px;
+        height: 4px;
     }
 
     .dropdown-menu a:hover {
-        padding-left: 2rem;
+        padding-left: 1.8rem;
+        color: var(--secondary-color);
     }
 
     .menu-toggle {
         display: flex;
+    }
+
+    .btn-rdv {
+        padding: 8px 18px;
+        font-size: 0.8rem;
     }
 
     .hero {
@@ -2545,8 +2572,34 @@ body.index-page .header.scrolled {
         padding: 0 10px;
     }
 
+    .header {
+        padding: 0.4rem 0;
+    }
+
     .logo img {
-        height: 50px;
+        height: 45px;
+    }
+
+    .btn-rdv {
+        padding: 7px 14px;
+        font-size: 0.75rem;
+        letter-spacing: 0;
+    }
+
+    .nav-list {
+        width: 90%;
+        max-width: 300px;
+        padding: 4.5rem 1.2rem 2rem;
+    }
+
+    .nav-list > li > a {
+        font-size: 1rem;
+        padding: 0.9rem 0.5rem;
+    }
+
+    .dropdown-menu a {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
     }
 
     .section-title {
@@ -2801,6 +2854,15 @@ body.index-page .header.scrolled {
         font-size: 0.9rem;
     }
 
+    .logo img {
+        height: 40px;
+    }
+
+    .btn-rdv {
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+
     .footer-logo {
         max-width: 90px;
     }
@@ -2869,6 +2931,25 @@ body.index-page .header.scrolled {
 /* ================================
    JavaScript Animation Classes (No inline styles)
    ================================ */
+
+/* Menu overlay mobile */
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
 
 /* Menu toggle animations */
 .menu-toggle span {

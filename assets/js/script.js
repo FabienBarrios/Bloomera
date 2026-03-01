@@ -114,10 +114,35 @@ function initMobileMenu() {
     const dropdownParents = document.querySelectorAll('.has-dropdown');
 
     if (menuToggle && navList) {
+        // Créer l'overlay pour fermer le menu en cliquant à côté
+        const overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        document.body.appendChild(overlay);
+
+        function openMenu() {
+            navList.classList.add('active');
+            menuToggle.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            navList.classList.remove('active');
+            menuToggle.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            dropdownParents.forEach(parent => parent.classList.remove('active'));
+        }
+
         menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('active');
-            menuToggle.classList.toggle('active');
+            if (navList.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
+
+        overlay.addEventListener('click', closeMenu);
 
         // Handle dropdown toggle on mobile
         dropdownParents.forEach(parent => {
@@ -136,11 +161,7 @@ function initMobileMenu() {
         // Close menu when clicking on dropdown links (not parent)
         const dropdownLinks = document.querySelectorAll('.dropdown-menu a');
         dropdownLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                navList.classList.remove('active');
-                menuToggle.classList.remove('active');
-                dropdownParents.forEach(parent => parent.classList.remove('active'));
-            });
+            link.addEventListener('click', closeMenu);
         });
     }
 }
