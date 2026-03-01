@@ -354,12 +354,6 @@
     animation-delay: 10s;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-20px) rotate(5deg); }
-    66% { transform: translateY(20px) rotate(-5deg); }
-}
-
 /* CTA Section Wrapper */
 .blog-page .blog-cta-wrapper {
     padding: 3rem 0 5rem;
@@ -388,11 +382,6 @@
     height: 200%;
     background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
     animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
 }
 
 .blog-page .cta-section h2,

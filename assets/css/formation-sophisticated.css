@@ -21,11 +21,6 @@
     animation: pulse 15s ease-in-out infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-    50% { transform: scale(1.1) rotate(180deg); opacity: 0.5; }
-}
-
 .formation-page .service-hero-content {
     position: relative;
     z-index: 1;
@@ -59,11 +54,6 @@
     color: var(--secondary-color);
     opacity: 0.6;
     animation: twinkle 3s ease-in-out infinite 1.5s;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: translateY(-50%) scale(1); }
-    50% { opacity: 0.8; transform: translateY(-50%) scale(1.2); }
 }
 
 /* Tagline styling */
@@ -301,11 +291,6 @@
     animation: rotate 20s linear infinite;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
 .formation-page .cta-section h2,
 .formation-page .cta-section p,
 .formation-page .cta-section .btn {
@@ -368,12 +353,6 @@
     bottom: 20%;
     left: 15%;
     animation-delay: 10s;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    33% { transform: translateY(-20px) rotate(5deg); }
-    66% { transform: translateY(20px) rotate(-5deg); }
 }
 
 /* Smooth scroll reveal animation */

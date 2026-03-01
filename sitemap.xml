@@ -61,6 +61,18 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://lauriedudout.fr/mentions-legales.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lauriedudout.fr/politique-confidentialite.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://lauriedudout.fr/blog/mythes_sur_l_hypnose.html</loc>
     <lastmod>2026-02-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -86,7 +98,7 @@
   </url>
   <url>
     <loc>https://lauriedudout.fr/blog/pourquoi_apprendre_a_vivre_en_harmonie_avec_ses_emotions_change_tout.html</loc>
-    <lastmod>2024-12-01</lastmod>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

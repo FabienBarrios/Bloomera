@@ -4,7 +4,7 @@
 function initPageLoader() {
     const lottieLoaderElement = document.getElementById('lottie-loader');
 
-    if (lottieLoaderElement) {
+    if (lottieLoaderElement && typeof lottie !== 'undefined') {
         // Charger l'animation Lottie pour le loader
         lottie.loadAnimation({
             container: lottieLoaderElement,
@@ -637,7 +637,7 @@ function saveCookiePreferences(preferences) {
         localStorage.setItem('cookieConsent', JSON.stringify(preferences));
         localStorage.setItem('cookieConsentDate', new Date().toISOString());
     } catch (error) {
-        document.cookie = `cookieConsent=${JSON.stringify(preferences)}; max-age=31536000; path=/; SameSite=Strict`;
+        document.cookie = `cookieConsent=${JSON.stringify(preferences)}; max-age=31536000; path=/; SameSite=Strict; Secure`;
     }
 }
 
@@ -685,10 +685,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // Lottie Animations
 // ================================
 function initLottieAnimations() {
+    if (typeof lottie === 'undefined') return;
+
     const lottieHypnose = document.getElementById('lottie-hypnose');
     const lottiecoaching = document.getElementById('lottie-coaching');
     const lottieformation = document.getElementById('lottie-formation');
     const lottieentreprise = document.getElementById('lottie-entreprise');
+
+    if (!lottieHypnose) return;
 
     lottie.loadAnimation({
         container: lottieHypnose,
