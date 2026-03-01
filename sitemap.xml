@@ -1,63 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.lauriedudout.fr/</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/hypnose.html</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/hypnose.html</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/coaching.html</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/coaching.html</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/formation.html</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/formation.html</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/entreprise.html</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/entreprise.html</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/contact.html</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/propos.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lauriedudout.fr/contact.html</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/blog.html</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/blog.html</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/faq.html</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/faq.html</loc>
+    <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/mentions-legales.html</loc>
-    <lastmod>2025-12-31</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <loc>https://lauriedudout.fr/boutique.html</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.lauriedudout.fr/politique-confidentialite.html</loc>
-    <lastmod>2025-12-31</lastmod>
+    <loc>https://lauriedudout.fr/blog/mythes_sur_l_hypnose.html</loc>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lauriedudout.fr/blog/les_4_accords_tolteques.html</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lauriedudout.fr/blog/le_coaching_en_demarche_symbolique.html</loc>
+    <lastmod>2026-02-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lauriedudout.fr/blog/comment_retrouver_confiance_en_soi_grace_au_coaching.html</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://lauriedudout.fr/blog/pourquoi_apprendre_a_vivre_en_harmonie_avec_ses_emotions_change_tout.html</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

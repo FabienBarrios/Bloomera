@@ -4,11 +4,19 @@
 User-agent: *
 Allow: /
 
-# Disallow crawling of these paths
-Disallow: /assets/
+# Allow access to assets needed for rendering
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /assets/fonts/
+
+# Disallow private documents
+Disallow: /assets/documents/
+
+# Disallow component fragments
 Disallow: /cookie-banner.html
 Disallow: /header.html
 Disallow: /footer.html
 
 # Sitemap location
-Sitemap: https://www.lauriedudout.fr/sitemap.xml
+Sitemap: https://lauriedudout.fr/sitemap.xml

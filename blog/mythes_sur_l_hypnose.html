@@ -35,7 +35,8 @@
     <meta name="twitter:image" content="https://www.lauriedudout.fr/assets/images/background.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="../assets/images/Logo_principal_blanc.svg">
+    <link rel="icon" type="image/svg+xml" href="../assets/images/Logo_principal.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,6 +54,7 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=()">
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -87,11 +89,12 @@
 <body class="article-page">
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
+    <main id="main-content">
 
     <!-- Article Hero -->
     <section class="article-hero">
         <div class="article-hero-image">
-            <img src="../assets/images/background.png" alt="Mythes sur l'hypnose" loading="eager">
+            <img src="../assets/images/background.png" alt="Mythes sur l'hypnose" loading="eager" width="1920" height="1379">
             <div class="article-hero-overlay"></div>
         </div>
         <div class="container">
@@ -145,7 +148,7 @@
                 <!-- Sidebar -->
                 <aside class="article-sidebar">
                     <div class="sidebar-author">
-                        <img src="../assets/images/photo_coté.png" alt="Laurie Dudout" loading="lazy">
+                        <img src="../assets/images/photo_coté.png" alt="Laurie Dudout" loading="lazy" width="500" height="500">
                         <h3>Laurie Dudout</h3>
                         <p>Praticienne en hypnose SAJECE et coach en accompagnement émotionnel. Je vous guide vers plus de sérénité et de clarté intérieure.</p>
                     </div>
@@ -176,7 +179,7 @@
 
                     <div class="sidebar-newsletter">
                         <h3>Bonus</h3>
-                        <p style="color: white !important;">Télécharger l’audio d’hypnose offert.</p>
+                        <p>Télécharger l’audio d’hypnose offert.</p>
                         <a href="#footer" class="btn btn-secondary">Télécharger</a>
                     </div>
                 </aside>
@@ -185,7 +188,7 @@
             <!-- Call to Action -->
             <div class="cta-section reveal">
                 <h2>Envie de découvrir l'hypnose par toi-même ?</h2>
-                <p style="color: white !important;">Réserve ton appel diagnostic offert et prends rendez-vous</p>
+                <p>Réserve ton appel diagnostic offert et prends rendez-vous</p>
                 <a href="../contact.html" class="btn">
                     Prendre rendez-vous →
                 </a>
@@ -198,6 +201,7 @@
         </div>
     </section>
 
+    </main>
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 

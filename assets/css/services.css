@@ -33,9 +33,13 @@
 .service-hero-content .tagline {
     font-style: italic;
     font-size: 1.6rem;
-    color: var(--secondary-color);
+    color: #42604e;
     margin-bottom: 1rem;
     font-weight: 300;
+}
+
+.cta-section p {
+    color: white;
 }
 
 .service-hero-content .subtitle {

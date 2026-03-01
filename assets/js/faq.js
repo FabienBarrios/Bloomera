@@ -20,8 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // Toggle current item
             if (isActive) {
                 faqItem.classList.remove('active');
+                question.setAttribute('aria-expanded', 'false');
             } else {
                 faqItem.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
             }
         });
     });

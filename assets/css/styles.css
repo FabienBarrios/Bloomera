@@ -3,7 +3,8 @@
    ================================ */
 @font-face {
     font-family: 'Great Vibes';
-    src: url('../fonts/GreatVibes-Regular.ttf') format('truetype');
+    src: url('../fonts/GreatVibes-Regular.woff2') format('woff2'),
+         url('../fonts/GreatVibes-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -11,7 +12,8 @@
 
 @font-face {
     font-family: 'Montserrat';
-    src: url('../fonts/Montserrat-Regular.ttf') format('truetype');
+    src: url('../fonts/Montserrat-Regular.woff2') format('woff2'),
+         url('../fonts/Montserrat-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -19,7 +21,8 @@
 
 @font-face {
     font-family: 'Arsencia Antiqua';
-    src: url('../fonts/Arsenica-Antiqua-Regular-trial.ttf') format('truetype');
+    src: url('../fonts/Arsenica-Antiqua-Regular-trial.woff2') format('woff2'),
+         url('../fonts/Arsenica-Antiqua-Regular-trial.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -39,6 +42,8 @@
     --light-gray: #f8f8f8;
     --border-color: #e0e0e0;
     --font-color-text: #020122;
+    --text-color: #020122;
+    --light-bg: #f5f3ef;
 
     --font-family: 'Montserrat', sans-serif;
     --font-title: 'Arsencia Antiqua', serif;
@@ -87,20 +92,33 @@ select:focus-visible {
     box-shadow: 0 0 0 4px rgba(228, 210, 184, 0.3);
 }
 
+main {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
 /* Skip to main content link (for screen readers) */
 .skip-link {
     position: absolute;
-    top: -40px;
-    left: 0;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 10000;
     background: var(--accent-color);
     color: var(--white);
-    padding: 8px;
+    padding: 8px 16px;
     text-decoration: none;
-    z-index: 100;
 }
 
 .skip-link:focus {
-    top: 0;
+    left: 10px;
+    top: 10px;
+    width: auto;
+    height: auto;
+    overflow: visible;
 }
 
 /* ================================
@@ -1018,7 +1036,7 @@ body.index-page .header.scrolled {
 }
 
 .pricing-period {
-    color: #999;
+    color: #767676;
     font-size: 0.9rem;
 }
 
@@ -1810,7 +1828,7 @@ body.index-page .header.scrolled {
 
 .legal-note {
     font-style: italic;
-    color: #888;
+    color: #6b6b6b;
     font-size: 0.95rem;
     padding: 0.8rem;
     background-color: #fffbf0;
@@ -1820,7 +1838,7 @@ body.index-page .header.scrolled {
 
 .legal-update {
     font-style: italic;
-    color: #888;
+    color: #6b6b6b;
     text-align: center;
     margin-top: 3rem;
     padding-top: 2rem;
@@ -1973,7 +1991,7 @@ body.index-page .header.scrolled {
     background: none;
     border: none;
     font-size: 2rem;
-    color: #999;
+    color: #767676;
     cursor: pointer;
     line-height: 1;
     padding: 0;
@@ -3313,7 +3331,7 @@ body.loaded {
     gap: 1.5rem;
     margin-bottom: 1rem;
     font-size: 0.85rem;
-    color: #888;
+    color: #6b6b6b;
 }
 
 .blog-date::before {

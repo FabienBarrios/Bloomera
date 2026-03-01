@@ -407,26 +407,10 @@
     position: relative;
 }
 
-/* CTA section with sophisticated animation */
+/* CTA section */
 .entreprise-page .cta-section {
     position: relative;
     overflow: hidden;
-}
-
-.entreprise-page .cta-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
-    animation: pulse-rotate 25s ease-in-out infinite;
-}
-
-@keyframes pulse-rotate {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-    50% { transform: scale(1.2) rotate(180deg); opacity: 0.6; }
 }
 
 .entreprise-page .cta-section h2,
@@ -440,29 +424,6 @@
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
-}
-
-.entreprise-page .cta-section .btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.4);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-}
-
-.entreprise-page .cta-section .btn:hover::before {
-    width: 400px;
-    height: 400px;
-}
-
-.entreprise-page .cta-section .btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 /* Smooth scroll reveal animation */

@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
 
     if (!contactForm) {
-        console.error('Formulaire de contact non trouvé');
+        // Formulaire de contact non trouvé
         return;
     }
 
@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // ========================================
         const honeypot = document.getElementById('website');
         if (honeypot && honeypot.value !== '') {
-            console.warn('Spam détecté via honeypot');
+            // Spam détecté via honeypot
             // Ne pas montrer d'erreur pour ne pas alerter le bot
             // Simuler un succès
             showNotification('Message envoyé avec succès !', 'success');
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Détection de spam dans le message
         if (detectSpam(message) || detectSpam(name)) {
-            console.warn('Contenu suspect détecté');
+            // Contenu suspect détecté
             showNotification('Votre message contient du contenu suspect. Veuillez reformuler.', 'error');
             return;
         }
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
             templateParams
         )
         .then(function(response) {
-            console.log('✅ Email envoyé avec succès!', response.status, response.text);
+            // Email envoyé avec succès
 
             // Enregistrer la soumission (rate limiting)
             recordFormSubmission();
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 2000);
 
         }, function(error) {
-            console.error('❌ Erreur lors de l\'envoi:', error);
+            // Erreur lors de l'envoi
 
             // Message d'erreur
             submitBtn.textContent = '✗ Erreur d\'envoi';

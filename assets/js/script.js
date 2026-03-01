@@ -457,6 +457,7 @@ function decodeEmail() {
     // List of all possible email element IDs
     const emailIds = [
         'email-contact',
+        'email-contact-page',
         'email-legal',
         'email-director',
         'email-gdpr',
@@ -529,7 +530,11 @@ async function initCookieBanner() {
             }
 
             // Apply saved preferences
-            applyCookiePreferences(JSON.parse(cookieConsent));
+            try {
+                applyCookiePreferences(JSON.parse(cookieConsent));
+            } catch (e) {
+                localStorage.removeItem('cookieConsent');
+            }
         }
 
         // Event listeners
@@ -587,7 +592,13 @@ function openCookieSettings() {
         // Load current preferences if any
         const cookieConsent = localStorage.getItem('cookieConsent');
         if (cookieConsent) {
-            const prefs = JSON.parse(cookieConsent);
+            let prefs;
+            try {
+                prefs = JSON.parse(cookieConsent);
+            } catch (e) {
+                localStorage.removeItem('cookieConsent');
+                return;
+            }
             const analyticsCheckbox = document.getElementById('cookie-analytics');
             const marketingCheckbox = document.getElementById('cookie-marketing');
 
