@@ -138,10 +138,10 @@
     text-align: center;
 }
 
-/* Marker — on top of horizontal line */
+/* Marker — centered on horizontal line */
 .propos-page .timeline-marker {
     position: absolute;
-    top: -3rem;
+    top: calc(-3rem - 10px);
     left: 50%;
     transform: translateX(-50%);
     width: 22px;
@@ -174,7 +174,7 @@
     left: 50%;
     transform: translateX(-50%);
     width: 2px;
-    height: calc(3rem - 22px);
+    height: calc(3rem - 12px);
     background: rgba(66, 96, 78, 0.2);
 }
 
@@ -577,13 +577,13 @@
         grid-template-columns: 1fr;
         gap: 2rem;
         padding-top: 0;
-        padding-left: 3rem;
+        padding-left: 2.5rem;
     }
 
     .propos-page .about-timeline::before {
         top: 0;
         bottom: 0;
-        left: 12px;
+        left: calc(1.25rem - 1.5px);
         right: auto;
         width: 3px;
         height: auto;
@@ -595,8 +595,8 @@
 
     .propos-page .timeline-marker {
         top: 1rem;
-        left: -3rem;
-        transform: none;
+        left: -1.25rem;
+        transform: translateX(-50%);
     }
 
     .propos-page .timeline-marker::before {
@@ -657,21 +657,6 @@
 
     .propos-page .about-intro-text h2 {
         font-size: 2rem;
-    }
-
-    .propos-page .about-timeline {
-        padding-left: 2.5rem;
-    }
-
-    .propos-page .timeline-marker {
-        left: -2.5rem;
-        width: 18px;
-        height: 18px;
-    }
-
-    .propos-page .timeline-marker::after {
-        width: 6px;
-        height: 6px;
     }
 
     .propos-page .timeline-content {
