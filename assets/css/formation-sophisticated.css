@@ -808,7 +808,12 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
-/* Responsive */
+/* Carousel indicator - hidden on desktop */
+.formation-page .carousel-indicator {
+    display: none;
+}
+
+/* Responsive - Tablet */
 @media (max-width: 768px) {
     .formation-page .service-hero-content h1::before,
     .formation-page .service-hero-content h1::after {
@@ -823,6 +828,52 @@
     .formation-page .formats-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .formation-page .format-card,
+    .formation-page .training-card {
+        border-radius: 16px;
+    }
+
+    .formation-page .format-card:hover,
+    .formation-page .training-card:hover {
+        transform: none;
+        box-shadow:
+            0 10px 30px rgba(66, 96, 78, 0.08),
+            0 1px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .formation-page .intro-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .formation-page .intro-section::before {
+        font-size: 5rem;
+        top: -10px;
+        left: 15px;
+    }
+
+    .formation-page .deontology-section::after {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+    }
+
+    .formation-page .format-card h3,
+    .formation-page .training-card h3 {
+        padding: 1.5rem 1.5rem 0.5rem;
+        font-size: 1.4rem;
+    }
+
+    .formation-page .format-duration,
+    .formation-page .training-type {
+        padding: 0 1.5rem 1.2rem;
+    }
+
+    .formation-page .format-description,
+    .formation-page .training-description {
+        padding: 1.5rem;
     }
 
     .formation-page .training-carousel {
@@ -842,5 +893,307 @@
 
     .formation-page .cta-buttons .btn {
         width: 100%;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+    .formation-page .service-hero {
+        min-height: 40vh;
+        padding: 5rem 1.2rem 2.5rem;
+    }
+
+    .formation-page .service-hero-content h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .formation-page .service-hero-content .tagline {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 0 0.5rem;
+    }
+
+    .formation-page .service-content {
+        padding: 2rem 0;
+    }
+
+    .formation-page .service-content > .container {
+        padding: 0 12px;
+    }
+
+    /* Intro mobile */
+    .formation-page .intro-section {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+    }
+
+    .formation-page .intro-section::before {
+        font-size: 4rem;
+        top: -8px;
+        left: 10px;
+    }
+
+    .formation-page .intro-section h2 {
+        font-size: 1.25rem !important;
+        padding-bottom: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .formation-page .intro-section p {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    /* Formats carousel mobile */
+    .formation-page .formats-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        margin-top: 1.5rem;
+        margin-left: -12px;
+        margin-right: -12px;
+        padding: 0 12px 1rem;
+        scrollbar-width: none;
+    }
+
+    .formation-page .formats-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .formation-page .format-card {
+        flex: 0 0 85vw;
+        max-width: 85vw;
+        scroll-snap-align: center;
+        border-radius: 14px;
+        height: 380px;
+    }
+
+    .formation-page .format-card::after {
+        font-size: 2rem;
+        top: 12px;
+        right: 12px;
+    }
+
+    .formation-page .format-card h3 {
+        padding: 1.2rem 1.2rem 0.4rem;
+        font-size: 1.3rem;
+    }
+
+    .formation-page .format-duration {
+        padding: 0 1.2rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .formation-page .format-description {
+        padding: 1.2rem;
+        overflow-y: auto;
+        flex: 1;
+    }
+
+    .formation-page .format-description p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    .formation-page .format-note {
+        margin: 0 1.2rem 1.2rem;
+        padding: 1rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    /* Training catalogue carousel mobile */
+    .formation-page .training-carousel {
+        padding: 0;
+        margin-top: 2rem;
+    }
+
+    .formation-page .training-carousel-prev,
+    .formation-page .training-carousel-next {
+        display: none !important;
+    }
+
+    .formation-page .training-carousel-viewport {
+        overflow: visible;
+    }
+
+    .formation-page .training-carousel-track {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        margin-left: -12px;
+        margin-right: -12px;
+        padding: 0 12px 1rem;
+        scrollbar-width: none;
+        transition: none;
+        transform: none !important;
+    }
+
+    .formation-page .training-carousel-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .formation-page .training-card {
+        flex: 0 0 85vw;
+        max-width: 85vw;
+        min-width: 85vw;
+        width: 85vw !important;
+        scroll-snap-align: center;
+        border-radius: 14px;
+        height: 480px;
+    }
+
+    .formation-page .training-card::after {
+        font-size: 2rem;
+        top: 12px;
+        right: 12px;
+    }
+
+    .formation-page .training-card h3 {
+        padding: 1.2rem 1.2rem 0.4rem;
+        font-size: 1.3rem;
+    }
+
+    .formation-page .training-type {
+        padding: 0 1.2rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .formation-page .training-description {
+        padding: 1.2rem;
+        overflow-y: auto;
+        flex: 1;
+    }
+
+    .formation-page .training-description p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    .formation-page .training-ideal {
+        margin: 0 1.2rem 1rem;
+        padding: 1rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .formation-page .training-link {
+        margin: 0 1.2rem 1.2rem;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Carousel dots mobile */
+    .formation-page .carousel-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1rem;
+    }
+
+    .formation-page .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(66, 96, 78, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .formation-page .carousel-dot.active {
+        background: var(--secondary-color);
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    /* Section titre catalogue */
+    .formation-page .service-section > h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Déontologie mobile */
+    .formation-page .deontology-section {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+    }
+
+    .formation-page .deontology-section::after {
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 14px;
+    }
+
+    .formation-page .deontology-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .formation-page .deontology-section p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    /* CTA mobile */
+    .formation-page .cta-section {
+        padding: 2.5rem 1.2rem;
+        border-radius: 14px;
+        margin: 2rem 0;
+    }
+
+    .formation-page .cta-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .formation-page .cta-section p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .formation-page .cta-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .formation-page .cta-buttons .btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Responsive - Très petit écran */
+@media (max-width: 360px) {
+    .formation-page .service-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .formation-page .service-hero-content .tagline {
+        font-size: 0.9rem;
+    }
+
+    .formation-page .intro-section h2 {
+        font-size: 1.1rem !important;
+    }
+
+    .formation-page .format-card,
+    .formation-page .training-card {
+        flex: 0 0 90vw;
+        max-width: 90vw;
+        min-width: 90vw;
+        width: 90vw !important;
+    }
+
+    .formation-page .cta-section h2 {
+        font-size: 1.15rem;
     }
 }

@@ -163,6 +163,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="carousel-indicator formats-indicator">
+                    <span class="carousel-dot active"></span>
+                    <span class="carousel-dot"></span>
+                </div>
             </div>
 
             <!-- Catalogue -->
@@ -216,6 +220,11 @@
                     </div>
                     <button class="training-carousel-prev" aria-label="Précédent">←</button>
                     <button class="training-carousel-next" aria-label="Suivant">→</button>
+                </div>
+                <div class="carousel-indicator training-indicator">
+                    <span class="carousel-dot active"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
                 </div>
             </div>
 
@@ -276,6 +285,34 @@
         // Trigger on page load
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(reveal, 100);
+
+            // Carousel dots sync - formats grid
+            const formatsGrid = document.querySelector('.formats-grid');
+            const formatsDots = document.querySelectorAll('.formats-indicator .carousel-dot');
+            if (formatsGrid && formatsDots.length) {
+                formatsGrid.addEventListener('scroll', () => {
+                    const scrollLeft = formatsGrid.scrollLeft;
+                    const cardWidth = formatsGrid.querySelector('.format-card').offsetWidth + 16;
+                    const index = Math.round(scrollLeft / cardWidth);
+                    formatsDots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                });
+            }
+
+            // Carousel dots sync - training catalogue
+            const trainingTrack = document.querySelector('.training-carousel-track');
+            const trainingDots = document.querySelectorAll('.training-indicator .carousel-dot');
+            if (trainingTrack && trainingDots.length) {
+                trainingTrack.addEventListener('scroll', () => {
+                    const scrollLeft = trainingTrack.scrollLeft;
+                    const cardWidth = trainingTrack.querySelector('.training-card').offsetWidth + 16;
+                    const index = Math.round(scrollLeft / cardWidth);
+                    trainingDots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                });
+            }
         });
 
         // Training Carousel
