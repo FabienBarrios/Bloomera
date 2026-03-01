@@ -191,6 +191,14 @@
                         <p>Incarner et installer durablement la transformation.</p>
                     </div>
                 </div>
+                <div class="carousel-indicator">
+                    <span class="carousel-dot active"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                </div>
             </div>
 
             <!-- Mes outils -->
@@ -252,6 +260,20 @@
         // Trigger on page load
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(reveal, 100);
+
+            // Carousel dots sync - méthode AREMVA
+            const timeline = document.querySelector('.method-timeline');
+            const dots = document.querySelectorAll('.carousel-dot');
+            if (timeline && dots.length) {
+                timeline.addEventListener('scroll', () => {
+                    const scrollLeft = timeline.scrollLeft;
+                    const stepWidth = timeline.querySelector('.method-step').offsetWidth + 16;
+                    const index = Math.round(scrollLeft / stepWidth);
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                });
+            }
         });
     </script>
 </body>

@@ -551,7 +551,9 @@
 .propos-page .reveal:nth-child(4) { transition-delay: 0.4s; }
 .propos-page .reveal:nth-child(5) { transition-delay: 0.5s; }
 
-/* === Responsive === */
+/* ================================
+   Responsive - Tablette
+   ================================ */
 @media (max-width: 900px) {
     .propos-page .about-intro {
         flex-direction: column;
@@ -572,7 +574,7 @@
         font-size: 2.5rem;
     }
 
-    /* Timeline becomes vertical on tablet */
+    /* Timeline vertical sur tablette */
     .propos-page .about-timeline {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -617,7 +619,7 @@
         font-size: 1.8rem;
     }
 
-    /* Method timeline: 3x2 on tablet */
+    /* Méthode 3x2 sur tablette */
     .propos-page .method-timeline {
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem 1.2rem;
@@ -644,37 +646,332 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    /* Désactiver hover tablette */
+    .propos-page .timeline-content:hover {
+        transform: none;
+        box-shadow: 0 10px 30px rgba(66, 96, 78, 0.08), 0 1px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .propos-page .sections-grid .service-section:hover {
+        transform: none;
+        box-shadow: 0 10px 30px rgba(66, 96, 78, 0.08), 0 1px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .propos-page .sections-grid .service-section:hover::after {
+        opacity: 0.05;
+        transform: none;
+    }
+
+    .propos-page .method-step:hover .method-number {
+        transform: none;
+        box-shadow: 0 2px 8px rgba(66, 96, 78, 0.25);
+    }
+
+    .propos-page .sections-grid .service-section ul li:hover {
+        transform: none;
+    }
 }
 
-@media (max-width: 600px) {
+/* ================================
+   Responsive - Mobile
+   ================================ */
+@media (max-width: 480px) {
+    /* Hero */
+    .propos-page .service-hero {
+        min-height: 40vh;
+        padding: 5rem 1.2rem 2.5rem;
+    }
+
+    .propos-page .service-hero-content h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .propos-page .service-hero-content .tagline {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 0 0.5rem;
+    }
+
+    .propos-page .service-content {
+        padding: 2rem 0;
+    }
+
+    .propos-page .service-content > .container {
+        padding: 0 12px;
+    }
+
+    /* Intro photo + texte */
+    .propos-page .about-intro {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .propos-page .about-intro-image {
+        flex: 1;
+        max-width: 220px;
+        margin: 0 auto;
+    }
+
     .propos-page .about-intro-image::after {
         display: none;
     }
 
     .propos-page .about-intro-text {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
     }
 
     .propos-page .about-intro-text h2 {
         font-size: 2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .propos-page .about-subtitle {
+        font-size: 0.9rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .propos-page .about-intro-text p {
+        font-size: 0.95rem;
+        line-height: 1.75;
+        margin-bottom: 1rem;
+    }
+
+    /* Mon parcours */
+    .propos-page .about-section {
+        margin-bottom: 2rem;
+    }
+
+    .propos-page .about-section h2 {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+    }
+
+    .propos-page .about-timeline {
+        padding-left: 2rem;
+        gap: 1.5rem;
+    }
+
+    .propos-page .about-timeline::before {
+        left: calc(1rem - 1.5px);
+    }
+
+    .propos-page .timeline-marker {
+        width: 18px;
+        height: 18px;
+        left: -1rem;
+    }
+
+    .propos-page .timeline-marker::after {
+        width: 6px;
+        height: 6px;
     }
 
     .propos-page .timeline-content {
-        padding: 1.5rem;
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+
+    .propos-page .timeline-content::after {
+        font-size: 2rem;
+        top: 10px;
+        right: 10px;
     }
 
     .propos-page .timeline-content h3 {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.6rem;
     }
 
-    /* Method timeline: 2 columns on mobile */
+    .propos-page .timeline-content p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    /* Ma méthode AREMVA */
+    .propos-page .about-method {
+        margin-bottom: 2rem;
+    }
+
+    .propos-page .about-method h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.2rem;
+        padding-bottom: 1rem;
+    }
+
+    .propos-page .about-method-intro {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        font-size: 0.95rem;
+        line-height: 1.75;
+        margin-bottom: 2rem;
+    }
+
+    /* Méthode - Carousel mobile */
     .propos-page .method-timeline {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.2rem;
-        row-gap: 2rem;
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        padding-top: 0;
+        margin-left: -12px;
+        margin-right: -12px;
+        padding: 0 12px 1rem;
+        scrollbar-width: none;
+        grid-template-columns: none;
+    }
+
+    .propos-page .method-timeline::-webkit-scrollbar {
+        display: none;
+    }
+
+    .propos-page .method-step {
+        flex: 0 0 45vw;
+        max-width: 45vw;
+        scroll-snap-align: center;
+    }
+
+    .propos-page .method-number {
+        margin-top: 0;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    .propos-page .method-step h3 {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+
+    .propos-page .method-step p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    /* Carousel dots - méthode */
+    .propos-page .carousel-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1rem;
+    }
+
+    .propos-page .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(66, 96, 78, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .propos-page .carousel-dot.active {
+        background: var(--secondary-color);
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    /* Outils + Valeurs */
+    .propos-page .sections-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
     }
 
     .propos-page .sections-grid .service-section {
-        padding: 2rem 1.5rem;
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+    }
+
+    .propos-page .sections-grid .service-section::after {
+        font-size: 2rem;
+        top: 12px;
+        right: 12px;
+    }
+
+    .propos-page .sections-grid .service-section h2 {
+        font-size: 1.2rem;
+        padding-bottom: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .propos-page .sections-grid .service-section ul li {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+    }
+
+    .propos-page .sections-grid .service-section ul li::before {
+        font-size: 1.2rem;
+    }
+
+    /* CTA */
+    .propos-page .cta-section {
+        padding: 2.5rem 1.2rem;
+        border-radius: 14px;
+        margin: 2rem 0;
+    }
+
+    .propos-page .cta-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .propos-page .cta-section p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .propos-page .cta-section .btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* ================================
+   Responsive - Très petit écran
+   ================================ */
+@media (max-width: 360px) {
+    .propos-page .service-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .propos-page .service-hero-content .tagline {
+        font-size: 0.9rem;
+    }
+
+    .propos-page .about-intro-image {
+        max-width: 180px;
+    }
+
+    .propos-page .about-intro-text h2 {
+        font-size: 1.7rem;
+    }
+
+    .propos-page .about-section h2,
+    .propos-page .about-method h2 {
+        font-size: 1.2rem;
+    }
+
+    .propos-page .method-step {
+        flex: 0 0 55vw;
+        max-width: 55vw;
+    }
+
+    .propos-page .timeline-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .propos-page .cta-section h2 {
+        font-size: 1.15rem;
     }
 }
