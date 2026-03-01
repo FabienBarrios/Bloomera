@@ -2,32 +2,59 @@
    About Page - Sophisticated Styles
    ================================ */
 
-/* About Intro - Photo + Text */
+/* === About Intro - Photo + Text === */
 .propos-page .about-intro {
     display: flex;
     gap: 4rem;
     align-items: center;
     margin-bottom: var(--spacing-lg);
+    position: relative;
 }
 
 .propos-page .about-intro-image {
-    flex: 0 0 280px;
+    flex: 0 0 300px;
+    position: relative;
+}
+
+.propos-page .about-intro-image::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: -12px;
+    bottom: -12px;
+    border: 2px solid rgba(66, 96, 78, 0.15);
+    border-radius: var(--radius-lg);
+    z-index: -1;
 }
 
 .propos-page .about-intro-image img {
     width: 100%;
     height: auto;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 10px 30px rgba(66, 96, 78, 0.12);
 }
 
 .propos-page .about-intro-text {
     flex: 1;
-    background: var(--white);
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #fafafa);
     padding: 3rem;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(66, 96, 78, 0.08), 0 1px 8px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(66, 96, 78, 0.08);
+    overflow: hidden;
+}
+
+.propos-page .about-intro-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), rgb(229, 210, 184));
+    opacity: 0.8;
 }
 
 .propos-page .about-intro-text h2 {
@@ -58,7 +85,7 @@
     margin-bottom: 0;
 }
 
-/* About Section - Mon parcours */
+/* === Mon parcours === */
 .propos-page .about-section {
     margin-bottom: var(--spacing-lg);
 }
@@ -67,46 +94,63 @@
     color: var(--secondary-color);
     font-family: "Arsencia Antiqua", serif;
     font-size: 2.2rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     font-weight: 600;
     text-align: center;
-}
-
-/* Timeline */
-.propos-page .about-timeline {
     position: relative;
-    padding-left: 3rem;
+    padding-bottom: 1.2rem;
 }
 
+.propos-page .about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
+}
+
+/* === Horizontal Timeline === */
+.propos-page .about-timeline {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    position: relative;
+    padding-top: 3rem;
+}
+
+/* Horizontal line connecting all items */
 .propos-page .about-timeline::before {
     content: '';
     position: absolute;
-    left: 12px;
     top: 0;
-    bottom: 0;
-    width: 2px;
-    background: linear-gradient(180deg, var(--secondary-color), #e5d2b8);
+    left: 5%;
+    right: 5%;
+    height: 3px;
+    background: linear-gradient(90deg, rgb(229, 210, 184), var(--secondary-color), rgb(229, 210, 184));
+    border-radius: 2px;
 }
 
 .propos-page .timeline-item {
     position: relative;
-    margin-bottom: 2.5rem;
+    text-align: center;
 }
 
-.propos-page .timeline-item:last-child {
-    margin-bottom: 0;
-}
-
+/* Marker — on top of horizontal line */
 .propos-page .timeline-marker {
     position: absolute;
-    left: -3rem;
-    top: 0.3rem;
-    width: 26px;
-    height: 26px;
+    top: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 22px;
     border-radius: 50%;
     background: var(--white);
     border: 3px solid var(--secondary-color);
-    z-index: 1;
+    z-index: 2;
+    transition: all 0.4s ease;
 }
 
 .propos-page .timeline-marker::after {
@@ -115,21 +159,36 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: var(--secondary-color);
+    transition: all 0.4s ease;
 }
 
+/* Vertical connector from marker to card */
+.propos-page .timeline-marker::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(3rem - 22px);
+    background: rgba(66, 96, 78, 0.2);
+}
+
+/* Content cards */
 .propos-page .timeline-content {
     background: linear-gradient(145deg, #ffffff, #fafafa);
-    padding: 2rem 2.5rem;
+    padding: 2rem 2rem;
     border-radius: var(--radius-lg);
-    box-shadow:
-        0 10px 30px rgba(66, 96, 78, 0.08),
-        0 1px 8px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(66, 96, 78, 0.08), 0 1px 8px rgba(0, 0, 0, 0.03);
     border: 1px solid rgba(66, 96, 78, 0.08);
     position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
 }
 
 .propos-page .timeline-content::before {
@@ -139,27 +198,73 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), #e5d2b8);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), rgb(229, 210, 184));
     opacity: 0.7;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+/* Step numbers */
+.propos-page .timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 3rem;
+    color: var(--secondary-color);
+    opacity: 0.05;
+}
+
+.propos-page .timeline-item:nth-child(1) .timeline-content::after {
+    content: '01';
+    font-family: "Arsencia Antiqua", serif;
+}
+
+.propos-page .timeline-item:nth-child(2) .timeline-content::after {
+    content: '02';
+    font-family: "Arsencia Antiqua", serif;
+}
+
+.propos-page .timeline-item:nth-child(3) .timeline-content::after {
+    content: '03';
+    font-family: "Arsencia Antiqua", serif;
+}
+
+.propos-page .timeline-content:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(66, 96, 78, 0.15), 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
 .propos-page .timeline-content h3 {
     color: var(--accent-color);
     font-family: "Arsencia Antiqua", serif;
     font-size: 1.5rem;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
     font-weight: 600;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.propos-page .timeline-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(66, 96, 78, 0.3), transparent);
 }
 
 .propos-page .timeline-content p {
     color: var(--body-text);
     line-height: 1.85;
-    font-size: 1.05rem;
+    font-size: 1rem;
     margin: 0;
+    text-align: left;
 }
 
-/* Method Section - Les 3C */
+/* === Ma méthode AREMVA — Timeline horizontale === */
 .propos-page .about-method {
     margin-bottom: var(--spacing-lg);
 }
@@ -171,87 +276,206 @@
     margin-bottom: 1.5rem;
     font-weight: 600;
     text-align: center;
+    position: relative;
+    padding-bottom: 1.2rem;
+}
+
+.propos-page .about-method h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--secondary-color), transparent);
 }
 
 .propos-page .about-method-intro {
-    text-align: center;
     color: var(--body-text);
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 700px;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    max-width: 800px;
     margin: 0 auto 3rem;
-}
-
-.propos-page .method-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.propos-page .method-card {
-    position: relative;
     background: linear-gradient(145deg, #ffffff, #fafafa);
+    padding: 2.5rem;
     border-radius: var(--radius-lg);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    box-shadow:
-        0 10px 30px rgba(66, 96, 78, 0.08),
-        0 1px 8px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 10px 30px rgba(66, 96, 78, 0.08), 0 1px 8px rgba(0, 0, 0, 0.03);
     border: 1px solid rgba(66, 96, 78, 0.08);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    text-align: left;
 }
 
-.propos-page .method-card::before {
+.propos-page .about-method-intro::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), #e5d2b8);
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), rgb(229, 210, 184));
     opacity: 0.8;
 }
 
-.propos-page .method-card:hover {
-    transform: translateY(-8px);
-    box-shadow:
-        0 20px 60px rgba(66, 96, 78, 0.15),
-        0 5px 20px rgba(0, 0, 0, 0.05);
+/* Timeline container */
+.propos-page .method-timeline {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.2rem;
+    position: relative;
+    padding-top: 3.5rem;
 }
 
+/* Horizontal connecting line */
+.propos-page .method-timeline::before {
+    content: '';
+    position: absolute;
+    top: 1.1rem;
+    left: 8%;
+    right: 8%;
+    height: 3px;
+    background: linear-gradient(90deg, rgb(229, 210, 184), var(--secondary-color) 30%, var(--secondary-color) 70%, rgb(229, 210, 184));
+    border-radius: 2px;
+}
+
+/* Each step */
+.propos-page .method-step {
+    position: relative;
+    text-align: center;
+}
+
+/* Numbered circle marker on the line */
 .propos-page .method-number {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
     color: var(--white);
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    margin: -3.5rem auto 0;
     position: relative;
     z-index: 2;
+    transition: all 0.4s ease;
+    box-shadow: 0 2px 8px rgba(66, 96, 78, 0.25);
 }
 
-.propos-page .method-card h3 {
+/* Vertical connector from marker to card */
+.propos-page .method-number::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 1.2rem;
+    background: rgba(66, 96, 78, 0.2);
+}
+
+.propos-page .method-step:hover .method-number {
+    transform: scale(1.2);
+    box-shadow: 0 4px 15px rgba(66, 96, 78, 0.4);
+}
+
+/* Step title */
+.propos-page .method-step h3 {
     color: var(--accent-color);
     font-family: "Arsencia Antiqua", serif;
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    margin: 1.8rem 0 0.5rem;
     font-weight: 600;
 }
 
-.propos-page .method-card p {
+/* Step description */
+.propos-page .method-step p {
     color: var(--body-text);
-    line-height: 1.8;
-    font-size: 0.95rem;
+    line-height: 1.7;
+    font-size: 0.9rem;
     margin: 0;
+    padding: 0 0.3rem;
 }
 
-/* CTA section with sophisticated animation */
+/* === Sections Grid (Outils + Valeurs) === */
+.propos-page .sections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.propos-page .sections-grid .service-section {
+    position: relative;
+    background: linear-gradient(145deg, #ffffff, #fafafa);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(66, 96, 78, 0.08), 0 1px 8px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(66, 96, 78, 0.08);
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.propos-page .sections-grid .service-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color), rgb(229, 210, 184));
+    opacity: 0.8;
+}
+
+.propos-page .sections-grid .service-section::after {
+    content: '◆';
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 3rem;
+    color: var(--secondary-color);
+    opacity: 0.05;
+    transition: all 0.5s ease;
+}
+
+.propos-page .sections-grid .service-section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(66, 96, 78, 0.15), 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.propos-page .sections-grid .service-section:hover::after {
+    opacity: 0.12;
+    transform: rotate(45deg) scale(1.2);
+}
+
+.propos-page .sections-grid .service-section h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(66, 96, 78, 0.1);
+}
+
+.propos-page .sections-grid .service-section ul li {
+    transition: all 0.3s ease;
+}
+
+.propos-page .sections-grid .service-section ul li:hover {
+    transform: translateX(8px);
+}
+
+.propos-page .sections-grid .service-section ul li::before {
+    transition: all 0.3s ease;
+}
+
+.propos-page .sections-grid .service-section ul li:hover::before {
+    color: var(--accent-color);
+    transform: translateY(-50%) scale(1.3);
+}
+
+/* === CTA Section === */
 .propos-page .cta-section {
     position: relative;
     overflow: hidden;
@@ -309,7 +533,7 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-/* Smooth scroll reveal animation */
+/* === Reveal Animations === */
 .propos-page .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -321,23 +545,14 @@
     transform: translateY(0);
 }
 
-/* Stagger animation delays */
 .propos-page .reveal:nth-child(1) { transition-delay: 0.1s; }
 .propos-page .reveal:nth-child(2) { transition-delay: 0.2s; }
 .propos-page .reveal:nth-child(3) { transition-delay: 0.3s; }
 .propos-page .reveal:nth-child(4) { transition-delay: 0.4s; }
 .propos-page .reveal:nth-child(5) { transition-delay: 0.5s; }
 
-/* Sections Grid override for about page */
-.propos-page .sections-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-    margin-bottom: var(--spacing-lg);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+/* === Responsive === */
+@media (max-width: 900px) {
     .propos-page .about-intro {
         flex-direction: column;
         gap: 2rem;
@@ -345,16 +560,56 @@
 
     .propos-page .about-intro-image {
         flex: 1;
-        max-width: 250px;
+        max-width: 280px;
         margin: 0 auto;
     }
 
     .propos-page .about-intro-text {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 2rem;
     }
 
     .propos-page .about-intro-text h2 {
         font-size: 2.5rem;
+    }
+
+    /* Timeline becomes vertical on tablet */
+    .propos-page .about-timeline {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-top: 0;
+        padding-left: 3rem;
+    }
+
+    .propos-page .about-timeline::before {
+        top: 0;
+        bottom: 0;
+        left: 12px;
+        right: auto;
+        width: 3px;
+        height: auto;
+    }
+
+    .propos-page .timeline-item {
+        text-align: left;
+    }
+
+    .propos-page .timeline-marker {
+        top: 1rem;
+        left: -3rem;
+        transform: none;
+    }
+
+    .propos-page .timeline-marker::before {
+        display: none;
+    }
+
+    .propos-page .timeline-content h3 {
+        text-align: left;
+    }
+
+    .propos-page .timeline-content h3::after {
+        left: 0;
+        transform: none;
     }
 
     .propos-page .about-section h2,
@@ -362,28 +617,27 @@
         font-size: 1.8rem;
     }
 
-    .propos-page .about-timeline {
-        padding-left: 2.5rem;
+    /* Method timeline: 3x2 on tablet */
+    .propos-page .method-timeline {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem 1.2rem;
+        row-gap: 3rem;
     }
 
-    .propos-page .timeline-marker {
-        left: -2.5rem;
-        width: 22px;
-        height: 22px;
+    .propos-page .method-timeline::before {
+        display: none;
     }
 
-    .propos-page .timeline-marker::after {
-        width: 8px;
-        height: 8px;
+    .propos-page .method-number::after {
+        display: none;
     }
 
-    .propos-page .timeline-content {
-        padding: 1.5rem;
+    .propos-page .method-step h3 {
+        margin-top: 1rem;
     }
 
-    .propos-page .method-cards {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .propos-page .method-number {
+        margin-top: 0;
     }
 
     .propos-page .sections-grid {
@@ -392,16 +646,50 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
+    .propos-page .about-intro-image::after {
+        display: none;
+    }
+
+    .propos-page .about-intro-text {
+        padding: 2rem 1.5rem;
+    }
+
     .propos-page .about-intro-text h2 {
         font-size: 2rem;
+    }
+
+    .propos-page .about-timeline {
+        padding-left: 2.5rem;
+    }
+
+    .propos-page .timeline-marker {
+        left: -2.5rem;
+        width: 18px;
+        height: 18px;
+    }
+
+    .propos-page .timeline-marker::after {
+        width: 6px;
+        height: 6px;
+    }
+
+    .propos-page .timeline-content {
+        padding: 1.5rem;
     }
 
     .propos-page .timeline-content h3 {
         font-size: 1.3rem;
     }
 
-    .propos-page .method-card {
+    /* Method timeline: 2 columns on mobile */
+    .propos-page .method-timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        row-gap: 2rem;
+    }
+
+    .propos-page .sections-grid .service-section {
         padding: 2rem 1.5rem;
     }
 }
