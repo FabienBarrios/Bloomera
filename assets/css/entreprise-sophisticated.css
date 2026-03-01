@@ -507,7 +507,9 @@
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-/* Responsive */
+/* ================================
+   Responsive - Tablette
+   ================================ */
 @media (max-width: 768px) {
     .entreprise-page .service-hero-content h1::before,
     .entreprise-page .service-hero-content h1::after {
@@ -524,10 +526,320 @@
     }
 
     .entreprise-page .offer-card {
+        border-radius: 16px;
+    }
+
+    .entreprise-page .offer-card:hover {
+        transform: none;
+        box-shadow:
+            0 10px 30px rgba(66, 96, 78, 0.08),
+            0 1px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .entreprise-page .offer-card h3 {
+        font-size: 1.4rem;
+        padding: 1.5rem 1.5rem 1rem;
+    }
+
+    .entreprise-page .offer-description {
         padding: 1.5rem;
+    }
+
+    .entreprise-page .intro-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .entreprise-page .intro-section::before {
+        font-size: 5rem;
+        top: -10px;
+        left: 15px;
     }
 
     .entreprise-page .modalities-section {
         padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .entreprise-page .deontology-section::after {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+    }
+
+    .entreprise-page .program-link {
+        margin: 0 1.5rem 1.5rem;
+    }
+}
+
+/* ================================
+   Responsive - Mobile
+   ================================ */
+@media (max-width: 480px) {
+    .entreprise-page .service-hero {
+        min-height: 40vh;
+        padding: 5rem 1.2rem 2.5rem;
+    }
+
+    .entreprise-page .service-hero-content h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .entreprise-page .service-hero-content .tagline {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 0 0.5rem;
+    }
+
+    .entreprise-page .service-content {
+        padding: 2rem 0;
+    }
+
+    .entreprise-page .service-content > .container {
+        padding: 0 12px;
+    }
+
+    /* Intro section */
+    .entreprise-page .intro-section {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+    }
+
+    .entreprise-page .intro-section::before {
+        font-size: 4rem;
+        top: -8px;
+        left: 10px;
+    }
+
+    .entreprise-page .intro-section h2 {
+        font-size: 1.25rem !important;
+        padding-bottom: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .entreprise-page .intro-section p {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    /* Service section titre */
+    .entreprise-page .service-section > h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .entreprise-page .service-section h2::after {
+        width: 60px;
+    }
+
+    /* Offers grid - Carousel mobile */
+    .entreprise-page .offers-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        margin-top: 2rem;
+        margin-left: -12px;
+        margin-right: -12px;
+        padding: 0 12px 1rem;
+        scrollbar-width: none;
+    }
+
+    .entreprise-page .offers-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .entreprise-page .offer-card {
+        flex: 0 0 85vw;
+        max-width: 85vw;
+        scroll-snap-align: center;
+        border-radius: 14px;
+        height: 420px;
+    }
+
+    .entreprise-page .offer-card::after {
+        font-size: 2rem;
+        top: 12px;
+        right: 12px;
+    }
+
+    .entreprise-page .offer-card h3 {
+        padding: 1.2rem 1.2rem 0.8rem;
+        font-size: 1.3rem;
+    }
+
+    .entreprise-page .offer-description {
+        padding: 1.2rem;
+        overflow-y: auto;
+        flex: 1;
+    }
+
+    .entreprise-page .offer-description p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    .entreprise-page .program-link {
+        margin: 0 1.2rem 1.2rem;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Carousel dots mobile */
+    .entreprise-page .carousel-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1rem;
+    }
+
+    .entreprise-page .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(66, 96, 78, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .entreprise-page .carousel-dot.active {
+        background: var(--secondary-color);
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    /* Modalités mobile */
+    .entreprise-page .modalities-section {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        margin: 2rem 0;
+    }
+
+    .entreprise-page .modalities-section h2 {
+        font-size: 1.3rem;
+        padding-bottom: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .entreprise-page .modalities-section h2::after {
+        width: 60px;
+    }
+
+    .entreprise-page .modalities-section ul li {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+    }
+
+    .entreprise-page .modalities-section ul li::before {
+        font-size: 1.2rem;
+    }
+
+    .entreprise-page .modalities-section p[style*="italic"] {
+        font-size: 0.9rem;
+        padding: 1rem;
+    }
+
+    /* Déontologie mobile */
+    .entreprise-page .deontology-section {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+    }
+
+    .entreprise-page .deontology-section::after {
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 14px;
+    }
+
+    .entreprise-page .deontology-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .entreprise-page .deontology-section p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    /* CTA mobile */
+    .entreprise-page .cta-section {
+        padding: 2.5rem 1.2rem;
+        border-radius: 14px;
+        margin: 2rem 0;
+    }
+
+    .entreprise-page .cta-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .entreprise-page .cta-section p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .entreprise-page .cta-section .btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Désactiver hover sur tactile */
+    .entreprise-page .offer-card:hover {
+        transform: none;
+    }
+
+    .entreprise-page .offer-card:hover::after {
+        opacity: 0.05;
+        transform: none;
+    }
+
+    .entreprise-page .service-section ul li:hover,
+    .entreprise-page .modalities-section ul li:hover {
+        transform: none;
+        padding-left: 2rem;
+    }
+}
+
+/* ================================
+   Responsive - Très petit écran
+   ================================ */
+@media (max-width: 360px) {
+    .entreprise-page .service-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .entreprise-page .service-hero-content .tagline {
+        font-size: 0.9rem;
+    }
+
+    .entreprise-page .intro-section h2 {
+        font-size: 1.1rem !important;
+    }
+
+    .entreprise-page .offer-card {
+        flex: 0 0 90vw;
+        max-width: 90vw;
+        height: 400px;
+    }
+
+    .entreprise-page .offer-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .entreprise-page .modalities-section h2 {
+        font-size: 1.15rem;
+    }
+
+    .entreprise-page .cta-section h2 {
+        font-size: 1.15rem;
     }
 }

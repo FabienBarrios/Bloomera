@@ -208,6 +208,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="carousel-indicator">
+                    <span class="carousel-dot active"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                    <span class="carousel-dot"></span>
+                </div>
             </div>
 
             <!-- Modalités -->
@@ -278,6 +285,20 @@
         // Trigger on page load
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(reveal, 100);
+
+            // Carousel dots sync - offers grid
+            const grid = document.querySelector('.offers-grid');
+            const dots = document.querySelectorAll('.carousel-dot');
+            if (grid && dots.length) {
+                grid.addEventListener('scroll', () => {
+                    const scrollLeft = grid.scrollLeft;
+                    const cardWidth = grid.querySelector('.offer-card').offsetWidth + 16;
+                    const index = Math.round(scrollLeft / cardWidth);
+                    dots.forEach((dot, i) => {
+                        dot.classList.toggle('active', i === index);
+                    });
+                });
+            }
         });
     </script>
 </body>
