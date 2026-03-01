@@ -622,7 +622,12 @@
 .coaching-page .reveal:nth-child(4) { transition-delay: 0.4s; }
 .coaching-page .reveal:nth-child(5) { transition-delay: 0.5s; }
 
-/* Responsive */
+/* Carousel indicator - hidden on desktop */
+.coaching-page .carousel-indicator {
+    display: none;
+}
+
+/* Responsive - Tablet */
 @media (max-width: 768px) {
     .coaching-page .service-hero-content h1::before,
     .coaching-page .service-hero-content h1::after {
@@ -639,7 +644,344 @@
         gap: 2rem;
     }
 
+    .coaching-page .sections-grid .service-section,
     .coaching-page .program-card {
+        border-radius: 16px;
+    }
+
+    .coaching-page .sections-grid .service-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .coaching-page .sections-grid .service-section:hover,
+    .coaching-page .program-card:hover {
+        transform: none;
+        box-shadow:
+            0 10px 30px rgba(66, 96, 78, 0.08),
+            0 1px 8px rgba(0, 0, 0, 0.03);
+    }
+
+    .coaching-page .sections-grid .service-section h2 {
+        font-size: 1.4rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .coaching-page .intro-section {
+        padding: 2rem 1.5rem;
+    }
+
+    .coaching-page .intro-section::before {
+        font-size: 5rem;
+        top: -10px;
+        left: 15px;
+    }
+
+    .coaching-page .deontology-section::after {
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+    }
+
+    .coaching-page .program-card h3 {
+        padding: 1.5rem 1.5rem 0.5rem;
+        font-size: 1.4rem;
+    }
+
+    .coaching-page .program-duration {
+        padding: 0 1.5rem 1.2rem;
+    }
+
+    .coaching-page .program-details {
         padding: 1.5rem;
+    }
+
+    .coaching-page .program-link {
+        margin: 0 1.5rem 1.5rem;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+    .coaching-page .service-hero {
+        min-height: 40vh;
+        padding: 5rem 1.2rem 2.5rem;
+    }
+
+    .coaching-page .service-hero-content h1 {
+        font-size: 2.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .coaching-page .service-hero-content .tagline {
+        font-size: 1rem;
+        line-height: 1.5;
+        padding: 0 0.5rem;
+    }
+
+    .coaching-page .service-content {
+        padding: 2rem 0;
+    }
+
+    .coaching-page .service-content > .container {
+        padding: 0 12px;
+    }
+
+    .coaching-page .intro-section {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        margin-bottom: 2rem;
+    }
+
+    .coaching-page .intro-section::before {
+        font-size: 4rem;
+        top: -8px;
+        left: 10px;
+    }
+
+    .coaching-page .intro-section h2 {
+        font-size: 1.25rem !important;
+        padding-bottom: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .coaching-page .intro-section p {
+        font-size: 0.95rem;
+        line-height: 1.75;
+    }
+
+    .coaching-page .sections-grid {
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .coaching-page .sections-grid .service-section {
+        padding: 1.5rem 1.2rem;
+        border-radius: 14px;
+    }
+
+    .coaching-page .sections-grid .service-section::after {
+        font-size: 2rem;
+        top: 12px;
+        right: 12px;
+    }
+
+    .coaching-page .sections-grid .service-section h2 {
+        font-size: 1.2rem;
+        padding-bottom: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .coaching-page .sections-grid .service-section > p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .coaching-page .sections-grid .service-section ul li {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 0.8rem;
+        padding-left: 1.5rem;
+    }
+
+    .coaching-page .sections-grid .service-section ul li::before {
+        font-size: 1.2rem;
+    }
+
+    /* Programme cards mobile - Carousel */
+    .coaching-page .service-section > h2 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .coaching-page .programs-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1rem;
+        margin-top: 2rem;
+        margin-left: -12px;
+        margin-right: -12px;
+        padding: 0 12px 1rem;
+        scrollbar-width: none;
+    }
+
+    .coaching-page .programs-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .coaching-page .program-card {
+        flex: 0 0 85vw;
+        max-width: 85vw;
+        scroll-snap-align: center;
+        border-radius: 14px;
+        height: 520px;
+    }
+
+    .coaching-page .program-details {
+        overflow-y: auto;
+        flex: 1;
+    }
+
+    .coaching-page .program-card::after {
+        font-size: 2rem;
+        top: 12px;
+        right: 12px;
+    }
+
+    .coaching-page .program-card h3 {
+        padding: 1.2rem 1.2rem 0.4rem;
+        font-size: 1.3rem;
+    }
+
+    .coaching-page .program-duration {
+        padding: 0 1.2rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .coaching-page .program-details {
+        padding: 1.2rem;
+    }
+
+    .coaching-page .program-details p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    .coaching-page .program-details ul {
+        margin: 1rem 0;
+    }
+
+    .coaching-page .program-details ul li {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        padding: 0.6rem 0;
+        padding-left: 1.5rem;
+    }
+
+    .coaching-page .program-link {
+        margin: 0 1.2rem 1.2rem;
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .coaching-page .program-price {
+        font-size: 1.2rem;
+        padding: 1.2rem;
+    }
+
+    .coaching-page .program-ideal {
+        margin: 0 1.2rem 1.2rem;
+        padding: 1rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    /* Carousel dots mobile */
+    .coaching-page .carousel-indicator {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 1rem;
+    }
+
+    .coaching-page .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(66, 96, 78, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .coaching-page .carousel-dot.active {
+        background: var(--secondary-color);
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    /* Déontologie mobile */
+    .coaching-page .deontology-section {
+        padding: 1.5rem 1.2rem;
+        border-radius: 12px;
+        margin-top: 2rem;
+    }
+
+    .coaching-page .deontology-section::after {
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 14px;
+    }
+
+    .coaching-page .deontology-section h2 {
+        font-size: 1.3rem;
+    }
+
+    .coaching-page .deontology-section p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+
+    /* CTA mobile */
+    .coaching-page .cta-section {
+        padding: 2.5rem 1.2rem;
+        border-radius: 14px;
+        margin: 2rem 0;
+    }
+
+    .coaching-page .cta-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .coaching-page .cta-section p {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .coaching-page .cta-section .btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Désactiver hover sur li en tactile */
+    .coaching-page .service-section ul li:hover {
+        transform: none;
+    }
+}
+
+/* Responsive - Très petit écran */
+@media (max-width: 360px) {
+    .coaching-page .service-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .coaching-page .service-hero-content .tagline {
+        font-size: 0.9rem;
+    }
+
+    .coaching-page .intro-section h2 {
+        font-size: 1.1rem !important;
+    }
+
+    .coaching-page .sections-grid .service-section {
+        padding: 1.2rem 1rem;
+    }
+
+    .coaching-page .sections-grid .service-section h2 {
+        font-size: 1.1rem;
+    }
+
+    .coaching-page .program-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .coaching-page .cta-section h2 {
+        font-size: 1.15rem;
     }
 }
